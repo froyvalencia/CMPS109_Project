@@ -1,22 +1,21 @@
-Class TYPE {/
-  //STRIng , CHAR, INT, REAl
-};
 
-class alpha : TYPE {
+
+class Alpha_t : TYPE {
   flag
   size;
 };
 
-class char_t : alpha {
+class Char_t : alpha {
 };
-class str_t : alpha {
+class Str_t : alpha {
 };
-class num : type {
+
+class Num : type {
   void add(){}
 };
-class dbl_t : num {
+class Dbl_t : num {
 };
-class int_t : num {
+class Int_t : num {
 };
 
 template<S *, T *, V *>
@@ -46,18 +45,17 @@ class Machine {
   
 class parser {
   parser()
-  //  getName();
+  //getName();
   //getType();
   //getValue();
-    
+  
 
 };
 
 //undetermined
-//  string tokenizer(){}
+//string tokenizer(){}
 
-class pasrse_Instruction : parser {
-  
+class Pasrse_Instruction : Parser {
   pasrse_Instruction(String instruction){
     string instructionType = getInstructionType();
     List<string> params = getParameters(instructionType);//or get objectType

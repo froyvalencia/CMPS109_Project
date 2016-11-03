@@ -1,7 +1,6 @@
 Class TYPE {/
   //STRIng , CHAR, INT, REAl
 };
-
 class alpha : TYPE {
   flag
   size;
