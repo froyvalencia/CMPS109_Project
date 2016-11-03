@@ -1,5 +1,6 @@
-Class TYPE {/
-  //STRIng , CHAR, INT, REAl
+
+class Type {
+//STRIng , CHAR, INT, REAl
 };
 
 class alpha : TYPE {
@@ -29,13 +30,20 @@ class Machine {
     //$
     //parser mechanis -> callout to antother classm
     //< >
+<<<<<<< HEAD
     //... > 
     //HahsTable[VAR.id] = OBK(VAR)
     //VAR<><><> t = new VAR<><><>();
     
     //submitCommand()
 
+=======
+    //... >
+    //HahsTable[VAR.id] = OBK(VAR)
+    //VAR<><><> t = new VAR<><><>();
+>>>>>>> fa495a350acf269d262156ad226a1014b0ac142c
 
+    //submitCommand()  
     //I/O
     //
   }
@@ -43,13 +51,21 @@ class Machine {
 
   //parse()
   //VAR<><><>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> fa495a350acf269d262156ad226a1014b0ac142c
 class parser {
   parser()
   //  getName();
   //getType();
   //getValue();
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> fa495a350acf269d262156ad226a1014b0ac142c
 
 };
 
@@ -57,7 +73,11 @@ class parser {
 //  string tokenizer(){}
 
 class pasrse_Instruction : parser {
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> fa495a350acf269d262156ad226a1014b0ac142c
   pasrse_Instruction(String instruction){
     string instructionType = getInstructionType();
     List<string> params = getParameters(instructionType);//or get objectType
@@ -66,11 +86,19 @@ class pasrse_Instruction : parser {
     for(param : params)
       //get some particular thing
   }
+<<<<<<< HEAD
   
 };
 
 class parse_Asignment : parser {
  
+=======
+
+};
+
+class parse_Asignment : parser {
+
+>>>>>>> fa495a350acf269d262156ad226a1014b0ac142c
   parse_Asignmnet(String asignment){
     inst = toeknzize(null,'$');
     name = tokenize('$',',' )
