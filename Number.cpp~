@@ -3,35 +3,44 @@
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
 */
-class Number : VAR {  
+<<<<<<< HEAD
+class Number : VAR {
 private:
 protected:
   //string name;
+=======
+class Number : VAR {  
+protected:
+  string name;
+>>>>>>> refs/remotes/origin/master
 public:  
+  Number(string name) : VAR(name);
   string getName();
-  
   
   /*
     @params 3-13
     1: REAL or Numeric Variable
     Rest: Real or Numeric Variable or Constant.
-
+    
     @description
     Adds all parameters excluding the first one and store the results in the
     first parameter.
+    
   */
-  void ADD(VAR& var, std::vector<VAR> addList);
-
+  template<typename ... args>
+  void ADD(VAR& var, typename... args);
+    
   /*
     @params 3
     1: REAL or Numeric Variable
     Rest: Real or Numeric Variable or Constant.
-
+    
     @description
     Subtract  the  third parameter  from  the second  parameter  and
     store the result in the first parameter
   */
-  void SUB(VAR& var, VAR v, VAR v2);
+  template<typename ... args>
+  void SUB(VAR& var, typename ... args);
 
   /*
     @params 3-13
@@ -39,12 +48,13 @@ public:
     Variable
     Rest: Real or Numeric
     Variable or Constant.
-
+    
     @description
     Multiply  all  parameters  excluding the first one and
     store the  results  in  the first parameter.
   */
-  void MUL(VAR& var, std::vector<VAR> mulList);
+  template<typename ... args>
+  void MUL(VAR& var, typename ... args);
   
   /*
     @params 3
@@ -57,9 +67,15 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from
     divide-by-zero exceptions.
   */
+<<<<<<< HEAD
+  template<typename ... args>
+  void DIV(VAR& var,typename ... args);
+=======
   void DIV(VAR& var, VAR v, VAR v2);
+  void DIV(VAR& var, double v, double v2);
+  void DIV(VAR& var, int v, int v2);
+>>>>>>> refs/remotes/origin/master
   
-
 };
 
 

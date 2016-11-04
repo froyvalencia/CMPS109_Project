@@ -3,10 +3,10 @@
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
 */
-class Number : VAR {
-private:
+
+class Number : VAR {  
 protected:
-  //string name;
+  string name;
 public:  
   Number(string name) : VAR(name);
   string getName();
@@ -61,8 +61,14 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from
     divide-by-zero exceptions.
   */
+<<<<<<< HEAD
   template<typename ... args>
   void DIV(VAR& var,typename ... args);
+=======
+  void DIV(VAR& var, VAR v, VAR v2);
+  void DIV(VAR& var, double v, double v2);
+  void DIV(VAR& var, int v, int v2);
+>>>>>>> refs/remotes/origin/master
   
 };
 
