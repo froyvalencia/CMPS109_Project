@@ -1,61 +1,23 @@
+// \n, \r, \t
 
-
-class Alpha_t : TYPE {
-  flag
-  size;
-};
-
-class Char_t : alpha {
-};
-class Str_t : alpha {
-};
-
-class Num : type {
-  void add(){}
-};
-class Dbl_t : num {
-};
-class Int_t : num {
-};
-
-template<S *, T *, V *>
-Class VAR {
-  VAR() {declare stuff }
-  varhelpers(){}
-};
-class Machine {
-  MACHINE(){
-    //$
-    //parser mechanis -> callout to antother classm
-    //< >
-    //... > 
-    //HahsTable[VAR.id] = OBK(VAR)
-    //VAR<><><> t = new VAR<><><>();
-    
-    //submitCommand()
-
-
-    //I/O
-    //
-  }
-};
-
-  //parse()
-  //VAR<><><>
+class Parser {  
+private:
+  List<string> parsed;
+public:
+  Parser();
   
-class parser {
-  parser()
   //getName();
   //getType();
   //getValue();
-  
-
 };
 
 //undetermined
 //string tokenizer(){}
-
 class Pasrse_Instruction : Parser {
+private:
+  string instruction;
+  
+public:
   pasrse_Instruction(String instruction){
     string instructionType = getInstructionType();
     List<string> params = getParameters(instructionType);//or get objectType
@@ -63,22 +25,20 @@ class Pasrse_Instruction : Parser {
     int num = getNumOfParams();
     for(param : params)
       //get some particular thing
-  }
+      }
   
 };
 
-class parse_Asignment : parser {
- 
-  parse_Asignmnet(String asignment){
+class Parse_Asignment : parser {
+
+private:
+  string asignment;
+public:
+  parse_Asignmnet(string asignment){
     inst = toeknzize(null,'$');
-    name = tokenize('$',',' )
-    getName();
+    name = tokenize('$',',' );
     getType();
+    getName();
     getValue();
   }
 };
-
-int main() {
-
-  return 0;
-}

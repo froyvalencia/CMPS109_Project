@@ -1,30 +1,72 @@
-Class TYPE {/
-  //STRIng , CHAR, INT, REAl
-  string type;
-  string value;
-  Type(string type, string value){
-    
-  }
-};
-
-class alpha : TYPE {
-  //flag
-  size;
-};
-
-class char_t : alpha {
-
-};
-class str_t : alpha {
-
-};
-class num : type {
+/*
   
-  void add(auto &num,auto num2){
-    num+=num2;
+  VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
+  VAR$myint,NUMERIC,100
+  VAR$myfloat,REAL,12.14
+  VAR$mychar,CHAR,’c’
+  VAR$mystr,STRING,100,”HelloworldMIS!!!”
+*/
+class VAR {
+private:
+
+protected:
+  string name; //unique name associated with var
+  string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
+  string value;
+public:
+  VAR(string name, string type, string value){
+    this.name = name;
+    this.type = type;
+    this.value = value;
+  }
+  
+};
+
+class Alpha : VAR {
+private:
+protected:
+public:
+  Alpha();
+};
+
+class Char : Alpha {
+  
+private:
+  char val;
+public:
+  Char();
+};
+
+class String : Alpha {
+private:
+  int size;
+  string val;
+public:
+  String();
+  
+};
+
+class Number : VAR {  
+private:
+  string name;
+public:
+  auto add(auto num,auto num2){
+    return num+num2;
   }
 };
-class dbl_t : num {
+
+class Real : Number {
+private:
+  double val;
+public:
+  Real();
 };
-class int_t : num {
+
+class Numeric : Number {
+private:
+  int val;
+public:
+  Numeric();
+
 };
+
