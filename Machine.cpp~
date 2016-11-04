@@ -11,16 +11,14 @@ public:
     //parser mechanis -> callout to antother classm
     //... >
     //
-    //MAP[VAR.getName()] = VAR
+    //MAP[VAR.getName()] = OBJ(VAR)
+    
+    ////VAR<><><> t = new VAR<><><>();
     //submitCommand()
     //I/O
   }
   
   bool executeInstruction(){
-    
-  }
-  
-  bool executeAsignment(){
     
   }
 };
