@@ -1,5 +1,4 @@
-/*
-  
+/*  
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
