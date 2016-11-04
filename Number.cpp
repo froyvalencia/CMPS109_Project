@@ -4,7 +4,7 @@
   VAR$myfloat,REAL,12.14
 */
 class Number : VAR {  
-private:
+protected:
   string name;
 public:  
   /*
@@ -54,8 +54,9 @@ public:
     divide-by-zero exceptions.
   */
   void DIV(VAR& var, VAR v, VAR v2);
+  void DIV(VAR& var, double v, double v2);
+  void DIV(VAR& var, int v, int v2);
   
-
 };
 
 
