@@ -9,6 +9,9 @@ builds on top of the first one. It is required also to conduct a UML Object Orie
 Design and maintain it through constructive updates and evolution through out 
 the development and the buildup of the middleware.
 
+
+
+
 Problem
 MIS is a virtual machine that is designed to execute a set of instructions.  An MIS 
 program is represented by a set of variable declarations and a set of instructions
@@ -62,6 +65,45 @@ THREAD_END
 LOCK
 BARRIER
 UNLOCK
+
+Instruction Parameters Description
+
+THREAD_BEGIN No Parameters Designate the beginning of a 
+detached thread
+
+
+THREAD_END No Parameters Designate the end of a detached 
+thread
+
+
+LOCK Variable Name Lock a variable, where the first 
+instruction to lock a variable will 
+pass through while subsequent 
+instructions will block until the 
+preceding instruction is released 
+by UNLOCK.
+LOCK can be only invoked from 
+within a thread.
+
+
+UNLOCK Variable Name Release an acquired lock on a 
+variable. UNLOCK should be
+ignored in case it is invoked by a 
+thread that did not acquire the 
+lock in the first place.
+UNLOCK can be only invoked 
+from within a thread.
+
+BARRIER No Parameters The BARRIER instruction can be 
+invoked only from within the 
+main programs, and it will block 
+the main program until all the 
+detached running threads are 
+finished. 
+If initially there is no detached 
+threads the main program should 
+resume and ignore the BARRIER 
+instruction.
 
 ///
 
