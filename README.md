@@ -12,6 +12,7 @@ the development and the buildup of the middleware.
 
 
 
+
 Problem
 MIS is a virtual machine that is designed to execute a set of instructions.  An MIS 
 program is represented by a set of variable declarations and a set of instructions
