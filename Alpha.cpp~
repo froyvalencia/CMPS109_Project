@@ -9,6 +9,7 @@ protected:
 public:
   Alpha();
   
+
   /*
     @params out 1-12
     Any variables or constants

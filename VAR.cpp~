@@ -1,13 +1,10 @@
 /*
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
-  
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
-  
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
-template <class T>
 class VAR {
 private:
 protected:
@@ -20,8 +17,7 @@ public:
     this.type = type;
     this.value = value;
   }
-  //virtual void Out();
-  //virtual T getValue()=0;
+  
   
 };
 

@@ -1,7 +1,6 @@
 
 class Machine {
 private:
-  vector<string> order;
   Map<string, VAR> variable;
   Map<string, Instruction> instructions;
   //MAP of vars
