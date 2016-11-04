@@ -104,11 +104,10 @@ public:
     3: A variable or constant character.
     
     @description
-    Set  a  string  character  at specific  index  to  a character.
+    Set  a  string  character  at specific  index  to  a character.  
     Note: index range  should  be  checked and  errors  should  be reported.
   */
   void SET_STR_CHAR();
-
   
   
   /*
