@@ -5,10 +5,8 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
-
 class VAR {
 private:
-
 protected:
   string name; //unique name associated with var
   string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
@@ -19,6 +17,7 @@ public:
     this.type = type;
     this.value = value;
   }
+  
   
 };
 
