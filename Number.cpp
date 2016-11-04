@@ -61,15 +61,8 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from
     divide-by-zero exceptions.
   */
-<<<<<<< HEAD
   template<typename ... args>
-  void DIV(VAR& var,typename ... args);
-=======
-  void DIV(VAR& var, VAR v, VAR v2);
-  void DIV(VAR& var, double v, double v2);
-  void DIV(VAR& var, int v, int v2);
->>>>>>> refs/remotes/origin/master
-  
+  void DIV(VAR& var,typename ... args);  
 };
 
 

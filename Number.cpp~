@@ -3,16 +3,10 @@
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
 */
-<<<<<<< HEAD
-class Number : VAR {
-private:
-protected:
-  //string name;
-=======
+
 class Number : VAR {  
 protected:
   string name;
->>>>>>> refs/remotes/origin/master
 public:  
   Number(string name) : VAR(name);
   string getName();
