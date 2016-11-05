@@ -38,8 +38,11 @@ public:
     @description
     Adds all parameters excluding the first one and store the results in the
     first parameter.
-  */  
-  void ADD(VAR& var, std::vector<VAR> addList);
+  */
+  void ADD(typename T, typename... args){
+    sizeof(args);
+    T.setValue(T.getValue() + sum_of(args) );
+  }
   
   /*
     @params 3
@@ -50,7 +53,9 @@ public:
     Subtract  the  third parameter  from  the second  parameter  and 
     store the result in the first parameter
   */
-  void SUB(VAR& var, VAR v, VAR v2);
+  template<typename T, typename ... args>
+  void SUB(typename T, typename ... args);
+  //  void SUB(T var, VAR v, VAR v2);
   
   /*
     @params 3-13
@@ -63,7 +68,11 @@ public:
     Multiply  all  parameters  excluding the first one and 
     store the  results  in  the first parameter.
    */
-  void MUL(VAR& var, std::vector<VAR> mulList);
+
+  template<typename T, typename ... args>
+  void MUL(typename T, typename ... args);
+
+  //  void MUL(VAR& var, std::vector<VAR> mulList);
 
   /*
     @params 3
@@ -76,7 +85,8 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from 
     divide-by-zero exceptions.
   */
-  void DIV(VAR& var, VAR v, VAR v2); 
+  template<typename T, typename ... args>
+  void DIV(typename T, typename ... args); 
   
 
   /*

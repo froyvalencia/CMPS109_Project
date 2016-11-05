@@ -12,18 +12,18 @@ class VAR {
 private:
 protected:
   string name; //unique name associated with var
-  //string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
-  //string value;
+  string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
 public:
-  VAR(string name){
-    this.name = name;
+  VAR(string n, string t){
+    name = n;
+    type = t;
   }
   virtual void printType(){
     cout<<"Calling Class VAR"<<endl;
   }
+  
   string getName();
-  virtual void Out();
-  //virtual T getValue()=0;  
+  //virtual auto getValue()=0;
 };
 
 /*
