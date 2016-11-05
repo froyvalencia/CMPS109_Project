@@ -3,14 +3,16 @@
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
 */
-
 class Number : VAR {  
 protected:
-  string name;
+  string type;
 public:  
-  Number(string name) : VAR(name);
-  string getName();
-  
+  Number(string name, string t) : VAR(name) {
+    type = t;
+  }
+  virtual void printType(){
+    cout<<"Calling Class Number of type " << type << endl;
+  }
   /*
     @params 3-13
     1: REAL or Numeric Variable
@@ -19,11 +21,10 @@ public:
     @description
     Adds all parameters excluding the first one and store the results in the
     first parameter.
-    
   */
-  template<typename ... args>
+  template<typename , typename ... args>
   void ADD(VAR& var, typename... args);
-    
+  
   /*
     @params 3
     1: REAL or Numeric Variable
@@ -47,8 +48,8 @@ public:
     Multiply  all  parameters  excluding the first one and
     store the  results  in  the first parameter.
   */
-  template<typename ... args>
-  void MUL(VAR& var, typename ... args);
+  template<typename V, typename ... args>
+  void MUL(typename &V, typename ... args);
   
   /*
     @params 3
@@ -61,15 +62,8 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from
     divide-by-zero exceptions.
   */
-<<<<<<< HEAD
   template<typename ... args>
-  void DIV(VAR& var,typename ... args);
-=======
-  void DIV(VAR& var, VAR v, VAR v2);
-  void DIV(VAR& var, double v, double v2);
-  void DIV(VAR& var, int v, int v2);
->>>>>>> refs/remotes/origin/master
-  
+  void DIV(VAR& var,typename ... args);  
 };
 
 

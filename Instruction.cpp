@@ -19,6 +19,7 @@ class Instruction : Machine {
 
 private:    
 protected:
+  List<string>;
 public:
   /*
    */
@@ -86,7 +87,7 @@ public:
     @description
     Store  the  second parameter  into  the  first parameter.
   */
-  void ASSIGN(VAR& var,);
+  void ASSIGN(); //here is where create a var
   
   /*
     @params out 1-12
@@ -157,7 +158,7 @@ public:
     LTE: P2<= P3
   */
   void JMP_GT_LT_GTE_LTE();
-
+  
   /*
     @params
     1: A numeric variable or 

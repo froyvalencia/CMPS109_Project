@@ -7,22 +7,23 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
-template <class T>
+//template <class T>
 class VAR {
 private:
 protected:
   string name; //unique name associated with var
-  string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
-  string value;
+  //string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
+  //string value;
 public:
-  VAR(string name, string type, string value){
+  VAR(string name){
     this.name = name;
-    this.type = type;
-    this.value = value;
   }
-  //virtual void Out();
-  //virtual T getValue()=0;
-  
+  virtual void printType(){
+    cout<<"Calling Class VAR"<<endl;
+  }
+  string getName();
+  virtual void Out();
+  //virtual T getValue()=0;  
 };
 
 /*
