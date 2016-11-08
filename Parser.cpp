@@ -4,26 +4,29 @@
  */
 //Parser.cpp
 #include "Parser.h"
-
-Parser(){
-  parsed = new vector<std::string>();
-  cmdMap = new map<int, vector<std::string>();
-}
+#include <map>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iostream>
+using namespace std;
+Parser::Parser(string file){
+  parsed = new vector<string>;
+  cmdMap = new map<int, vector<string> >;
+};
 
 //Takes in file name ("cmdfile.txt") and pushes lines into parsed.
-vector<std::string> parseFile(std::string file){
+vector<string> Parser::parseFile(string file){
   ifstream cmdFile(file);
   int line;
-  
   while(getline(cmdFile, line))
     parsed.push_back(file);
-  
   return parsed;
 }
 
 
 //parses lines from parsed into seperate strings.
-map<int,vector<std::string>> parseInstructions(){
+map<int,vector<std::string>> Parser:: parseInstructions(){
   for(int i =0; i <parsed.size(); i++)
     {
       string l = parsed.at(i);

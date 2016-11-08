@@ -6,11 +6,14 @@
 //  Copyright © 2016 Brian Nguyen. All rights reserved.
 // STRING,mystring,100,"Hello world MIS:"
 
-#include "<All>_c_plus_plus_<All>.h"
+//#include "<All>_c_plus_plus_<All>.h"
 #include <string>
 #include <iostream>    
 #include <sstream>
 #include <fstream>
+#include <map>
+#include <vector>
+using namespace std;
 
 int main ()
 {
