@@ -1,202 +1,173 @@
 /*
   @author Froylan Valencia a.k.a frvalenc
   Machine class implementation
- */
+*/
 
-#include <map>
-#include <vector>
-#include <iostream>
+Machine::Machine(std::string filename){
+  parser = new Parser();
+  next = 0;
+  loadfile(filename);
+}
 
-#include "Parser.h"
-#include "Instruction.cpp"
+void Machine::LoadFile(std::string filename){
+  linesOfCode = parser.parseFile(filename); //vector<std::string>
+}
 
-#include "Real.cpp"
-#include "Numeric.cpp"
-#include "Char.cpp"
-#include "String.cpp"
-
-using namespace std;
-class Machine {
-private:
-  Parser parser;
-  Instruction instructionHandler;
-  int next;
-  vector<std::string> linesOfCode;
-  map<std::string, int> labels;
-  //holds variabls
-  map<std::string, Numeric> numericMap;
-  map<std::string, Real> realMap;
-  map<std::string, StringVar> stringMap;
-  map<std::string, CharVar> charMap;
-  
-  //Map<std::string, Instruction> instructions;
-  
-public:
-  Machine(std::string filename){
-    parser = new Parser();
-    next = 0;
-    loadfile(filename);
-  }
-  
-  void LoadFile(std::string filename){
-    linesOfCode = parser.parseFile(filename); //vector<std::string>
-  }
-
-  //main execution loop
-  void executeInstruction(){
-        //execure single line call like JMP
-    while(next != size){
-      std::vector<std::string> line = instructions[next++];
-      if(instructionHandler.isMath(line[0]) ){
-	executeMath(line);
-      } else if(instructionHandler.isJump(line[0]) ){
-	executeJump(line);
-      } else if(instructionHandler.isJump(line[0]) ){
-	executeAlpha(line);
-      } else if(line[0] == "ASSIGN" ){
-	executeAsignment(line);
-      } else if(line[0] == "LABEL"){
-	labels.insert(line[1]);
-	labels[line[1]] = next; 
-      }else { //default it is OUT
-	executeOut(line);
-      }
+//main execution loop
+void Machine::executeInstruction(){
+  //execure single line call like JMP
+  while(next != size){
+    std::vector<std::string> line = instructions[next++];
+    if(instructionHandler.isMath(line[0]) ){
+      executeMath(line);
+    } else if(instructionHandler.isJump(line[0]) ){
+      executeJump(line);
+    } else if(instructionHandler.isJump(line[0]) ){
+      executeAlpha(line);
+    } else if(line[0] == "ASSIGN" ){
+      executeAsignment(line);
+    } else if(line[0] == "LABEL"){
+      labels.insert(line[1]);
+      labels[line[1]] = next; 
+    }else { //default it is OUT
+      executeOut(line);
     }
   }
-  
-  void executeAsignment(vector<std::string> line){
-    std::string opcode = line[0];
-    std::string varName = line[1];
-    std::string val = line[2];
-    
-    if(opcode == "NUMERIC"){
-      //numericMap.insert(varName)
-      auto search =  numericMap.find(varName); //look if  present in map
-      
-      //names are unique if present break free or throw error
-      if(search != numericMap.end()) return;
-      numericMap.insert(varName); //we can safely insert var name into map
-      
-      search = numericMap.find(equals); //look if  present in map
-      if(search == numericMap.end())
-	numericMap[varName] = new Numeric(varName,stoi(val));
-      else
-	numericMap[varName] = new Numeric(varName,numericMap[val].getValue());
-      
-    }else if(opcode == "REAL"){
-      auto search =  realMap.find(varName); //look if  present in map
+}
 
-      //names are unique if present break free or throw error
-      if(search != realMap.end()) return;
-      realMap.insert(varName); //we can safely insert var name into map
-      
-      search = realMap.find(equals); //look if  present in map
-      if(search == realMap.end())
-	realMap[varName] = new Numeric(varName,stoi(val));
-      else
-	realMap[varName] = new Numeric(varName,realMap[val].getValue());
-    }
-    else if(opcode == "CHAR"){
-      auto search =  charMap.find(varName); //look if  present in map
-      if(search != charMap.end()) return;//names are unique if present break free or throw error
-      charMap.insert(varName); //we can safely insert var name into map
-      
-      search = charMap.find(equals); //look if  present in map
-      if(search == charMap.end())
-	charMap[varName] = new Numeric(varName,stoi(val));
-      else
-	charMap[varName] = new Numeric(varName,charMap[val].getValue());
-      
-    }else { // by default it is std::string if(opcode == "std::STRING"){
-      auto search =  std::stringMap.find(varName); //look if  present in map      
-      if(search != std::stringMap.end()) return;//names are unique if present break free or throw error
-      std::stringMap.insert(varName); //we can safely insert var name into map
-      
-      search = std::stringMap.find(equals); //look if  present in map
-      if(search == std::stringMap.end())
-	std::stringMap[varName] = new Numeric(varName,stoi(val));
-      else
-	std::stringMap[varName] = new Numeric(varName,std::stringMap[val].getValue());
-    }
-    next++;
+void Machine::executeAsignment(vector<std::string> line){
+  std::string opcode = line[0];
+  std::string varName = line[1];
+  std::string val = line[2];
+  
+  if(opcode == "NUMERIC"){
+    //numericMap.insert(varName)
+    auto search =  numericMap.find(varName); //look if  present in map
+    
+    //names are unique if present break free or throw error
+    if(search != numericMap.end()) return;
+    numericMap.insert(varName); //we can safely insert var name into map
+    
+    search = numericMap.find(equals); //look if  present in map
+    if(search == numericMap.end())
+      numericMap[varName] = new Numeric(varName,stoi(val));
+    else
+      numericMap[varName] = new Numeric(varName,numericMap[val].getValue());
+    
+  }else if(opcode == "REAL"){
+    auto search =  realMap.find(varName); //look if  present in map
+    
+    //names are unique if present break free or throw error
+    if(search != realMap.end()) return;
+    realMap.insert(varName); //we can safely insert var name into map
+    
+    search = realMap.find(equals); //look if  present in map
+    if(search == realMap.end())
+      realMap[varName] = new Numeric(varName,stoi(val));
+    else
+      realMap[varName] = new Numeric(varName,realMap[val].getValue());
+  }
+  else if(opcode == "CHAR"){
+    auto search =  charMap.find(varName); //look if  present in map
+    if(search != charMap.end()) return;//names are unique if present break free or throw error
+    charMap.insert(varName); //we can safely insert var name into map
+    
+    search = charMap.find(equals); //look if  present in map
+    if(search == charMap.end())
+      charMap[varName] = new Numeric(varName,stoi(val));
+    else
+      charMap[varName] = new Numeric(varName,charMap[val].getValue());
+    
+  }else { // by default it is std::string if(opcode == "std::STRING"){
+    auto search =  std::stringMap.find(varName); //look if  present in map      
+    if(search != std::stringMap.end()) return;//names are unique if present break free or throw error
+    std::stringMap.insert(varName); //we can safely insert var name into map
+    
+    search = std::stringMap.find(equals); //look if  present in map
+    if(search == std::stringMap.end())
+      std::stringMap[varName] = new Numeric(varName,stoi(val));
+    else
+      std::stringMap[varName] = new Numeric(varName,std::stringMap[val].getValue());
+  }
+  next++;
+}
+
+//helpre 
+auto Machine::getVal(std::string s){
+  auto var;
+  auto search = numericMap.find(s);
+  if(search != numericMap.end()) {
+    var = numericMap[s]; //return Numeric Var obj
+    return var;
+  } 
+  auto search = realMap.find(s);
+  if(searh != realMap.end()){
+    var = numericMap[s]; //return Real Var obj
+    return var;
+  }
+  var = stod(s);
+}
+
+void Machine::executeMath(vector<std::string> line){
+  if(line.size() < 4){
+    //error
+    //exit(1);
   }
   
-  //helpre 
-  auto getVal(std::string s){
-    auto var;
-    auto search = numericMap.find(s);
-    if(search != numericMap.end()) {
-      var = numericMap[s]; //return Numeric Var obj
-      return var;
-    } 
-    auto search = realMap.find(s);
-    if(searh != realMap.end()){
-      var = numericMap[s]; //return Real Var obj
-      return var;
-    }
-    var = stod(s);
+  std::string opcode = line[0];
+  auto var;
+  auto search = numericMap.find(line[1]);
+  if(search != numericMap.end()) {
+    var = numericMap[line[1]]; //return Numeric Var obj
+  } 
+  auto search = realMap.find(line[1]);
+  if(searh != realMap.end()){
+    var = numericMap[line[1]]; //return Real Var obj
   }
   
-  void executeMath(vector<std::string> line){
-    if(line.size() < 4){
-      //error
-      //exit(1);
+  auto val1,val2;
+  val1 = getVal(line[2]);
+  val2 = getVal(line[3]);
+  
+  if(opcode == "DIV" ) {  
+    if(line.size!=4){
+      //message to err
+      exit(1);
     }
-    
-    std::string opcode = line[0];
-    auto var;
-    auto search = numericMap.find(line[1]);
-    if(search != numericMap.end()) {
-      var = numericMap[line[1]]; //return Numeric Var obj
-    } 
-    auto search = realMap.find(line[1]);
-    if(searh != realMap.end()){
-      var = numericMap[line[1]]; //return Real Var obj
+    instructionHandler.DIV(var,val1,val2);
+  }else if (opcode == "SUB"){
+    if(line.size!=4){
+      //message to err
+      exit(1);
     }
-    
-    auto val1,val2;
-    val1 = getVal(line[2]);
-    val2 = getVal(line[3]);
-    
-    if(opcode == "DIV" ) {  
-      if(line.size!=4){
-	//message to err
-	exit(1);
-      }
-      instructionHandler.DIV(var,val1,val2);
-    }else if (opcode == "SUB"){
-      if(line.size!=4){
-	//message to err
-	exit(1);
-      }
-      instructionHandler.SUB(var,val1,val2);    
-    }else{ 
-      //get values if necesary
-      auto val3,val4,val5,val6,val7,val8,val9,val10,val11,val12;
-      int i=4;
-      if(i<line.size()) val3 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val4 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val5 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val6 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val7 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val8 = getVal(line[i]);
-      ++i;
-      if(i<line.size()) val9 = getVal(line[i]);
-      ++i;    
-      if(i<line.size()) val10 = getVal(line[i]);
-      ++i;    
-      if(i<line.size()) val11 = getVal(line[i]);
-      ++i;    
-      if(i<line.size()) val12 = getVal(line[i]);
+    instructionHandler.SUB(var,val1,val2);    
+  }else{ 
+    //get values if necesary
+    auto val3,val4,val5,val6,val7,val8,val9,val10,val11,val12;
+    int i=4;
+    if(i<line.size()) val3 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val4 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val5 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val6 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val7 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val8 = getVal(line[i]);
+    ++i;
+    if(i<line.size()) val9 = getVal(line[i]);
+    ++i;    
+    if(i<line.size()) val10 = getVal(line[i]);
+    ++i;    
+    if(i<line.size()) val11 = getVal(line[i]);
+    ++i;    
+    if(i<line.size()) val12 = getVal(line[i]);
       
     
-      if(opcode == "MUL"){
-	switch (line.size() -1 ){
+    if(opcode == "MUL"){
+      switch (line.size() -1 ){
 	case 3: instructionHandler.MUL(var,val1,val2); break;
 	case 4: instructionHandler.MUL(var,val1,val2,val3); break;
 	case 5: instructionHandler.MUL(var,val1,val2,val3,val4); break;
@@ -208,8 +179,8 @@ public:
 	case 11: instructionHandler.MUL(var,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10); break;
 	case 12: instructionHandler.MUL(var,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11); break;
 	case 13: instructionHandler.MUL(var,val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12); break;
-	}
-      } else if(opcode == "ADD"){
+      }
+    } else if(opcode == "ADD"){
 	switch (line.size() -1 ){
 	case 3: instructionHandler.ADD(var,val1,val2); break;
 	case 4: instructionHandler.ADD(var,val1,val2,val3); break;
@@ -227,7 +198,7 @@ public:
     } 
   }
   
-  executeAlpha(vector<std::string> line) {
+  void Machine::executeAlpha(vector<std::string> line) {
     auto var = std::stringMap[line[1]];
     auto val1 = getVal(line[2]); // var or constrepresent index pos
     auto val2 = getCharVal(line[3]);
@@ -240,7 +211,7 @@ public:
   
   
   //helpr for executeAlpha()
-  auto getCharVal(std::string s){
+  auto Machine::getCharVal(std::string s){
     auto var;
     auto search = charMap.find(s);
     if(search != charMap.end()) {
@@ -249,7 +220,8 @@ public:
     } 
     return ((char) s);
   } 
-  void executeOut(vector<std::string> line) {
+
+void Machine::executeOut(vector<std::string> line) {
     int i=1;
     if(i<line.size()) val1 = getVal(line[i]);
     ++i;
@@ -290,11 +262,11 @@ public:
     case 12: instructionHandler.OUT(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12); break;      
     }
   
-  //helper for executeOut
-  auto getOutVal(std::string s){
-    auto var;
-
-    auto search = numericMap.find(s);
+    //helper for executeOut
+    auto Machine::getOutVal(std::string s){
+      auto var;
+      
+      auto search = numericMap.find(s);
     if(search != numericMap.end()) {
       var = numericMap[s]; //return Numeric Var obj
       return var;

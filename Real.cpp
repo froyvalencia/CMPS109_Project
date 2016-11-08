@@ -1,30 +1,13 @@
 /*
+  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myfloat,REAL,12.1
 */
-
-#include "Number.cpp"
-using namespace std;
-
-class Real : public Number {
-private:
-  double value;
-public:
-  Real(string n, double v);
-  ~Real();
-  void setValue(double v);
-  double getValue() const;
-  
-  Real operator*(const Real& other);
-  Real operator/(const Real& other);
-  Real operator-(const Real& other);
-  Real operator+(const Real& other);
-  Real& operator=(const Real& other);
-};
-
+#include "Real.h"
 Real::Real(string n, double v) : Number(n,"Real") {
   value = v;
 }
+
 void Real::setValue(double v){
   value = v;
 }
@@ -47,10 +30,12 @@ Real Real::operator/(const Real& other){
   int result = value / other.getValue();
   return Real(name, result);
 }
+
 Real Real::operator-(const Real& other){
   int result = value - other.getValue();
   return Real(name, result);
 }
+
 Real Real::operator+(const Real& other){
   int result = value + other.getValue();
   return Real(name, result);
@@ -64,10 +49,6 @@ Real& Real::operator=(const Real& other){
   }
   return *this;
 }
-
-
-
-
 //random
 //Real r = new Real();
 //Add(r, 1, 2,3, 4, 5,6, 10.6);

@@ -1,21 +1,9 @@
 /*
+  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
-#include <string>
-using namespace std;
-
-class StringVar : Alpha {
-private:
-  int length;
-  string value;
-  static const MAX_L = 256;
-public:
-  StringVar();
-  int getLength();
-  int getValue();
-};
-
+#include "String.h"
 StringVar::StringVar(string n, string v, int l) : Alpha(n,"STRING"){
   value = v;
 }
@@ -26,6 +14,7 @@ int StringVar::getLength(){
 string StringVar::getValue(){
   return value;
 }
+
 void StringVar::setValue(string v){
   value = v;
   length = v.length;

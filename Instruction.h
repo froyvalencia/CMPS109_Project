@@ -1,4 +1,5 @@
 /*
+  @author Froylan Valencia
   Instruction class  
   INSTRUTUION, NUM OF PARAMS, PARAMETERS, 
   ADD, 
@@ -17,68 +18,31 @@
 
 class Instruction {  
 private:  
+  //HELPERS
+  template<typename T> T ADD(T v);
+  template<typename T> T SUB(T v);
+  template<typename T> T DIV(T v);
+  template<typename T> T MULT(T v);
 protected:
-  Map < std::string, int> labels;
-  const vector<string> ins = { "ADD", "SUB", "MUL", "DIV", "OUT", "ASSIGN" ,
-			       "SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", 
-			       "JMPNZ", "JMPGT" , "JMPLT", "JMPGTE", "JMPLTE" };
+  std::map < std::string, int> labels;
+  const vector<string> ins = { "ADD", "SUB", "MUL", "DIV", "OUT", "ASSIGN","SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", "JMPNZ", "JMPGT" , "JMPLT", "JMPGTE", "JMPLTE" };
 public:
   
-  /*
-   */
-  Instruction(){
-    labels = new Map< std::string, int>();
-  } 
-  
-  /*    
-   */
+  Instruction();
   ~Instruction();
   
-  bool isAssign(string opcode){
-    if(opcode == "ASSIGN") return true;
-    return false;
-  }
+  bool isAssign(string opcode);
   
-  bool isMath(string opcode){
-    vector<string> math = {"ADD", "SUB", "MUL", "DIV", "OUT"}; 
-    if ( std::find(math.begin(), math.end(), opcode) != vec.end() )
-      return true;
-    return false;
-    
-  }
+  bool isMath(string opcode);
+
   //returns true if s is a JUMP Instruction
-  bool isJump(string opcode){
-    vector<string> jumps = {"JMP","JMPZ","JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE" };
-    if ( std::find(jumps.begin(), jump.end(), opcode) != vec.end() )
-      return true;
-    return false;
-  }
+  bool isJump(string opcode);
   
   //returns if Alpha  operation
-  bool isAlpha(string opcode){
-    vector<string> alpha = {"SET_STR_CHAR", "GET_STR_CHAR"};
-    if ( std::find(alpha.begin(), alpha.end(), opcode) != vec.end() ){
-      return true;
-    } 
-    return false;
-    
-  }
-  
+  bool isAlpha(string opcode);
+
   //checks if valid instruction
-  bool valid(string opcode){
-    if ( std::find(ins.begin(), ins.end(), opcode) != vec.end() )
-      return tru
-    return false;
-  }
-  //HELPERS
-  template<typename T> T ADD(T v) { return v; }
-  template<typename T> T SUB(T v) { return v; }
-  template<typename T> T DIV(T v) { return v; }
-  template<typename T> T MULT(T v) { return v; }
-  
-
-
-
+  bool valid(string opcode);
   /*
     @params 3-13
     1: REAL or Numeric Variable
@@ -92,7 +56,7 @@ public:
   T ADD(T first, Args... args) {
     return first + ADD(args...);
   }
-   
+  
   /*
     @params 3
     1: REAL or Numeric Variable
@@ -103,10 +67,7 @@ public:
     store the result in the first parameter
   */
   template<typename T, typename... Args>
-  T SUB(T first, Args... args) {
-    return first - SUB(args...);
-  }
-  
+  T SUB(T first, Args... args);
   /*
     @params 3-13
     1: REAL or Numeric 
@@ -118,14 +79,8 @@ public:
     Multiply  all  parameters  excluding the first one and 
     store the  results  in  the first parameter.
    */
-  
-  
   template<typename T, typename... Args>
-  T MUL(T first, Args... args) {
-    return first  *  MULT(args...);
-  }
-  
-  //  void MUL(VAR& var, std::vector<VAR> mulList);
+  T MUL(T first, Args... args);
 
   /*
     @params 3
@@ -138,11 +93,8 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from 
     divide-by-zero exceptions.
   */
-  
   template<typename T, typename... Args>
-  T DIV(T first, Args... args) {
-    return first / DIV(args...);
-  }
+  T DIV(T first, Args... args);  
   
   /*
     @params 2
@@ -152,11 +104,8 @@ public:
     @description
     Store  the  second parameter  into  the  first parameter.
   */
-  
   template<typename T, typename U>
-  void ASSIGN(T var, U val){
-    var.setValue(val);
-  }
+  void ASSIGN(T var, U val);
   
   /*
     @params out 1-12
@@ -165,21 +114,8 @@ public:
     @description
     Prints  out  the  parameters to the standard output.
   */
-
-  //tempalte<typename T>
-  //void OUT(T& var);
-
   tempalte<typename T>
-  void Instruction::OUT(T& var){
-    cout << T << endl;
-  }
-  
-  template<typename T>
-  ostream& operator<<(ostream& os, const T& var) {  
-    os << "Name :" < var.getName() << ", Type: " << var.getType() 
-       << ", Value: " << var.getValue() << endl;
-    return os;
-  }  
+  void Instruction::OUT(T& var);
 
   /*
     @params 3
@@ -191,30 +127,21 @@ public:
     Set  a  string  character  at specific  index  to  a character.
     Note: index range  should  be  checked and  errors  should  be reported.
   */
-  
   //T will likely be StringVar, U is the index, V is either a CharVar or a char 'x'
   template<typename T, typename U, typename V> 
-  void SET_STR_CHAR(T var, U pos, V val){
-    int index = pos; 
-    var[index] = val;
-  }  
-
-
+  void SET_STR_CHAR(T var, U pos, V val);
   
   /*@params 3
     1: String variable
     2. Variable or constant representing an index.
     3: A variable character or constant character
     
+    @description
     Store the character at the index equivalent to parameter 2 into the third parameters.
   */
   //T is String Var, U is either a index, or numeric var, V is CharVar
   template<typename T, typename U, typename V>
-  char GET_STR_CHAR(T var, U pos, V val) {
-    int index = pos;
-    char c = var[index];
-    val.setValue(c);
-  }
+  char GET_STR_CHAR(T var, U pos, V val);
   
   /*
     @params 1
@@ -224,10 +151,8 @@ public:
     Sets  a  placeholder  that  a  JMP instruction can go to.
   */
   //void LABEL(string label,int line);
-  void LABEL(string label,int line){
-    labels.insert(label);
-    labels[label] = line + 1;
-  }
+  void LABEL(string label,int line);
+
   /*
     @params
     1: Label name to jump to.
@@ -236,9 +161,7 @@ public:
     Change  execution sequence  by  setting  the execution  pointer  
     to the first  instruction  after  the label
   */
-  int JMP(string label){
-    return labels[label];
-  }
+  int JMP(string label);
   
   /*
     @params 2
@@ -276,10 +199,8 @@ public:
     Suspend execution for a number of seconds.
   */
   template<typename T>
-  void SLEEP(T var){
-    int mSeconds = (1000000) * var;// get mseconds				    
-    usleep(mSeconds);
-  }
+  void SLEEP(T var);
+
 };
 
 
