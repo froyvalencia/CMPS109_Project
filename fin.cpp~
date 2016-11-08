@@ -1,0 +1,23 @@
+
+
+//@includ
+#include <fstream>
+using namespace std;
+int main(){
+  std::string s = "sequential_hello.mis";
+  std::ifstream ifs;
+  fs.open (s, std::fstream::in | std::fstream::out);
+  string line = "";
+  int n =0;
+  while ( ifs.good() ){
+    getline(ifs, line); 
+    cout << line << endl;
+    n++;
+  }
+  
+  fs.close();
+
+  return 0;
+  
+  
+}

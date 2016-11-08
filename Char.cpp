@@ -4,10 +4,21 @@
 
 */
 
-class Char : Alpha {
-  
+class CharVar : Alpha {  
 private:
-  char val;
+  char value;
 public:
-  Char();
+  CharVar(string n);
+  CharVar(string n, char v);
+  friend ostream& operator<<(ostream& os, const CharVar& var);
 };
+CharVar::CharVar(string n) : Alpha(n, "CHAR") {
+  //value = '';
+}
+
+CharVar::CharVar(string n, char v) : Alpha(n, "CHAR") {
+  value = v;
+}
+
+
+

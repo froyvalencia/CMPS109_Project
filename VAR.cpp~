@@ -1,30 +1,34 @@
 /*
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
-  
   VAR$myint,NUMERIC,100
-  VAR$myfloat,REAL,12.14
-  
+  VAR$myfloat,REAL,12.14  
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
-//template <class T>
 class VAR {
 private:
 protected:
   string name; //unique name associated with var
-  //string type; //holds string of type i.e. "Numeric", "Real", "Char", "String",
-  //string value;
+  string type; //holds string of type i.e. "Numeric", "Real", "Char", "String"
 public:
-  VAR(string name){
-    this.name = name;
+  VAR(string n, string t){
+    cout << "VAR Constructor CALLED" << endl;
+    name = n;
+    type = t;
   }
   virtual void printType(){
     cout<<"Calling Class VAR"<<endl;
   }
+  string getType();
   string getName();
-  virtual void Out();
-  //virtual T getValue()=0;  
+  //virtual auto getValue()=0;
 };
+string VAR::getType(){
+  return type;
+}
+string VAR::getName(){
+  return name;
+}
 
 /*
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defa\

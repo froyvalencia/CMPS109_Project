@@ -15,21 +15,57 @@
   SLEEP
 */
 
-class Instruction : Machine {
-
-private:    
+class Instruction {  
+private:  
 protected:
-  List<string>;
+  Map < std::string, int> labels;
+  const vector<string> ins = { "ADD", "SUB", "MUL", "DIV", "OUT", "ASSIGN" ,
+			       "SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", 
+			       "JMPNZ", "JMPGT" , "JMPLT", "JMPGTE", "JMPLTE" };
+  
+  vector<string> atithmatic = { "ADD", "SUB", "MUL", "DIV", "OUT"}; 
+  vector<string> IO = { "OUT" };
+  
+
 public:
+  
   /*
    */
-  Instruction();
-
+  Instruction(){
+    labels = new Map< std::string, int>();
+  } 
+  
   /*    
    */
   ~Instruction();
   
-  
+  bool isAssign(string s){
+    
+  }
+  bool  isMath(){
+    
+  }
+  isJump(){
+
+  }
+  isStr(){
+    
+  }
+  isOut(){
+    
+  }
+  //checks if valid instruction
+  bool valid(string opcode){
+    if ( std::find(ins.begin(), ins.end(), opcode) != vec.end() ){
+      return true;
+    } 
+    return false;
+  }
+  //HELPERS
+  template<typename T> T ADD(T v) { return v; }
+  template<typename T> T SUB(T v) { return v; }
+  template<typename T> T DIV(T v) { return v; }
+  template<typename T> T MULT(T v) { return v; }
   /*
     @params 3-13
     1: REAL or Numeric Variable
@@ -38,9 +74,12 @@ public:
     @description
     Adds all parameters excluding the first one and store the results in the
     first parameter.
-  */  
-  void ADD(VAR& var, std::vector<VAR> addList);
-  
+  */
+  template<typename T, typename... Args>
+  T ADD(T first, Args... args) {
+    return first + ADD(args...);
+  }
+   
   /*
     @params 3
     1: REAL or Numeric Variable
@@ -50,7 +89,10 @@ public:
     Subtract  the  third parameter  from  the second  parameter  and 
     store the result in the first parameter
   */
-  void SUB(VAR& var, VAR v, VAR v2);
+  template<typename T, typename... Args>
+  T SUB(T first, Args... args) {
+    return first - SUB(args...);
+  }
   
   /*
     @params 3-13
@@ -63,7 +105,14 @@ public:
     Multiply  all  parameters  excluding the first one and 
     store the  results  in  the first parameter.
    */
-  void MUL(VAR& var, std::vector<VAR> mulList);
+  
+  
+  template<typename T, typename... Args>
+  T MUL(T first, Args... args) {
+    return first  *  MULT(args...);
+  }
+  
+  //  void MUL(VAR& var, std::vector<VAR> mulList);
 
   /*
     @params 3
@@ -76,9 +125,12 @@ public:
     and  reported,  and  the program  should  tolerate crashes  resulting  from 
     divide-by-zero exceptions.
   */
-  void DIV(VAR& var, VAR v, VAR v2); 
   
-
+  template<typename T, typename... Args>
+  T DIV(T first, Args... args) {
+    return first / DIV(args...);
+  }
+  
   /*
     @params 2
     1: Any Variable.
@@ -87,7 +139,11 @@ public:
     @description
     Store  the  second parameter  into  the  first parameter.
   */
-  void ASSIGN(); //here is where create a var
+  
+  template<typename T, typename U>
+  void ASSIGN(T var, U val){
+    var.setValue(val);
+  }
   
   /*
     @params out 1-12
@@ -96,8 +152,22 @@ public:
     @description
     Prints  out  the  parameters to the standard output.
   */
-  void OUT(VAR& var);
+
+  //tempalte<typename T>
+  //void OUT(T& var);
+
+  tempalte<typename T>
+  void Instruction::OUT(T& var){
+    cout << T << endl;
+  }
   
+  template<typename T>
+  ostream& operator<<(ostream& os, const T& var) {  
+    os << "Name :" < var.getName() << ", Type: " << var.getType() 
+       << ", Value: " << var.getValue() << endl;
+    return os;
+  }  
+
   /*
     @params 3
     1: String variable
@@ -108,9 +178,30 @@ public:
     Set  a  string  character  at specific  index  to  a character.
     Note: index range  should  be  checked and  errors  should  be reported.
   */
-  void SET_STR_CHAR();
+  
+  //T will likely be StringVar, U is the index, V is either a CharVar or a char 'x'
+  template<typename T, typename U, typename V> 
+  void SET_STR_CHAR(T var, U pos, V val){
+    int index = pos; 
+    var[index] = val;
+  }  
+
 
   
+  /*@params 3
+    1: String variable
+    2. Variable or constant representing an index.
+    3: A variable character or constant character
+    
+    Store the character at the index equivalent to parameter 2 into the third parameters.
+  */
+  //T is String Var, U is either a index, or numeric var, V is CharVar
+  template<typename T, typename U, typename V>
+  char GET_STR_CHR(T var, U pos, V val) {
+    int index = pos;
+    char c = var[index];
+    val.setValue(c);
+  }
   
   /*
     @params 1
@@ -119,17 +210,22 @@ public:
     @description
     Sets  a  placeholder  that  a  JMP instruction can go to.
   */
-  void LABEL();
-
+  //void LABEL(string label,int line);
+  void LABEL(string label,int line){
+    labels.insert(label);
+    labels[label] = line + 1;
+  }
   /*
     @params
     1: Label name to jump to.
-
+    
     @description
     Change  execution sequence  by  setting  the execution  pointer  
     to the first  instruction  after  the label
   */
-  void JMP();
+  int JMP(string label){
+    return labels[label];
+  }
   
   /*
     @params 2
@@ -139,9 +235,10 @@ public:
     Apply  the  logic  of  JMP based  on  the  condition result.
     Z:  second  parameter  is  zero
     NZ:  second  parameter  is not zero
-   */
-  void JMP_Z_NZ();
-
+  */
+  template<typename T>
+  void JMP_Z_NZ(string label, T val);
+  
   /*
     @params 3
     1: Label name to jump to.
@@ -161,12 +258,15 @@ public:
   
   /*
     @params
-    1: A numeric variable or 
-constant
+    1: A numeric variable or constant
     @description
     Suspend execution for a number of seconds.
-   */
-  void SLEEP();
+  */
+  template<typename T>
+  void SLEEP(T var){
+    int mSeconds = (1000000) * var;// get mseconds				    
+    usleep(mSeconds);
+  }
 };
 
 

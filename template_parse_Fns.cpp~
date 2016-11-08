@@ -14,41 +14,41 @@
 
 int main ()
 {
-  map<int, vector<string>> cmdmap;
-  ifstream cmdFile("cmdfile.txt");
-  string file;
-  int cmdNum = 0;
-  //  int count =0;
-  
-  //reads in file, parses, pushesback substrings into string vector of map.
-  //ideally each line from text file will be referenced by the int value of map
-  //great for jmp later on.
-  while(getline(cmdFile, file))
-    {
+	map<int, vector<string>> cmdmap;
+	ifstream cmdFile("cmdfile.txt");
+	string file;
+	int cmdNum = 0;
+ //  int count =0;
+
+	//reads in file, parses, pushesback substrings into string vector of map.
+   //ideally each line from text file will be referenced by the int value of map
+   //great for jmp later on.
+	while(getline(cmdFile, file))
+	{
       size_t prev = 0, pos;
-      while ((pos = file.find_first_of("$,", prev)) != string::npos)
-	{
-	  if (pos > prev)
-	    cmdmap[cmdNum].push_back(file.substr(prev, pos-prev));
-	  prev = pos+1;
-	}
-      if (prev < file.length())
-	{
-	  cmdmap[cmdNum].push_back(file.substr(prev, string::npos));
-	}
-    }
-  
-  //prints out output
-  for(auto &i : cmdmap)
-    {
-      cout<<"Line "<< i.first << ": "<<endl;
+   	while ((pos = file.find_first_of("$,", prev)) != string::npos)
+   	{
+      	if (pos > prev)
+      		cmdmap[cmdNum].push_back(file.substr(prev, pos-prev));
+         prev = pos+1;
+      }
+  	  	if (prev < file.length())
+      {
+   		cmdmap[cmdNum].push_back(file.substr(prev, string::npos));
+		}
+   }
+	
+	//prints out output
+	for(auto &i : cmdmap)
+   {
+		cout<<"Line "<< i.first << ": "<<endl;
       for(int j = 0; j<i.second.size(); j++)
-	{
-	  cout<< i.second.at(j)<<endl;
-	}
+      {
+			cout<< i.second.at(j)<<endl;
+      }
       cout<<"--------------------"<<endl;
-    }
-  
+   }
+
 }
 
 
@@ -100,6 +100,7 @@ run-time.*/
 /*
 template<typename N>
 class Num {
+
    public:
       string name;
       N valN;
@@ -107,15 +108,14 @@ class Num {
          name = n;
          valN = val;
       }
-      
       N getVal(){
          return valN;
       }
-
       N setVal(int n){
          valN = n;
          return valN;
       }
+
 };
 
 class intNum : public Num<int> {
@@ -126,11 +126,6 @@ public:
    }
 };
 
-
-
-
-
-
 template<typename T> T ADD(T v) { return v; }
 template<typename T> T SUB(T v) { return v; }
 template<typename T> T DIV(T v) { return v; }
@@ -138,8 +133,7 @@ template<typename T> T MULT(T v) { return v; }
 
 template<typename T, typename... Args>
 T ADD(T first, Args... args) {
-  return first + ADD(args...);
-}
+  return first + ADD(args...);}
 
 template<typename T, typename... Args>
 T SUB(T first, Args... args) {
@@ -147,13 +141,12 @@ T SUB(T first, Args... args) {
 
 template<typename T, typename... Args>
 T DIV(T first, Args... args) {
-  return first - DIV(args...);
-}
+  return first - DIV(args...);}
+
 
 template<typename T, typename... Args>
 T MULT(T first, Args... args) {
-  return first - MULT(args...);
-}
+  return first - MULT(args...);}
 
 
 int main(){
