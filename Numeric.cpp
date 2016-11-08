@@ -17,40 +17,39 @@ public:
   virtual void printType();  
   //overload operators
   // +, -, *, /, =, 
-  Numeric Numeric:: operator*(const Numeric& other)
-  Numeric Numeric:: operator/(const Numeric& other)
-  Numeric Numeric:: operator-(const Numeric& other)
-  Numeric Numeric:: operator+(const Numeric& other)
-  Numeric Numeric:: operator=(const Numeric& other)
+  Numeric operator*(const Numeric& other);
+  Numeric operator/(const Numeric& other);
+  Numeric operator-(const Numeric& other);
+  Numeric operator+(const Numeric& other);
+  Numeric operator=(const Numeric& other);
   friend ostream& operator<<(ostream& os, const Numeric& var); 
 };
 
 //No Value constructor
-Numeric::Numeric(string n): Number(n, "Numeric") {}
+Numeric (string n): Number(n, "Numeric") {}
 //constructor
-Numeric::Numeric(string n,int v): Number(n, "Numeric") {
+Numeric (string n,int v): Number(n, "Numeric") {
   value = v;
 }
 //sets value
-void Numeric::setValue(int v){
+void setValue(int v){
   value = v;
 }
 //returns value
-int Numeric::getValue(){
+int getValue(){
   return value;
 }
 //prints the type
-virtual void Numeric::printType(){
+virtual void printType(){
   cout<<"Calling Numeric class of type " << type << endl;
 }
-
 //Operator Overloading
-Numeric Numeric::operator*(const Numeric& other){
+Numeric operator*(const Numeric& other){
   int result = value * other.getValue();
   return Numeric(name, result);
 }
 
-Numeric Numeric::operator/(const Numeric& other){
+Numeric operator/(const Numeric& other){
   if(other.getValue() == 0) {
     cout<<"Error: Divide by Zero."<<endl;
     system.exit(1);
@@ -58,15 +57,15 @@ Numeric Numeric::operator/(const Numeric& other){
   int result = value / other.getValue();
   return Numeric(name, result);
 }
-Numeric Numeric::operator-(const Numeric& other){ //overload +
+Numeric operator-(const Numeric& other){ //overload +
   int result = value - other.getValue();
   return Numeric(name, result);
 }
-Numeric Numeric::operator+(const Numeric& other){ //overload +
+Numeric operator+(const Numeric& other){ //overload +
   int result = value + other.getValue();
   return Numeric(name, result);
 }
-Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
+Numeric& operator=(const Numeric& other) { // copy assignment
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage 
     this.value = other.getValue();

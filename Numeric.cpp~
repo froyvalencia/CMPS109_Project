@@ -2,6 +2,8 @@
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
 */
+#include <iostream>
+#include <string>
 using namespace std;
 class Numeric : Number {
 private:
@@ -15,18 +17,18 @@ public:
   virtual void printType();  
   //overload operators
   // +, -, *, /, =, 
-  Numeric Numeric:: operator*(const Numeric& other)
-  Numeric Numeric:: operator/(const Numeric& other)
-  Numeric Numeric:: operator-(const Numeric& other)
-  Numeric Numeric:: operator+(const Numeric& other)
-  Numeric Numeric:: operator=(const Numeric& other)
+  Numeric operator*(const Numeric& other);
+  Numeric operator/(const Numeric& other);
+  Numeric operator-(const Numeric& other);
+  Numeric operator+(const Numeric& other);
+  Numeric operator=(const Numeric& other);
   friend ostream& operator<<(ostream& os, const Numeric& var); 
 };
 
 //No Value constructor
 Numeric::Numeric(string n): Number(n, "Numeric") {}
 //constructor
-Numeric::Numeric(string n,int val): Number(n, "Numeric") {
+Numeric::Numeric(string n,int v): Number(n, "Numeric") {
   value = v;
 }
 //sets value

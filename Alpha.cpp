@@ -14,10 +14,9 @@ public:
   virtual void printType();
 };
 
-Alpha::Alpha(string n, string t): VAR(n,t) { 
+Alpha(string n, string t): VAR(n,t) { 
   cout << " ALPHA CONSTRUCTOR CALLED " << endl;
 }
-
-virtual void Alpha::printType(){
+Virtual  void printType(){
   cout<<"Calling Class Alpha of type " << type << endl;
 }
