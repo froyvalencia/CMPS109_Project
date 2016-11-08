@@ -38,6 +38,7 @@ StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
   return *this;
 }
 
+//operator overload used for set_
 char &StringVar::operator[](int i) {
   if( i >= SIZE ) {
     cout << "Index out of bounds" <<endl; ;

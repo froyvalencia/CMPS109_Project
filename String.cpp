@@ -2,6 +2,8 @@
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
+#include <string>
+using namespace std;
 
 class StringVar : Alpha {
 private:

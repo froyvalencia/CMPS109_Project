@@ -3,6 +3,9 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
+#include <iostream>
+#include <string>
+using namespace std;
 class Alpha : VAR {
 private:
 protected:
@@ -11,9 +14,8 @@ public:
   virtual void printType();
 };
 
-Alpha::Alpha(string n, string t, length l): VAR(n,t) { 
+Alpha::Alpha(string n, string t): VAR(n,t) { 
   cout << " ALPHA CONSTRUCTOR CALLED " << endl;
-  length = l;
 }
 
 virtual void Alpha::printType(){

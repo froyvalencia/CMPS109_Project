@@ -5,6 +5,10 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
+#include <iostream>
+#include <string>
+using namespace std;
+
 class VAR {
 private:
 protected:

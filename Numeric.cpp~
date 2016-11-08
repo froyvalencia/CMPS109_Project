@@ -2,23 +2,24 @@
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
 */
-
+using namespace std;
 class Numeric : Number {
 private:
   int value;
 public:
   Numeric(string n);
   Numeric(string n,int v);
+  ~Numeric();
   void setValue(int v);
   int getValue();
   virtual void printType();  
   //overload operators
   // +, -, *, /, =, 
-  Numeric Numeric::operator*(const Numeric& other);
-  Numeric Numeric::operator/(const Numeric& other);
-  Numeric Numeric::operator-(const Numeric& other);
-  Numeric Numeric::operator+(const Numeric& other);
-  Numeric Numeric::operator=(const Numeric& other);
+  Numeric Numeric:: operator*(const Numeric& other)
+  Numeric Numeric:: operator/(const Numeric& other)
+  Numeric Numeric:: operator-(const Numeric& other)
+  Numeric Numeric:: operator+(const Numeric& other)
+  Numeric Numeric:: operator=(const Numeric& other)
   friend ostream& operator<<(ostream& os, const Numeric& var); 
 };
 
@@ -49,8 +50,8 @@ Numeric Numeric::operator*(const Numeric& other){
 
 Numeric Numeric::operator/(const Numeric& other){
   if(other.getValue() == 0) {
-    //print to .errr
-    //exit(1)
+    cout<<"Error: Divide by Zero."<<endl;
+    system.exit(1);
   } 
   int result = value / other.getValue();
   return Numeric(name, result);
