@@ -5,23 +5,29 @@
 
 #include <map>
 #include <vector>
+#include <iostream>
+
 #include "Parser.h"
 #include "Instruction.cpp"
+#include "Real.cpp"
+#include "Numeric.cpp"
+#include "Char.cpp"
+#include "String.cpp"
 
+
+using namespace std;
 class Machine {
 private:
   Parser parser;
   Instruction instructionHandler;
   int next;
   vector<std::string> linesOfCode;
-  Map<std::string, int> labels
-  
-  
+  map<std::string, int> labels;
   //holds variabls
-  Map<std::string, Numeric> numericMap;
-  Map<std::string, Real> realMap;
-  Map<std::string, StringVar> stringMap;
-  Map<std::string, CharVar> charMap;
+  map<std::string, Numeric> numericMap;
+  map<std::string, Real> realMap;
+  map<std::string, StringVar> stringMap;
+  map<std::string, CharVar> charMap;
   
   //Map<std::string, Instruction> instructions;
   
@@ -33,7 +39,7 @@ public:
   }
   
   void LoadFile(std::string filename){
-    linesOfCode = parser.readFile(filename); //vector<std::string>
+    linesOfCode = parser.parseFile(filename); //vector<std::string>
   }
 
   //main execution loop

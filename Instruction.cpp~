@@ -14,56 +14,60 @@
   JMP(GT/LT/GTE/LTE)
   SLEEP
 */
-
+#include <map>
+#include <vector>
+using namespace std;
 class Instruction {  
 private:  
 protected:
-  Map < std::string, int> labels;
-  const vector<string> ins = { "ADD", "SUB", "MUL", "DIV", "OUT", "ASSIGN" ,
-			       "SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", 
-			       "JMPNZ", "JMPGT" , "JMPLT", "JMPGTE", "JMPLTE" };
-  
-  vector<string> atithmatic = { "ADD", "SUB", "MUL", "DIV", "OUT"}; 
-  vector<string> IO = { "OUT" };
-  
-
+  std::map<std::string, int> labels;
+  //const 
 public:
-  
   /*
    */
   Instruction(){
-    labels = new Map< std::string, int>();
+    labels = new std::map<std::string, int>();
   } 
-  
   /*    
    */
   ~Instruction();
   
-  bool isAssign(string s){
-    
-  }
-  bool  isMath(){
-    
-  }
-  bool isJump(){
-    
-  }
-  bool isAlpha(){
-    
-  }
-  
-  //checks if valid instruction
-  bool valid(string opcode){
-    if ( std::find(ins.begin(), ins.end(), opcode) != vec.end() ){
+  bool isMath(std::string opcode){
+    std::vector<std::string> math = {"ADD", "SUB", "MUL", "DIV", "OUT"}; 
+    if ( std::find(math.begin(), math.end(), opcode) != math.end() )
       return true;
-    } 
     return false;
   }
+  //returns true if s is a JUMP Instruction
+  bool isJump(std::string opcode){
+    std::vector<std::string> jumps = {"JMP","JMPZ","JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE" };
+    if ( std::find(jumps.begin(), jumps.end(), opcode) != jumps.end() )
+      return true;
+    return false;
+  }
+
+  //returns if Alpha  operation
+  bool isAlpha(std::string opcode){
+    std::vector<std::string> alpha = {"SET_STR_CHAR", "GET_STR_CHAR"};
+    if ( std::find(alpha.begin(), alpha.end(), opcode) != alpha.end() ){
+      return true;
+    } 
+    return false;  
+  }
+  //checks if valid instruction
+  bool valid(std::string opcode){
+    std::vector<std::string> ins = { "ADD","SUB","MUL","DIV","OUT","ASSIGN","SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", "JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE" };
+    if ( std::find(ins.begin(), ins.end(), opcode) != ins.end() )
+      return true;
+    return false;
+  }
+
   //HELPERS
-  template<typename T> T ADD(T v) { return v; }
-  template<typename T> T SUB(T v) { return v; }
-  template<typename T> T DIV(T v) { return v; }
-  template<typename T> T MULT(T v) { return v; }
+  template<typename T> T ADD(T v) { return v;}
+  template<typename T> T SUB(T v) { return v;}
+  template<typename T> T DIV(T v) { return v;}
+  template<typename T> T MULT(T v) { return v;}
+
   /*
     @params 3-13
     1: REAL or Numeric Variable
@@ -154,13 +158,13 @@ public:
   //tempalte<typename T>
   //void OUT(T& var);
 
-  tempalte<typename T>
-  void Instruction::OUT(T& var){
+  template<typename T>
+  void OUT(T& var){
     cout << T << endl;
   }
   
   template<typename T>
-  ostream& operator<<(ostream& os, const T& var) {  
+  std::ostream& operator<<(std::ostream& os, const T& var) {  
     os << "Name :" < var.getName() << ", Type: " << var.getType() 
        << ", Value: " << var.getValue() << endl;
     return os;
@@ -195,7 +199,7 @@ public:
   */
   //T is String Var, U is either a index, or numeric var, V is CharVar
   template<typename T, typename U, typename V>
-  char GET_STR_CHR(T var, U pos, V val) {
+  char GET_STR_CHAR(T var, U pos, V val) {
     int index = pos;
     char c = var[index];
     val.setValue(c);
@@ -209,7 +213,7 @@ public:
     Sets  a  placeholder  that  a  JMP instruction can go to.
   */
   //void LABEL(string label,int line);
-  void LABEL(string label,int line){
+  void LABEL(std::string label,int line){
     labels.insert(label);
     labels[label] = line + 1;
   }
@@ -221,7 +225,7 @@ public:
     Change  execution sequence  by  setting  the execution  pointer  
     to the first  instruction  after  the label
   */
-  int JMP(string label){
+  int JMP(std::string label){
     return labels[label];
   }
   
@@ -235,7 +239,9 @@ public:
     NZ:  second  parameter  is not zero
   */
   template<typename T>
-  void JMP_Z_NZ(string label, T val);
+  void JMP_Z_NZ(std::string label, T val){
+
+  }
   
   /*
     @params 3
@@ -252,8 +258,9 @@ public:
     GTE: P2 >= P3
     LTE: P2<= P3
   */
-  void JMP_GT_LT_GTE_LTE();
-  
+  void JMP_GT_LT_GTE_LTE(){
+
+  }  
   /*
     @params
     1: A numeric variable or constant

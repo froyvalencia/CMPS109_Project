@@ -3,6 +3,8 @@
   VAR$myfloat,REAL,12.1
 */
 
+#include "Number.cpp"
+using namespace std;
 class Real : Number {
 private:
   double value;
@@ -10,14 +12,15 @@ public:
   Real(string n, double v);
   ~Real();
   void setValue(double v);
-  double getValue();
+  double getValue() const;
   
-  Real Real::operator*(const Real& other);
-  Real Real::operator/(const Real& other);
-  Real Real::operator-(const Real& other);
-  Real Real::operator+(const Real& other);
-  Real Real::operator=(const Real& other);
+  Real operator*(const Real& other);
+  Real operator/(const Real& other);
+  Real operator-(const Real& other);
+  Real operator+(const Real& other);
+  Real operator=(const Real& other);
 };
+
 Real::Real(string n, double v) : Number(n,"Real") {
   value = v;
 }
@@ -25,7 +28,7 @@ void Real::setValue(double v){
   value = v;
 }
 
-double Real::getValue(){
+double Real::getValue() const {
   return value;
 }
 
@@ -55,8 +58,8 @@ Real Real::operator+(const Real& other){
 Real& Real::operator=(const Real& other){
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage
-    this.value = other.getValue();
-    this.name = other.getName;
+    this->value = other.getValue();
+    this->name = other.getName();
   }
   return *this;
 }

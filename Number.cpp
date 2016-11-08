@@ -3,18 +3,15 @@
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14
 */
-//
+class VAR;
+#include "VAR.cpp"
 class Number : VAR {
   //string type;
-protected:  
+protected:
 public:  
   Number(string n, string t); 
-  virtual void printType();
+  //  virtual void printType();
 };
 Number::Number(string n, string t): VAR(n,t) {
   type = t;
-}
-
-virtual void Number::printType() const {
-  cout<<"Calling Class Number of type " << type << endl;
 }

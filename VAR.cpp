@@ -11,20 +11,22 @@ using namespace std;
 
 class VAR {
 private:
+
 protected:
   string name; //unique name associated with var
-  string type; //holds string of type i.e. "Numeric", "Real", "Char", "String"
+  string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
 public:
   VAR(string n, string t){
     cout << "VAR Constructor CALLED" << endl;
     name = n;
     type = t;
   }
-  virtual void printType(){
-    cout<<"Calling Class VAR"<<endl;
-  }
   string getType();
   string getName();
+  virtual void printType() const {
+    cout<<"Calling Class VAR"<<endl;
+  }
+
   //virtual auto getValue()=0;
 };
 string VAR::getType(){

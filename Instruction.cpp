@@ -14,17 +14,22 @@
   JMP(GT/LT/GTE/LTE)
   SLEEP
 */
+#include <map>
+#include <vector>
+#include<iostream>
+using namespace std;
+
 class Instruction {  
 private:  
 protected:
   std::map<std::string, int> labels;
-  const std::vector<std::string> ins = { "ADD","SUB","MUL","DIV","OUT","ASSIGN","SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", "JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE" };
+  //const 
 public:
   /*
    */
   Instruction(){
     labels = new std::map<std::string, int>();
-  } 
+  }
   /*    
    */
   ~Instruction();
@@ -53,6 +58,7 @@ public:
   }
   //checks if valid instruction
   bool valid(std::string opcode){
+    std::vector<std::string> ins = { "ADD","SUB","MUL","DIV","OUT","ASSIGN","SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", "JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE" };
     if ( std::find(ins.begin(), ins.end(), opcode) != ins.end() )
       return true;
     return false;

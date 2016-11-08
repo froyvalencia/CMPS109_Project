@@ -1,7 +1,0 @@
-template<class T>
-class VarNode {
-public:
-  T variable;
-private:
-};
-
