@@ -45,15 +45,13 @@ public:
   bool  isMath(){
     
   }
-  isJump(){
-
-  }
-  isStr(){
+  bool isJump(){
     
   }
-  isOut(){
+  bool isAlpha(){
     
   }
+  
   //checks if valid instruction
   bool valid(string opcode){
     if ( std::find(ins.begin(), ins.end(), opcode) != vec.end() ){

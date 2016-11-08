@@ -11,13 +11,11 @@
 
 class Parser{
  private:
-  vector<string> parsed;
-  string instruction;  
-  string instructionType;
+  std::vector<std::string> parsed;
  public:  
   Parser();
-  vector<string> parseFile(string file);
-  map<int,vector<string>> parseInstructions();
+  std::vector<std::string> parseFile(std::string file);
+  std::map<int,std::vector<std::string>> parseInstructions();
 };
 
 #endif /* Parser_h */
