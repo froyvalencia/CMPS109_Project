@@ -16,7 +16,9 @@
 */
 #include <map>
 #include <vector>
+#include<iostream>
 using namespace std;
+
 class Instruction {  
 private:  
 protected:
@@ -27,7 +29,7 @@ public:
    */
   Instruction(){
     labels = new std::map<std::string, int>();
-  } 
+  }
   /*    
    */
   ~Instruction();
@@ -165,7 +167,7 @@ public:
   
   template<typename T>
   std::ostream& operator<<(std::ostream& os, const T& var) {  
-    os << "Name :" < var.getName() << ", Type: " << var.getType() 
+    os << "Name :" << var.getName() << ", Type: " << var.getType() 
        << ", Value: " << var.getValue() << endl;
     return os;
   }  

@@ -4,17 +4,20 @@
 */
 #include <iostream>
 #include <string>
+
 #include "Number.cpp"
 using namespace std;
-class Numeric : Number {
+class Numeric : public Number {
+
 private:
+protected:
   int value;
 public:
-  Numeric(string n);
+  //Numeric(string n);
   Numeric(string n,int v);
   ~Numeric();
   void setValue(int v);
-  int getValue();
+  int getValue() const;
   virtual void printType();  
   //overload operators
   // +, -, *, /, =, 
@@ -24,10 +27,11 @@ public:
   Numeric operator+(const Numeric& other);
   Numeric operator=(const Numeric& other);
   friend ostream& operator<<(ostream& os, const Numeric& var); 
+
 };
 
 //No Value constructor
-Numeric (string n): Number(n, "Numeric") {}
+//Numeric (string n): Number(n, "Numeric") {;}
 //constructor
 Numeric (string n,int v): Number(n, "Numeric") {
   value = v;
@@ -37,7 +41,7 @@ void setValue(int v){
   value = v;
 }
 //returns value
-int getValue(){
+int getValue() const{
   return value;
 }
 //prints the type

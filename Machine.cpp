@@ -9,11 +9,11 @@
 
 #include "Parser.h"
 #include "Instruction.cpp"
+
 #include "Real.cpp"
 #include "Numeric.cpp"
 #include "Char.cpp"
 #include "String.cpp"
-
 
 using namespace std;
 class Machine {

@@ -11,7 +11,6 @@ using namespace std;
 
 class VAR {
 private:
-
 protected:
   string name; //unique name associated with var
   string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
@@ -21,17 +20,16 @@ public:
     name = n;
     type = t;
   }
-  string getType();
-  string getName();
+  string getType() const;
+  string getName() const;
   virtual void printType() const {
     cout<<"Calling Class VAR"<<endl;
   }
-
   //virtual auto getValue()=0;
 };
-string VAR::getType(){
+string VAR::getType() const{
   return type;
 }
-string VAR::getName(){
+string VAR::getName() const{
   return name;
 }

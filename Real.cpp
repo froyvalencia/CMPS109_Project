@@ -5,7 +5,8 @@
 
 #include "Number.cpp"
 using namespace std;
-class Real : Number {
+
+class Real : public Number {
 private:
   double value;
 public:
@@ -18,7 +19,7 @@ public:
   Real operator/(const Real& other);
   Real operator-(const Real& other);
   Real operator+(const Real& other);
-  Real operator=(const Real& other);
+  Real& operator=(const Real& other);
 };
 
 Real::Real(string n, double v) : Number(n,"Real") {
@@ -35,7 +36,7 @@ double Real::getValue() const {
 //Operator Overloading
 Real Real::operator*(const Real& other){
   int result = value * other.getValue();
-  return Numeric(name, result);
+  return Real(name, result);
 }
 
 Real Real::operator/(const Real& other){
@@ -44,15 +45,15 @@ Real Real::operator/(const Real& other){
     //exit(1)
   }
   int result = value / other.getValue();
-  return Numeric(name, result);
+  return Real(name, result);
 }
 Real Real::operator-(const Real& other){
   int result = value - other.getValue();
-  return Numeric(name, result);
+  return Real(name, result);
 }
 Real Real::operator+(const Real& other){
   int result = value + other.getValue();
-  return Numeric(name, result);
+  return Real(name, result);
 }
 
 Real& Real::operator=(const Real& other){

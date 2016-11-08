@@ -5,6 +5,8 @@
 
 #include <map>
 #include <vector>
+#include <iostream>
+
 #include "Parser.h"
 #include "Instruction.cpp"
 #include "Real.cpp"

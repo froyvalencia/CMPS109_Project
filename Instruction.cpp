@@ -162,12 +162,12 @@ public:
 
   template<typename T>
   void OUT(T& var){
-    cout << T << endl;
+    cout << var << endl;
   }
   
   template<typename T>
   std::ostream& operator<<(std::ostream& os, const T& var) {  
-    os << "Name :" < var.getName() << ", Type: " << var.getType() 
+    os << "Name :" << var.getName() << ", Type: " << var.getType() 
        << ", Value: " << var.getValue() << endl;
     return os;
   }  
