@@ -1,4 +1,7 @@
-
+/*
+  @author Froylan Valencia a.k.a frvalenc
+  Machine class implementation
+ */
 
 class Machine {
 private:
@@ -68,22 +71,24 @@ public:
   
   void executeInstruction(){
         //execure single line call like JMP
-    vector< string > line = instructions[next]; 
-
-    if(instructionHandler.isAssign(line[0]) ){
-      executeAsignment();
-    }else if(instructionHandler.isMath(line[0]) ){
-      executeMath();
-    } else if(instructionHandler.isJump(line[0]) ){
-      executeJump();
-    } else if(instructionHandler.isJump(line[0]) ){
-      executeAlpha();
-    } else {
+    while(next != size){
+      vector< string > line = instructions[next]; 
       
-    }   
+      if(instructionHandler.isAssign(line[0]) ){
+	executeAsignment(line);
+      }else if(instructionHandler.isMath(line[0]) ){
+	executeMath();
+      } else if(instructionHandler.isJump(line[0]) ){
+	executeJump();
+      } else if(instructionHandler.isJump(line[0]) ){
+	executeAlpha();
+      } else {
+	
+      }   
+    }
   }
  
-  void executeAsignment(){
+  void executeAsignment(vector<string> line){
     string opcode = line[0];
     string varName = line[1];
     string val = line[2];
@@ -137,8 +142,10 @@ public:
       else
 	stringMap[varName] = new Numeric(varName,stringMap[val].getValue());
     }
+    next++;
+    executeInstruction();
   }
-
+  
 
 };
 
