@@ -16,7 +16,6 @@ VAR::VAR(std::string n, std::string t) {
 void VAR::printType() const {
   //std::cout << type << std::endl;
 }
-//virtual auto getValue()=0;
 std::string VAR::getType() const{
   return type;
 }

@@ -28,7 +28,7 @@ vector<string> Parser::parseFile(string file){
 }
 
 //parses lines from parsed into seperate strings.
-map<int,vector<std::string>> Parser:: parseInstructions(){
+map<int,vector<std::string>> Parser::parseInstructions(){
   for(int i =0; i <parsed.size(); i++)
     {
       string l = parsed.at(i);

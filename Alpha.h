@@ -9,6 +9,8 @@
   Alpha inherits from VAR and handles the given input which will be passed to CharVar or StringVar
 */
 //@Status -> VAR compiles and works
+#ifndef ALPHA_H
+#define ALPHA_H
 
 #include <iostream>
 #include <string>
@@ -21,3 +23,4 @@ public:
   Alpha(string n, string t);
   virtual void printType();
 };
+#endif

@@ -19,7 +19,7 @@ void Numeric::setValue(int v){
 }
 
 //returns value
-int Numeric::getValue() const{
+auto Numeric::getValue() const{
   return value;
 }
 

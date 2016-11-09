@@ -12,7 +12,7 @@ int StringVar::getLength(){
   return length;
 }
 
-std::string StringVar::getValue(){
+auto StringVar::getValue(){
   return value;
 }
 
@@ -20,7 +20,7 @@ void StringVar::setValue(std::string v, int l){
   value = v;
   length = l;
 }
-
+/*
 StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage
@@ -28,7 +28,7 @@ StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
     name = other.getName();
   }
   return *this;
-}
+}*/
 
 //operator overload used for set_
 char &StringVar::operator[](int i) {

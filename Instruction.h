@@ -15,6 +15,8 @@
   JMP(GT/LT/GTE/LTE)
   SLEEP
 */
+#ifndef INS_H
+#define INS_H
 #include<map>
 #include<vector>
 #include <string>
@@ -200,8 +202,5 @@ public:
   */
   template<typename T>
   void SLEEP(T var);
-
-
 };
-
-
+#endif

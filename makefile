@@ -4,18 +4,18 @@
 HEADS= Machine.h Parser.h Instruction.h Alpha.h String.h Char.h Number.h Real.h Numeric.h
 
 run: Machine.o Parser.o Instruction.o Alpha.o String.o Char.o Number.o Real.o Numeric.o $(HEADS)
-	g++ -o -std=c++14 run Machine.o Parser.o Instruction.o VAR.o Alpha.o Number.o String.o Char.o Numeric.o Real.o
+	g++ -o -std=c++14 run Machine.o Parser.o Instruction.o Alpha.o Number.o String.o Char.o Numeric.o Real.o
 
 Machine.o: Machine.cpp $(HEADS)
 	g++ -c -std=c++14 Machine.cpp
 
-Parser.o: Parser.cpp Parser.h
+Parser.o: Parser.cpp Parser.h 
 	g++ -c -std=c++14 Parser.cpp
 
 Instruction.o: Instruction.cpp Instruction.h
 	g++ -c -std=c++14 Instruction.cpp
 
-VAR.o: shape_main.cpp $(HEADS)
+VAR.o: VAR.cpp VAR.h
 	g++ -c -std=c++14 VAR.cpp
 
 Alpha.o: Alpha.cpp $(HEADS)

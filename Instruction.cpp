@@ -211,7 +211,11 @@ int Instruction::JMP(std::string label){
 */
 template<typename T>
 void Instruction::JMP_Z_NZ(std::string label, T val){
+    if("JMPZ") {
 
+    }else {
+
+    }
 }
 /*
   @params 3
