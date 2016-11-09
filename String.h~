@@ -9,7 +9,7 @@
 */
 #ifndef STR_H
 #define STR_H
-#include "Alpha.h"
+#include "Alpha"
 class StringVar : public Alpha {
 private:
   int length;

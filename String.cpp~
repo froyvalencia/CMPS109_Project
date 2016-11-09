@@ -4,7 +4,6 @@
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
 #include "String.h"
-#include <string>
 StringVar::StringVar(std::string n, std::string v, int l) : Alpha(n,"STRING"){
   value = v;
 }
