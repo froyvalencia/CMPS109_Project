@@ -21,7 +21,7 @@ class Alpha : public VAR {
 private:
 protected:
 public:
-  Alpha(string n, string t);
+  Alpha(std::string n, std::string t);
   virtual void printType();
 };
 #endif

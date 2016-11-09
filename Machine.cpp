@@ -18,11 +18,12 @@ void Machine::executeInstruction(){
   auto instructions = parser.parseInstructions();
   while(next != linesOfCode.size()){
     std::vector<std::string> line = instructions[next++];
-    if(instructionHandler.isMath(line[0]) ){
+    size_t n = line.size();
+    if(instructionHandler.isMath(line[0])){
       executeMath(line);
-    } else if(instructionHandler.isJump(line[0]) ){
-      //executeJump(line);
-    } else if(instructionHandler.isJump(line[0]) ){
+    } else if(instructionHandler.isJump(line[0])){
+      //next = executeJump(line);
+    } else if(instructionHandler.isAlpha(line[0])){
       executeAlpha(line);
     } else if(line[0] == "ASSIGN" ){
       executeAsignment(line);
@@ -35,22 +36,11 @@ void Machine::executeInstruction(){
 }
 
 void Machine::executeAsignment(std::vector<std::string> line){
-  std::string opcode = line[0];
-  std::string varName = line[1];
-  std::string val = line[2];
-  
-  bool newVar = true;
-  auto searchName = vars.find(varName);
-  if(searchName == vars.end()) newVar = false;
-  std::string t;
-  if(!newVar) t = vars[varName]; //type
-
+  std::string opcode = line[1];
+  std::string varName = line[2];
+  std::string value = line[3];
 
   if(opcode == "NUMERIC"){
-
-    if(newVar) auto search = numericMap.find(varName); //look if  present in map
-    //names are unique if present break free or throw error
-    //if(search != numericMap.end()) return;
     
     search = numericMap.find(varName); //look if  present in map
     if(search == numericMap.end()){
@@ -63,10 +53,7 @@ void Machine::executeAsignment(std::vector<std::string> line){
     
   }else if(opcode == "REAL"){
     auto search = realMap.find(varName); //look if  present in map
-    
     //names are unique if present break free or throw error
-    if(search != realMap.end()) return;
-
     search = realMap.find(varName); //look if  present in map
     if(search == realMap.end()){
       realMap[varName] = Real(varName,stod(val));
@@ -91,16 +78,14 @@ void Machine::executeAsignment(std::vector<std::string> line){
     
     }
   }else { // by default it is std::string if(opcode == "STRING"){
-    
     auto search = stringMap.find(varName); //look if  present in map      
     if(search != stringMap.end()) return;//names are unique if present break free or throw error
-    
     search = stringMap.find(varName); //look if  present in map
     if(search == stringMap.end()){
-      StringVar sVar(varName,val,stoi(line[3]));
+      StringVar sVar(varName,val,stoi(line[4]));
       stringMap[varName] = sVar;
     }else{
-      StringVar sVar(varName,stringMap[val].getValue(),stoi(line[3]));
+      StringVar sVar(varName,stringMap[val].getValue(),stringMap[val].getLength());
       stringMap[varName] = sVar;
     }
   }
@@ -115,8 +100,6 @@ Numeric* Machine::getVal(std::string s){
     auto var = numericMap[s]; //return Numeric Var obj
     return var;
   }
-  return NULL;
-
 }
 //helpre 
 Real* Machine::getReal(std::string s){
@@ -124,13 +107,12 @@ Real* Machine::getReal(std::string s){
   auto search2 = realMap.find(s);
   if(search2 != realMap.end()){
     auto var = realMap[s]; //return Real Var obj  
-    return &var;
+    return var;
   }
   return NULL;
-
 }
 
-auto Machine::helper(int curr, vector<std::string> &line){
+auto Machine::helper(int curr, std::vector<std::string> &line){
   if(curr < line.size() ) return getVal(line[0]);
   return getVal(line[curr]);
 }
@@ -170,6 +152,7 @@ void Machine::executeMath(std::vector<std::string> line){
     instructionHandler.SUB(var,val1,val2);    
   }else{ 
     //get values if necesary
+
     int i=3;
     auto val3 = helper(++i,line);
     auto val4 = helper(++i,line);
@@ -225,17 +208,13 @@ void Machine::executeAlpha(std::vector<std::string> line) {
 }
 
 //helpr for executeAlpha()
-CharVar* Machine::getCharVal(std::string s){
+CharVar Machine::getCharVal(std::string s){
   auto var;
-  auto search = charMap.find(s);
-  if(search != charMap.end()) {
-    var = charMap[s]; //return char Var obj
-    return var;
-  } 
-  return NULL;
+  CharVar v = charMap[s]; //return char Var obj
+  return var;
 } 
 
-auto Machine::helperOut(int curr, vector<std::string> &line){
+auto Machine::helperOut(int curr, std::vector<std::string> &line){
   if(curr < line.size() ) return getOutVal(line[0]);
   return getOutVal(line[curr]);
 }
@@ -273,12 +252,12 @@ void Machine::executeOut(std::vector<std::string> line) {
   //helper for executeOut
   auto Machine::getOutVal(std::string s){
   auto var;
-  
+    
   auto search = numericMap.find(s);
   if(search != numericMap.end()) {
     var = numericMap[s]; //return Numeric Var obj
     return var;
-  } 
+  }
   
   auto search = realMap.find(s);
   if(searh != realMap.end()){
@@ -291,11 +270,11 @@ void Machine::executeOut(std::vector<std::string> line) {
     var = numericMap[s]; //return Numeric Var obj
     return var;
   } 
-  
+    //return real
   auto search = realMap.find(s);
   if(searh != realMap.end()){
     var = numericMap[s]; //return Real Var obj
     return var;
-  }
-  return s;
+  }  
+
 }

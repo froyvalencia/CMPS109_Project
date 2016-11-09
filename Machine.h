@@ -30,6 +30,7 @@ class Machine {
   auto helper(int curr, vector<std::string> &line);
   auto helperOut(int curr, vector<std::string> &line);
 protected:
+
 public:
   Machine(std::string filename);  
   //loads mis file to be executed
@@ -38,14 +39,15 @@ public:
   void executeInstruction();
   //executes variable asignment
   void executeAsignment(std::vector<std::string> line);
-  //helpre
-  auto getVal(std::string s);
+  //helpr
+  Numeric* getVal(std::string s);
+  Real* getReal(std::string s);
+  //helpr for executeAlpha()
+  CharVal* getCharVal(std::string s);
   void executeMath(std::vector<std::string> line);  
   //executes String instrucitons
   void executeAlpha(std::vector<std::string> line);
-  //helpr for executeAlpha()
-  auto getCharVal(std::string s);
-  
+  //
   void executeOut(std::vector<std::string> line);  
   //helper for executeOut
   auto getOutVal(std::string s);
