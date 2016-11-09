@@ -5,7 +5,6 @@
   Expected instruction line to be receieved as input:
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
-
   String class inherits from alpha and recieves String value after figuring out the type in VAR
 */
 #ifndef STR_H

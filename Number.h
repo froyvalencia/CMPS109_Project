@@ -1,7 +1,6 @@
 /*
 	@author Froylan Valencia
   Number Header File
-
   Expected instruction line examples to work with:      
 	VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   	VAR$myint,NUMERIC,100

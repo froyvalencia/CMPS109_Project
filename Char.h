@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*@author Froylan Valencia
+=======
+/*
+>>>>>>> 830ded6f28ff872e46951a3c9088a57c66ea8385
   Char Header File
 
   Expected instruction lines to work with:
