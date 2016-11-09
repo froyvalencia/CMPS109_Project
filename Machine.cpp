@@ -27,7 +27,6 @@ void Machine::executeInstruction(){
     } else if(line[0] == "ASSIGN" ){
       executeAsignment(line);
     } else if(line[0] == "LABEL"){
-      labels.insert(line[1]);
       labels[line[1]] = next; 
     }else { //default it is OUT
       executeOut(line);
@@ -41,12 +40,10 @@ void Machine::executeAsignment(vector<std::string> line){
   std::string val = line[2];
   
   if(opcode == "NUMERIC"){
-    //numericMap.insert(varName)
     auto search =  numericMap.find(varName); //look if  present in map
     
     //names are unique if present break free or throw error
     if(search != numericMap.end()) return;
-    numericMap.insert(varName); //we can safely insert var name into map
     
     search = numericMap.find(equals); //look if  present in map
     if(search == numericMap.end())
@@ -70,7 +67,6 @@ void Machine::executeAsignment(vector<std::string> line){
   else if(opcode == "CHAR"){
     auto search =  charMap.find(varName); //look if  present in map
     if(search != charMap.end()) return;//names are unique if present break free or throw error
-    charMap.insert(varName); //we can safely insert var name into map
     
     search = charMap.find(equals); //look if  present in map
     if(search == charMap.end())
@@ -81,7 +77,6 @@ void Machine::executeAsignment(vector<std::string> line){
   }else { // by default it is std::string if(opcode == "std::STRING"){
     auto search =  std::stringMap.find(varName); //look if  present in map      
     if(search != std::stringMap.end()) return;//names are unique if present break free or throw error
-    std::stringMap.insert(varName); //we can safely insert var name into map
     
     search = std::stringMap.find(equals); //look if  present in map
     if(search == std::stringMap.end())
