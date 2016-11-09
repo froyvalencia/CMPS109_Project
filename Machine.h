@@ -20,12 +20,13 @@ class Machine {
   Parser parser;
   Instruction instructionHandler;
   int next;
-  vector<std::string> linesOfCode;
-  map<std::string, int> labels;
-  map<std::string, Numeric> numericMap;
-  map<std::string, Real> realMap;
-  map<std::string, StringVar> stringMap;
-  map<std::string, CharVar> charMap;
+  std::vector<std::string> linesOfCode;
+  std::map<std::string, int> labels;
+  std::map<int,vector<std::string> > instructions
+  std::map<std::string, Numeric> numericMap;
+  std::map<std::string, Real> realMap;
+  std::map<std::string, StringVar> stringMap;
+  std::map<std::string, CharVar> charMap;
  public:
   Machine(std::string filename);  
   //loads mis file to be executed
@@ -38,7 +39,7 @@ class Machine {
   auto getVal(std::string s);
   void executeMath(vector<std::string> line);  
   //executes String instrucitons
-  executeAlpha(vector<std::string> line);
+  void executeAlpha(vector<std::string> line);
   //helpr for executeAlpha()
   auto getCharVal(std::string s);
   void executeOut(vector<std::string> line);  
