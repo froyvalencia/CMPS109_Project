@@ -10,10 +10,9 @@
 #include <fstream>
 #include <iostream>
 using namespace std;
-Parser::Parser(string file){
-  parsed = new vector<string>;
-  cmdMap = new map<int, vector<string> >;
-};
+Parser::Parser(){
+  parsed = new vector<string>();
+}
 
 //Takes in file name ("cmdfile.txt") and pushes lines into parsed.
 vector<string> Parser::parseFile(string file){
