@@ -11,6 +11,7 @@ Alpha::Alpha(string n, string t): VAR(n,t) {
 void Alpha::printType(){
   cout<< "Calling Class Alpha of type " << type << endl;
 }
-int main(){
-return 0;
-}
+
+//int main(){
+//return 0;
+//}

@@ -10,7 +10,7 @@
 #include <string>
 #include "VAR.h"
 using namespace std;
-class Alpha : VAR {
+class Alpha : public VAR {
 private:
 protected:
 public:

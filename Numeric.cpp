@@ -37,8 +37,8 @@ Numeric Numeric::operator*(const Numeric& other){
 
 Numeric Numeric::operator/(const Numeric& other){
   if(other.getValue() == 0) {
-    std::cout<<"Error: Divide by Zero."<< std::endl;
-    system.exit(1);
+    //std::cout<<"Error: Divide by Zero."<< std::endl;
+    //system.exit(1);
   } 
   int result = value / other.getValue();
   return Numeric(name, result);

@@ -4,19 +4,19 @@
 */
 #include "Machine.h"
 Machine::Machine(std::string filename){
-  parser = new Parser();
+  //parser = new Parser();
   next = 0;
-  loadfile(filename);
+  loadFile(filename);
 }
 
-void Machine::LoadFile(std::string filename){
+void Machine::loadFile(std::string filename){
   linesOfCode = parser.parseFile(filename); //vector<std::string>
 }
 
 //main execution loop
 void Machine::executeInstruction(){
   //execure single line call like JMP
-  while(next != size){
+  while(next != linesOfCode.size()){
     std::vector<std::string> line = instructions[next++];
     if(instructionHandler.isMath(line[0]) ){
       executeMath(line);

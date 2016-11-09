@@ -9,10 +9,13 @@ builds@ 9:35pm
 #include "Parser.h"
 #include <map>
 #include <vector>
+
 #include <string>
 #include <iostream>  
 #include <fstream>
+
 using namespace std;
+
 
 Parser::Parser(){
   vector< string > parsed;
@@ -22,10 +25,11 @@ Parser::Parser(){
 //Takes in file name ("cmdfile.txt") and pushes lines into parsed.
 vector<string> Parser::parseFile(string file){
   ifstream cmdFile(file);
-  while(getline(cmdFile, file, '\n')){
-    parsed.push_back(file);}
+  while(getline(cmdFile, file, '\n'))
+    {parsed.push_back(file);}
   return parsed;
 }
+
 
 //parses lines from parsed into seperate strings.
 map<int,vector<std::string>> Parser:: parseInstructions(){

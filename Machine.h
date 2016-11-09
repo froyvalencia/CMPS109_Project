@@ -29,7 +29,7 @@ class Machine {
  public:
   Machine(std::string filename);  
   //loads mis file to be executed
-  void LoadFile(std::string filename);
+  void loadFile(std::string filename);
   //main execution loop
   void executeInstruction();
   //executes variable asignment
@@ -44,5 +44,4 @@ class Machine {
   void executeOut(vector<std::string> line);  
   //helper for executeOut
   auto getOutVal(std::string s);
-  }
 };

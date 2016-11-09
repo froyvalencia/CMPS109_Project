@@ -223,10 +223,8 @@ void Instruction::JMP_Z_NZ(std::string label, T val){
   @description
   Apply  the  logic  of  JMP based  on  the  comparison 
   condition  result  between the  seconds  and  the  third parameters.
-  GT: P2 > P3
-  LT: P2< P3
-  GTE: P2 >= P3
-  LTE: P2<= P3
+  GT: P2 > P3, GTE: P2 >= P3
+  LT: P2< P3, LTE: P2<= P3
 */
 template<typename T, typename U>
 void Instruction::JMP_GT_LT_GTE_LTE(std::string label, T val, U val2){
@@ -240,6 +238,6 @@ void Instruction::JMP_GT_LT_GTE_LTE(std::string label, T val, U val2){
 */
 template<typename T>
 void Instruction::SLEEP(T var){
-  int mSeconds = (1000000) * var;// get mseconds
+  //int mSeconds = (1000000) * var;// get mseconds
   //usleep(mSeconds);
 }

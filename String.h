@@ -15,6 +15,7 @@ public:
   StringVar();
   StringVar(std::string n, std::string v, int l);
   ~StringVar();
+  void StringVar::setValue(std::string v, int l);
   int getLength();
   int getValue();
   StringVar& StringVar::operator=(const StringVar& other); // copy assignment
