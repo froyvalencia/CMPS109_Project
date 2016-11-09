@@ -15,7 +15,6 @@
 #include "Char.cpp"
 #include "String.cpp"
 
-using namespace std;
 class Machine {
  private:
   Parser parser;

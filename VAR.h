@@ -6,6 +6,7 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -16,8 +17,8 @@ class VAR {
   string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
  public:
   VAR(string n, string t);
-  string getType() const;
-  string getName() const;
+  std::string getType() const;
+  std::string getName() const;
   virtual void printType() const;
   //virtual auto getValue()=0;
 };

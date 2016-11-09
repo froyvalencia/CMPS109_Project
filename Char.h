@@ -3,22 +3,15 @@
   VAR$mychar,CHAR,’c’
 
 */
-
-class CharVar : Alpha {  
+#include "Alpha.h"
+class CharVar : public Alpha {  
 private:
   char value;
 public:
-  CharVar(string n);
-  CharVar(string n, char v);
-  friend ostream& operator<<(ostream& os, const CharVar& var);
+  CharVar(std::string n);
+  CharVar(std::string n, char v);
+  friend std::ostream& operator<<(std::ostream& os, const CharVar& var);
 };
-CharVar::CharVar(string n) : Alpha(n, "CHAR") {
-  //value = '';
-}
-
-CharVar::CharVar(string n, char v) : Alpha(n, "CHAR") {
-  value = v;
-}
 
 
 

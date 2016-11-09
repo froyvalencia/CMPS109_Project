@@ -15,34 +15,38 @@
   JMP(GT/LT/GTE/LTE)
   SLEEP
 */
+#include<map>
+#include<vector>
+#include <string>
+#include <iostream>
 
 class Instruction {  
-private:  
+private: 
   //HELPERS
-  template<typename T> T ADD(T v);
-  template<typename T> T SUB(T v);
-  template<typename T> T DIV(T v);
-  template<typename T> T MULT(T v);
+template<typename T> T ADD(T v);// { return v;}
+template<typename T> T SUB(T v);// { return v;}
+template<typename T> T DIV(T v);// { return v;}
+template<typename T> T MULT(T v);// { return v;}
 protected:
-  std::map < std::string, int> labels;
-  const vector<string> ins = { "ADD", "SUB", "MUL", "DIV", "OUT", "ASSIGN","SET_STR_CHAR", "GET_STR_CHAR", "LABEL", "JMP", "JMPZ", "JMPNZ", "JMPGT" , "JMPLT", "JMPGTE", "JMPLTE" };
+  std::map<std::string, int> labels;
 public:
-  
+
+
   Instruction();
   ~Instruction();
   
-  bool isAssign(string opcode);
+  bool isAssign(std::string opcode);
   
-  bool isMath(string opcode);
+  bool isMath(std::string opcode);
 
   //returns true if s is a JUMP Instruction
-  bool isJump(string opcode);
+  bool isJump(std::string opcode);
   
   //returns if Alpha  operation
-  bool isAlpha(string opcode);
+  bool isAlpha(std::string opcode);
 
   //checks if valid instruction
-  bool valid(string opcode);
+  bool valid(std::string opcode);
   /*
     @params 3-13
     1: REAL or Numeric Variable
@@ -53,9 +57,7 @@ public:
     first parameter.
   */
   template<typename T, typename... Args>
-  T ADD(T first, Args... args) {
-    return first + ADD(args...);
-  }
+  T ADD(T first, Args... args);
   
   /*
     @params 3
@@ -88,10 +90,9 @@ public:
     Rest: Real or Numeric Variable or Constant.
     
     @description   
-    Divide  the  second parameter  by  the  third parameter  and  store  the 
-    result in  the  first parameter.  Note: divide by zero should be detected 
-    and  reported,  and  the program  should  tolerate crashes  resulting  from 
-    divide-by-zero exceptions.
+    Divide the  second parameter by the  third parameter and store the 
+    result in the first parameter. Note: divide by zero should be detected 
+    and reported, and the program should tolerate crashes resulting from divide-by-zero exceptions.
   */
   template<typename T, typename... Args>
   T DIV(T first, Args... args);  
@@ -114,8 +115,8 @@ public:
     @description
     Prints  out  the  parameters to the standard output.
   */
-  tempalte<typename T>
-  void Instruction::OUT(T& var);
+  template<typename... A>
+  void OUT(A... args);
 
   /*
     @params 3
@@ -150,8 +151,7 @@ public:
     @description
     Sets  a  placeholder  that  a  JMP instruction can go to.
   */
-  //void LABEL(string label,int line);
-  void LABEL(string label,int line);
+  void LABEL(std::string label,int line);
 
   /*
     @params
@@ -161,7 +161,7 @@ public:
     Change  execution sequence  by  setting  the execution  pointer  
     to the first  instruction  after  the label
   */
-  int JMP(string label);
+  int JMP(std::string label);
   
   /*
     @params 2
@@ -173,33 +173,34 @@ public:
     NZ:  second  parameter  is not zero
   */
   template<typename T>
-  void JMP_Z_NZ(string label, T val);
+  void JMP_Z_NZ(std::string label, T val);
   
   /*
     @params 3
     1: Label name to jump to.
-    2: A numeric variable or 
-    constant.
-    3: A numeric variable or 
-    constant.
+    2: A numeric variable or constant.
+    3: A numeric variable or constant.
+
     @description
     Apply  the  logic  of  JMP based  on  the  comparison 
     condition  result  between the  seconds  and  the  third parameters.
-    GT: P2 > P3
-    LT: P2< P3
-    GTE: P2 >= P3
-    LTE: P2<= P3
+    GT: P2 > P3 , GTE: P2 >= P3
+    LT: P2< P3, LTE: P2<= P3
   */
-  void JMP_GT_LT_GTE_LTE();
-  
+
+  template<typename T, typename U>
+  void JMP_GT_LT_GTE_LTE(std::string label, T val, U val2);
+
   /*
     @params
-    1: A numeric variable or constant
+    1: A numeric variable or constant -> REAL, NUMERIC, 1, 2.3
+
     @description
     Suspend execution for a number of seconds.
   */
   template<typename T>
   void SLEEP(T var);
+
 
 };
 

@@ -4,10 +4,11 @@
 */
 #include "Instruction.h"
 Instruction::Instruction() { 
-   labels = new Map< std::string, int>();
+   labels = std::map< std::string, int>();
 }
 //
 Instruction::~Instruction() { }
+
 //
 bool Instruction::isMath(std::string opcode){
   std::vector<std::string> math = {"ADD", "SUB", "MUL", "DIV", "OUT"}; 
@@ -26,9 +27,8 @@ bool Instruction::isJump(std::string opcode){
 //returns if Alpha  operation
 bool Instruction::isAlpha(std::string opcode){
   std::vector<std::string> alpha = {"SET_STR_CHAR", "GET_STR_CHAR"};
-  if ( std::find(alpha.begin(), alpha.end(), opcode) != alpha.end() ){
+  if ( std::find(alpha.begin(), alpha.end(), opcode) != alpha.end() )
     return true;
-  } 
   return false;  
 }
 //checks if valid instruction
@@ -84,8 +84,6 @@ T Instruction::SUB(T first, Args... args) {
   Multiply  all  parameters  excluding the first one and 
   store the  results  in  the first parameter.
  */
-
-
 template<typename T, typename... Args>
 T Instruction::MUL(T first, Args... args) {
   return first  *  MULT(args...);
@@ -127,10 +125,10 @@ void Instruction::ASSIGN(T var, U val){
 //overwrite << for OUT
 template<typename T>
 std::ostream& operator<<(std::ostream& os, const T& var) {  
-  os << "Name :" << var.getName() << ", Type: " << var.getType() 
-     << ", Value: " << var.getValue() << endl;
+  os << var;
   return os;
 }  
+
 /*
   @params out 1-12
   Any variables or constants
@@ -139,11 +137,12 @@ std::ostream& operator<<(std::ostream& os, const T& var) {
   Prints  out  the  parameters to the standard output.
 */
 
-//tempalte<typename T>
-//void OUT(T& var);
-template<typename T>
-void Instruction::OUT(T& var){
-  cout << var << endl;
+template<typename... A>
+void Instruction::OUT(A... args){
+  std::vector<A...> vars;
+  for(auto var : vars){
+    std::cout << var << std::endl;
+  }
 }
 
 /*
@@ -162,7 +161,7 @@ template<typename T, typename U, typename V>
 void Instruction::SET_STR_CHAR(T var, U pos, V val){
   int index = pos; 
   var[index] = val;
-}  
+} 
 /*@params 3
   1: String variable
   2. Variable or constant representing an index.
@@ -187,7 +186,6 @@ char Instruction::GET_STR_CHAR(T var, U pos, V val) {
 */
 //void LABEL(string label,int line);
 void Instruction::LABEL(std::string label,int line){
-  labels.insert(label);
   labels[label] = line + 1;
 }
 /*
@@ -215,7 +213,6 @@ template<typename T>
 void Instruction::JMP_Z_NZ(std::string label, T val){
 
 }
-
 /*
   @params 3
   1: Label name to jump to.
@@ -231,9 +228,10 @@ void Instruction::JMP_Z_NZ(std::string label, T val){
   GTE: P2 >= P3
   LTE: P2<= P3
 */
-void Instruction::JMP_GT_LT_GTE_LTE(){
+template<typename T, typename U>
+void Instruction::JMP_GT_LT_GTE_LTE(std::string label, T val, U val2){
 
-}  
+}
 /*
   @params
   1: A numeric variable or constant
@@ -242,8 +240,6 @@ void Instruction::JMP_GT_LT_GTE_LTE(){
 */
 template<typename T>
 void Instruction::SLEEP(T var){
-  int mSeconds = (1000000) * var;// get mseconds				    
-  usleep(mSeconds);
+  int mSeconds = (1000000) * var;// get mseconds
+  //usleep(mSeconds);
 }
-
-

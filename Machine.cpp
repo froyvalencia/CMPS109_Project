@@ -2,7 +2,7 @@
   @author Froylan Valencia a.k.a frvalenc
   Machine class implementation
 */
-
+#include "Machine.h"
 Machine::Machine(std::string filename){
   parser = new Parser();
   next = 0;
@@ -293,3 +293,7 @@ void Machine::executeOut(vector<std::string> line) {
   }
   
 };
+
+int main(){
+  return 0;
+}
