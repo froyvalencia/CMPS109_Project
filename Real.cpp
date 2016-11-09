@@ -4,7 +4,7 @@
   VAR$myfloat,REAL,12.1
 */
 #include "Real.h"
-Real::Real(string n, double v) : Number(n,"Real") {
+Real::Real(std::string n, double v) : Number(n,"Real") {
   value = v;
 }
 
@@ -44,8 +44,8 @@ Real Real::operator+(const Real& other){
 Real& Real::operator=(const Real& other){
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage
-    this->value = other.getValue();
-    this->name = other.getName();
+    value = other.getValue();
+    name = other.getName();
   }
   return *this;
 }

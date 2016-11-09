@@ -6,10 +6,10 @@
 #include "Numeric.h"
 
 //No Value constructor
-Numeric (string n): Number(n, "Numeric") {}
+Numeric::Numeric(std::string n): Number(n, "Numeric") {}
 
 //constructor
-Numeric::Numeric(string n,int v): Number(n, "Numeric") {
+Numeric::Numeric(std::string n,int v): Number(n, "Numeric") {
   value = v;
 }
 
@@ -24,8 +24,9 @@ int Numeric::getValue() const{
 }
 
 //prints the type
-virtual void Numeric::printType(){
-  cout<<"Calling Numeric class of type " << type << endl;
+//virtual 
+void Numeric::printType(){
+  //std::cout <<  << std::endl;
 }
 
 //Operator Overloading
@@ -36,7 +37,7 @@ Numeric Numeric::operator*(const Numeric& other){
 
 Numeric Numeric::operator/(const Numeric& other){
   if(other.getValue() == 0) {
-    cout<<"Error: Divide by Zero."<<endl;
+    std::cout<<"Error: Divide by Zero."<< std::endl;
     system.exit(1);
   } 
   int result = value / other.getValue();
@@ -56,8 +57,8 @@ Numeric Numeric::operator+(const Numeric& other){ //overload +
 Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage 
-    this.value = other.getValue();
-    this.name = other.name;
+    value = other.getValue();
+    name = other.name;
   }
   return *this;
 }

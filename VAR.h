@@ -8,15 +8,14 @@
 */
 
 #include <iostream>
-#include <string>
-using namespace std;
+//#include <string>
 class VAR {
  private:
  protected:
-  string name; //unique name associated with var
-  string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
+  std::string name; //unique name associated with var
+  std::string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
  public:
-  VAR(string n, string t);
+  VAR(std::string n, std::string t);
   std::string getType() const;
   std::string getName() const;
   virtual void printType() const;

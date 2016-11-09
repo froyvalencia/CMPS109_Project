@@ -6,26 +6,24 @@
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
+#include <iostream>
 #include "VAR.h"
-VAR::VAR(string n, string t) {
-  cout << "VAR Constructor CALLED" << endl;
+VAR::VAR(std::string n, std::string t) {
   name = n;
   type = t;
 }
 //virtual 
 void VAR::printType() const {
-  cout<<"Calling Class VAR"<<endl;
+  //std::cout << type << std::endl;
 }
-
 //virtual auto getValue()=0;
 std::string VAR::getType() const{
   return type;
 }
-
 std::string VAR::getName() const{
   return name;
 }
 
-int main(){
-return 0;
-}
+//int main(){
+//return 0;
+//}

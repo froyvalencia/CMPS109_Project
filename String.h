@@ -6,14 +6,14 @@
 #include <string>
 using namespace std;
 
-class StringVar : Alpha {
+class StringVar : public Alpha {
 private:
   int length;
-  string value;
+  std::string value;
   static const MAX_L = 256;
 public:
   StringVar();
-  StringVar(string n, string v, int l);
+  StringVar(std::string n, std::string v, int l);
   ~StringVar();
   int getLength();
   int getValue();

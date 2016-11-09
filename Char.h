@@ -1,7 +1,7 @@
 /*
+  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mychar,CHAR,’c’
-
 */
 #include "Alpha.h"
 class CharVar : public Alpha {  

@@ -4,18 +4,21 @@
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
 */
 #include "String.h"
-StringVar::StringVar(string n, string v, int l) : Alpha(n,"STRING"){
+using namespace std;
+StringVar::StringVar(std::string n, std::string v, int l) : Alpha(n,"STRING"){
   value = v;
 }
 int StringVar::getLength(){
   return length;
 }
 
+using namespace std;
 string StringVar::getValue(){
   return value;
 }
 
-void StringVar::setValue(string v){
+using namespace std;
+void StringVar::setValue(std::string v){
   value = v;
   length = v.length;
 }
@@ -32,7 +35,7 @@ StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
 //operator overload used for set_
 char &StringVar::operator[](int i) {
   if( i >= SIZE ) {
-    cout << "Index out of bounds" <<endl; ;
+    //cout << "Index out of bounds" <<endl; ;
     // throw something
     return value[0];
   }

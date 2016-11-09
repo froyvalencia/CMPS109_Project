@@ -8,7 +8,7 @@ class Real : public Number {
 private:
   double value;
 public:
-  Real(string n, double v);
+  Real(std::string n, double v);
   ~Real();
   void setValue(double v);
   double getValue() const;

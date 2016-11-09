@@ -5,10 +5,10 @@
   VAR$myfloat,REAL,12.14
 */
 #include "Number.h"
-//Number
-Number::Number(string n, string t) : VAR(n,t) {
+Number::Number(std::string n, std::string t) : VAR(n,t) {
 }
 //print type
-virtual void Number::printType(){
-	std::cout << "Number class -> Char/String" << std::endl;
+//virtual 
+void Number::printType(){
+	//std::cout << type << std::endl;
 }
