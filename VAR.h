@@ -1,13 +1,8 @@
 /*
-<<<<<<< HEAD
   @author Froylan Valencia
   Var Header File
   Expected instruction line input to be recieved in
-=======
-  Var Header File
-  Expected instruction line input to be recieved in
 
->>>>>>> 830ded6f28ff872e46951a3c9088a57c66ea8385
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14  
