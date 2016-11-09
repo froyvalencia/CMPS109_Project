@@ -22,7 +22,7 @@ class Machine {
   int next;
   std::vector<std::string> linesOfCode;
   std::map<std::string, int> labels;
-  std::map<int,vector<std::string> > instructions
+  //std::map<int,vector<std::string> > instructions
   std::map<std::string, Numeric> numericMap;
   std::map<std::string, Real> realMap;
   std::map<std::string, StringVar> stringMap;

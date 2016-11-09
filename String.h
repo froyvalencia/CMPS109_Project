@@ -17,7 +17,7 @@ public:
   ~StringVar();
   void StringVar::setValue(std::string v, int l);
   int getLength();
-  int getValue();
+  std::string getValue();
   StringVar& StringVar::operator=(const StringVar& other); // copy assignment
   char &StringVar::operator[](int i);  //operator overload used for set_ / get_
 };

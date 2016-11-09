@@ -16,6 +16,7 @@ void Machine::loadFile(std::string filename){
 //main execution loop
 void Machine::executeInstruction(){
   //execure single line call like JMP
+  std::map<int,std::vector<std::string> > instructions
   while(next != linesOfCode.size()){
     std::vector<std::string> line = instructions[next++];
     if(instructionHandler.isMath(line[0]) ){
@@ -45,7 +46,7 @@ void Machine::executeAsignment(vector<std::string> line){
     //names are unique if present break free or throw error
     if(search != numericMap.end()) return;
     
-    search = numericMap.find(equals); //look if  present in map
+    search = numericMap.find(varName); //look if  present in map
     if(search == numericMap.end())
       numericMap[varName] = new Numeric(varName,stoi(val));
     else
@@ -58,7 +59,7 @@ void Machine::executeAsignment(vector<std::string> line){
     if(search != realMap.end()) return;
     realMap.insert(varName); //we can safely insert var name into map
     
-    search = realMap.find(equals); //look if  present in map
+    search = realMap.find(varName); //look if  present in map
     if(search == realMap.end())
       realMap[varName] = new Numeric(varName,stoi(val));
     else
@@ -68,7 +69,7 @@ void Machine::executeAsignment(vector<std::string> line){
     auto search =  charMap.find(varName); //look if  present in map
     if(search != charMap.end()) return;//names are unique if present break free or throw error
     
-    search = charMap.find(equals); //look if  present in map
+    search = charMap.find(varNames); //look if  present in map
     if(search == charMap.end())
       charMap[varName] = new Numeric(varName,stoi(val));
     else
