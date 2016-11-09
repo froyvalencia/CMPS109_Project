@@ -1,12 +1,8 @@
 /*
-  Alpha Header File
-
-  Expected instruction line examples to work with:
+  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
- 
-  Alpha inherits from VAR and handles the given input which will be passed to CharVar or StringVar
 */
 //@Status -> VAR compiles and works
 
