@@ -1,12 +1,19 @@
 /*
-  Instruction Header File
-
-  Expected Instrution Labels in our instruction lines
- 
-  INSTRUCTUION, NUM OF PARAMS, PARAMETERS, 
-  ADD, SUB, MUL, DIV, ASSIGN, OUT, SET_STR_CHAR, LABEL ,JMP, JMP(Z/NZ), JMP(GT/LT/GTE/LTE), SLEEP
-  
-  Instruction class will hold and handle all of our instruction methods that we will expect as input.
+  @author Froylan Valencia
+  Instruction class  
+  INSTRUTUION, NUM OF PARAMS, PARAMETERS, 
+  ADD, 
+  SUB,
+  MUL,
+  DIV,
+  ASSIGN
+  OUT
+  SET_STR_CHAR
+  LABEL
+  JMP
+  JMP(Z/NZ)
+  JMP(GT/LT/GTE/LTE)
+  SLEEP
 */
 #ifndef INS_H
 #define INS_H
@@ -17,22 +24,21 @@
 
 class Instruction {  
 private: 
- //HELPERS 
+  //HELPERS
 template<typename T> T ADD(T v);// { return v;}
 template<typename T> T SUB(T v);// { return v;}
 template<typename T> T DIV(T v);// { return v;}
 template<typename T> T MULT(T v);// { return v;}
-//map will be used to refer to an instruction at a certain index later on
 protected:
   std::map<std::string, int> labels;
 public:
 
-  //constructor
+
   Instruction();
-  //desctructor
   ~Instruction();
   
   bool isAssign(std::string opcode);
+  
   bool isMath(std::string opcode);
 
   //returns true if s is a JUMP Instruction
@@ -51,9 +57,6 @@ public:
     @description
     Adds all parameters excluding the first one and store the results in the
     first parameter.
-  */
-  /*For all of our Templates for ADD.SUB,DIV,MUL , they are able to take in 
-    an ambigous amount to variables to preform the operation using Args....args
   */
   template<typename T, typename... Args>
   T ADD(T first, Args... args);

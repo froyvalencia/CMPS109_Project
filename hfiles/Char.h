@@ -1,11 +1,7 @@
-/*@author Froylan Valencia
-  Char Header File
-
-  Expected instruction lines to work with:
+/*
+  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mychar,CHAR,’c’
-
-  Char inherits from Alpha to obtain a char value instead of a string value. 
 */
 #ifndef CHAR_H
 #define CHAR_H

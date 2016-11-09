@@ -1,5 +1,4 @@
 /*
-  @author Froylan Valencia
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
 */

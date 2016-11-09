@@ -1,12 +1,7 @@
 /*
-  @author Froylan Valencia
-  String Header class
-  
-  Expected instruction line to be receieved as input:
+  @author Froylan Valencia 
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
-
-  String class inherits from alpha and recieves String value after figuring out the type in VAR
 */
 #ifndef STR_H
 #define STR_H

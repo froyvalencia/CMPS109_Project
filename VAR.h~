@@ -1,16 +1,10 @@
 /*
   @author Froylan Valencia
-  Var Header File
-  Expected instruction line input to be recieved in
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14  
   VAR$mychar,CHAR,’c’
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
-
-  Var class is an object class that wil take in 2 paramenters name and type.
-  This base class will be branched down to ALpha and Number classes and then
-  will branch down further as needed. 
 */
 #ifndef VAR_H
 #define VAR_H

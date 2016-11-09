@@ -22,7 +22,7 @@ class Machine {
   int next;
   std::vector<std::string> linesOfCode;
   std::map<std::string, int> labels;
-  std::map<std::string,std::string> vars; // < name, type >
+
   std::map<std::string, Numeric> numericMap;
   std::map<std::string, Real> realMap;
   std::map<std::string, StringVar> stringMap;
@@ -45,7 +45,6 @@ public:
   void executeAlpha(std::vector<std::string> line);
   //helpr for executeAlpha()
   auto getCharVal(std::string s);
-  
   void executeOut(std::vector<std::string> line);  
   //helper for executeOut
   auto getOutVal(std::string s);

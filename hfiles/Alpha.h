@@ -1,5 +1,4 @@
 /*
-	@author Froylan Valencia
   Alpha Header File
 
   Expected instruction line examples to work with:
