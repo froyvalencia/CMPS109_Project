@@ -30,28 +30,30 @@ int main ()
     {
       size_t prev = 0, pos;
       while ((pos = file.find_first_of("$,", prev)) != string::npos)
-	{
-	  if (pos > prev)
-	    cmdmap[cmdNum].push_back(file.substr(prev, pos-prev));
-	  prev = pos+1;
-	}
-      if (prev < file.length())
-	{
-	  cmdmap[cmdNum].push_back(file.substr(prev, string::npos));
-	}
+	     {
+    	  if (pos > prev)
+    	    cmdmap[cmdNum].push_back(file.substr(prev, pos-prev));
+    	  prev = pos+1;
+	     }
+       if (prev < file.length())
+	     {
+	       cmdmap[cmdNum].push_back(file.substr(prev, string::npos));
+	     }
+       cmdNum++;
     }
   
   //prints out output
   for(auto &i : cmdmap)
     {
-      cout<<"Line "<< i.first << ": "<<endl;
-      for(int j = 0; j<i.second.size(); j++)
-	{
-	  cout<< i.second.at(j)<<endl;
-	}
+      cout<<"Line # "<< i.first << ": "<<endl; // prints map int value
+      for(int j = 0; j<i.second.size(); j++) //prints map vector values.
+	     {
+	      cout<< i.second.at(j); 
+	     }
       cout<<"--------------------"<<endl;
     }
-  
+
+    
 }
 
 
@@ -62,33 +64,6 @@ int main ()
 //parses inputString with $'s and ,'s for each line. inputString can be a txt
 //file later on...
 
-//once retrieved the word, it pushes the word into the wordVector.
-/*
-	while(getline(cmdFile, line))
-	{
-   	size_t prev = 0, pos;
-   	while ((pos = line.find_first_of("$,", prev)) != string::npos)
-   	{
-      	if (pos > prev)
-      		cmdmap[cmdNum].push_back(line.substr(prev, pos-prev));
-      	prev = pos+1;
-      }
-  	  	if (prev < line.length())
-   		cmdmap[cmdNum].push_back(line.substr(prev, pos-prev));
-      cmdNum++;
-	}
-
-
-	for(auto &i : cmdmap)
-   {
-		cout<<"Line "<< i.first << ": "<<endl;
-      for(int j = 0; j<i.second.size(); j++)
-      {
-			cout<< i.second.at(j)<<endl;
-      }
-      cout<<"--------------------"<<endl;
-   }
-*/
 
 
 
