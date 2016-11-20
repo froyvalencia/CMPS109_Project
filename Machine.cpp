@@ -39,10 +39,10 @@ void Machine::executeAsignment(std::vector<std::string> line){
   std::string opcode = line[1];
   std::string varName = line[2];
   std::string val = line[3];
-
+  
   bool objectFlag = true;
   auto search = variables.find(varName);
-  if(search == varaibles.end() ) {
+  if(search == variables.end() ) {
     objectFlag = false;
     //put errorinto buffer
   }
@@ -58,8 +58,8 @@ void Machine::executeAsignment(std::vector<std::string> line){
     variables[varName] = "Real";
     
   }else if(opcode == "CHAR"){    
-    if(objectFlag) charMap[varName] = CharVar(varName, realMap[val].getValue());
-    else charMap[varName] = CharVar(varName, val); 
+    if(objectFlag) charMap[varName] = CharVar(varName, charMap[val].getValue());
+    else charMap[varName] = CharVar(varName, (char) val); 
     variables[varName] = "Char";
     
   }else { // by default it is std::string if(opcode == "STRING"){
@@ -73,27 +73,29 @@ void Machine::executeAsignment(std::vector<std::string> line){
 
 //  return Numeric var obj
 Numeric* Machine::getVal(std::string s){
-  auto search = numericMap.find(s);
+  /*
+    auto search = numericMap.find(s);
   if(search != numericMap.end()) {
     auto var = numericMap[s]; //return Numeric Var obj
     return var;
-  }
+  }*/
+  return NULL;
 }
 
 //helpre 
 Real* Machine::getReal(std::string s){
-
+  /*  
   auto search2 = realMap.find(s);
   if(search2 != realMap.end()){
     auto var = realMap[s]; //return Real Var obj  
     return var;
-  }
+    }*/
   return NULL;
 }
 
 auto Machine::helper(int curr, std::vector<std::string> &line){
-  if(curr < line.size() ) return getVal(line[0]);
-  return getVal(line[curr]);
+  /*    if(curr < line.size() ) return getVal(line[0]);
+	return getVal(line[curr]);  */ 
 }
 
 void Machine::executeMath(std::vector<std::string> line){
@@ -101,7 +103,7 @@ void Machine::executeMath(std::vector<std::string> line){
     //error
     //exit(1);
   }
-  
+  /*
   std::string opcode = line[0];
   auto search = numericMap.find(line[1]);
   auto var;
@@ -174,10 +176,12 @@ void Machine::executeMath(std::vector<std::string> line){
     	}//END SWITCH
     }
   } 
+  */
 }
 
 
 void Machine::executeAlpha(std::vector<std::string> line) {
+  /*
   auto var = stringMap[line[1]];
   auto val1 = getVal(line[2]); // var or constrepresent index pos
   auto val2 = getCharVal(line[3]);
@@ -186,22 +190,24 @@ void Machine::executeAlpha(std::vector<std::string> line) {
   }else { //default -> SET_STR_CHAR
     instructionHandler.SET_STR_CHAR(var,val1,val2);
   }
+  */
 }
 
 //helpr for executeAlpha()
-CharVar Machine::getCharVal(std::string s){
-  CharVar v = charMap[s]; //return char Var obj
-  return v;
+CharVar *Machine::getCharVal(std::string s){
+  //  CharVar v = charMap[s]; //return char Var obj
+  //return v;
+  return NULL;
 } 
 
-auto Machine::helperOut(int curr, std::vector<std::string> &line){
-  if(curr < line.size() ) return getOutVal(line[0]);
-  return getOutVal(line[curr]);
-}
+//auto Machine::helperOut(int curr, std::vector<std::string> &line){
+  //if(curr < line.size() ) return getOutVal(line[0]);
+  //  return getOutVal(line[curr]); //cast to string
+//}
 
 void Machine::executeOut(std::vector<std::string> line) {
   int i=-1;
- 
+  
   /*
     auto Machine::helperOut(int curr, std::vector<std::string> &line){
     if(curr < line.size() ) return getOutVal(line[0]);

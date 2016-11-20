@@ -14,6 +14,7 @@ class CharVar : public Alpha {
   char value;
  public:
   //CharVar(std::string n);
+  CharVar(const CharVar&& other);
   CharVar(std::string n, char v);
   char getValue();
   void setValue(char c);

@@ -14,7 +14,7 @@
 #include<vector>
 #include <string>
 #include <iostream>
-
+#include <algorithm>
 class Instruction {  
 private: 
  //HELPERS 
