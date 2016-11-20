@@ -174,7 +174,7 @@ template<typename T, typename U, typename V>
 char Instruction::GET_STR_CHAR(T var, U pos, V val) {
   int index = pos;
   char c = var[index];
-  val->setValue(c);
+  val.setValue(c);
 }
 
 /*

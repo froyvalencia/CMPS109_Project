@@ -22,17 +22,14 @@ class Machine {
   int next;
   std::vector<std::string> linesOfCode;
   std::map<std::string, int> labels;
-  std::map<std::string,std::string> variables; // < name, type >
-  //map for each variable type 
+  std::map<std::string,std::string> vars; // < name, type >
   std::map<std::string, Numeric> numericMap;
   std::map<std::string, Real> realMap;
   std::map<std::string, StringVar> stringMap;
   std::map<std::string, CharVar> charMap;
-  
-  
   auto helper(int curr, vector<std::string> &line);
   auto helperOut(int curr, vector<std::string> &line);
- protected:
+protected:
 
 public:
   Machine(std::string filename);  

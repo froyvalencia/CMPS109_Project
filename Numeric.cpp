@@ -62,3 +62,7 @@ Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   }
   return *this;
 }
+Numeric& Numeric::operator=(const int& n){
+  value += n;
+  return *this;
+}

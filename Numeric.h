@@ -27,6 +27,7 @@ public:
   Numeric operator-(const Numeric& other);
   Numeric operator+(const Numeric& other);
   Numeric& operator=(const Numeric& other);
+  Numeric& operator=(const int& n);
   friend std::ostream& operator<<(std::ostream& os, const Numeric& var); 
 };
 #endif
