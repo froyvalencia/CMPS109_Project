@@ -16,20 +16,50 @@
 #ifndef VAR_H
 #define VAR_H
 
+#include <iostream>
+using namespace std;
+
+class VAR {
+ public:
+  string name, type, value, msg;
+  VAR(string n, string t, string v);
+  VAR(string n, string t, string v, string m);
+  virtual string getType() const;
+  virtual string getName() const;
+  virtual string getValue() const;
+  virtual string getMsg() const;
+  virtual void setValue(string valIN);
+  virtual void setMsg(string s);
+  virtual void printType() const;
+  virtual void printOut();
+  virtual void SET_STR_CHAR(int n, string r);
+ // virtual void GET_STR_CHAR(int n);
+};
+
+#endif
+
+
+
+
+
+
+/*
+
+#ifndef VAR_H
+#define VAR_H
+
 
 #include <iostream>
 class VAR {
  private:
  protected:
-  std::string name; //unique name associated with var
-  std::string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
+  string name; //unique name associated with var
+  string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
  public:
-  VAR(std::string n, std::string t);
-  virtual std::string getType() const;
-  virtual std::string getName() const;
+  VAR(string n, string t);
+  virtual string getType() const;
+  virtual string getName() const;
   virtual void printType() const;
   //auto getValue()=0;
   //virtual auto getValue()=0;
-};
-
-#endif
+*/

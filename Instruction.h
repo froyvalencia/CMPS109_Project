@@ -8,10 +8,15 @@
   
   Instruction class will hold and handle all of our instruction methods that we will expect as input.
 */
+
+
+
+
+
 #ifndef INS_H
 #define INS_H
-#include<map>
-#include<vector>
+#include <map>
+#include <vector>
 #include <string>
 #include <iostream>
 
@@ -26,7 +31,7 @@ template<typename T> T MULT(T v);// { return v;}
 protected:
   std::map<std::string, int> labels;
 public:
-
+  
   //constructor
   Instruction();
   //desctructor

@@ -12,9 +12,5 @@ CharVar::CharVar(std::string n, char v) : Alpha(n, "CHAR") {
 auto CharVar::getValue(){
 	return value;
 }
-int main(){
-	return 0;
-}
-
 
 

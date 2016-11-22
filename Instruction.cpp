@@ -123,11 +123,6 @@ void Instruction::ASSIGN(T var, U val){
 }
 
 //overwrite << for OUT
-template<typename T>
-std::ostream& operator<<(std::ostream& os, const T& var) {  
-  os << var;
-  return os;
-}  
 
 /*
   @params out 1-12
