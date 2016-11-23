@@ -3,7 +3,6 @@
 #include "Alpha.cpp"
 #include "Numeric.cpp"
 #include "Real.cpp"
-#include "Number.cpp"
 #include "String.cpp"
 #include "Char.cpp"
 #include <string>

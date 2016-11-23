@@ -4,6 +4,7 @@
 #include "Machine.h"
 
 int main() {
+  /*
   string ins1 = "";string ins2 = "";
   string ins3 = "";string ins4 = "";
   string ins5 = "";string ins5 = "";
@@ -20,6 +21,6 @@ int main() {
   VM.loadInstructions(); //loads instructions to be executed
   VM.executeInstructions(); //executes all instructions
   VM.laodInstruction("LABEL")
-
+  */
 }
 

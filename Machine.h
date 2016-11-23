@@ -8,12 +8,13 @@
 #include <map>
 #include <vector>
 #include <iostream>
+#include "Real.h"
+#include "Numeric.h"
+#include "Char.h"
+#include "String.h"
+#include "VAR.h"
 #include "Parser.h"
-#include "Instruction.cpp"
-#include "Real.cpp"
-#include "Numeric.cpp"
-#include "Char.cpp"
-#include "String.cpp"
+#include "Instruction.h"
 
 class Machine {
  private:
@@ -23,6 +24,7 @@ class Machine {
   std::vector<std::string> linesOfCode;
   std::map<std::string, int> labels;
   std::map<std::string,std::string> variables; // < name, type >
+  std::map<std::string,VAR> vars; //
   //map for each variable type 
   std::map<std::string, Numeric> numericMap;
   std::map<std::string, Real> realMap;

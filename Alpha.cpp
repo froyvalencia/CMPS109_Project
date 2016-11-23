@@ -8,9 +8,6 @@
 Alpha::Alpha(std::string n, std::string t): VAR(n,t) { 
   //std::cout << " ALPHA CONSTRUCTOR CALLED " << endl;
 }
-void Alpha::printType(){
-  //std::cout<< "Calling Class Alpha of type " << type << endl;
-}
 
 //int main(){
 //return 0;

@@ -46,7 +46,7 @@ void Machine::executeAsignment(std::vector<std::string> line){
     objectFlag = false;
     //put errorinto buffer
   }
-  
+  /*
   if(opcode == "NUMERIC") {
     if(objectFlag) numericMap[varName] = Numeric(varName, numericMap[val].getValue());
     else numericMap[varName] = Numeric(varName, stoi(val));
@@ -59,7 +59,7 @@ void Machine::executeAsignment(std::vector<std::string> line){
     
   }else if(opcode == "CHAR"){    
     if(objectFlag) charMap[varName] = CharVar(varName, charMap[val].getValue());
-    else charMap[varName] = CharVar(varName, (char) val); 
+    else charMap[varName] = CharVar(varName, val[0]); 
     variables[varName] = "Char";
     
   }else { // by default it is std::string if(opcode == "STRING"){
@@ -67,7 +67,7 @@ void Machine::executeAsignment(std::vector<std::string> line){
     else stringMap[varName] = StringVar(varName,stringMap[val].getValue(),stringMap[val].getLength());
     variables[varName] = "String";
   }
-  
+  */
   next++;
 }
 

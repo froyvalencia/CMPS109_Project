@@ -8,11 +8,12 @@
 */
 #ifndef REAL_H
 #define REAL_H
-#include "Number.h"
-class Real : public Number {
-private:
+
+#include "VAR.h"
+class Real : public VAR {
+ private:
   double value;
-public:
+ public:
   Real(std::string n, double v);
   ~Real();
   void setValue(double v);
@@ -21,6 +22,9 @@ public:
   Real operator/(const Real& other);
   Real operator-(const Real& other);
   Real operator+(const Real& other);
-  Real& operator=(const Real& other);
+  Real operator=(const Real& other);
+  Real operator=(int i);
+  
 };
+
 #endif

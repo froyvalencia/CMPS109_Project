@@ -7,14 +7,12 @@
 #define NUMERIC_H
 #include <iostream>
 //#include <string>
-
-#include "Number.cpp"
-class Numeric : public Number {
+#include "VAR.cpp"
+class Numeric : public VAR {
 private:
 protected:
   int value;
 public:
-  Numeric(std::string n);
   Numeric(std::string n,int v);
   ~Numeric();
   void setValue(int v);

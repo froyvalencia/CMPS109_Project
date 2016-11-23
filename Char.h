@@ -14,9 +14,9 @@ class CharVar : public Alpha {
   char value;
  public:
   //CharVar(std::string n);
-  CharVar(const CharVar&& other);
+  //CharVar(const CharVar&& other);
   CharVar(std::string n, char v);
-  char getValue();
+  char getValue() const;
   void setValue(char c);
   friend std::ostream& operator<<(std::ostream& os, const CharVar& var);
 };

@@ -4,12 +4,9 @@
   VAR$myint,NUMERIC,100
 */
 #include "Numeric.h"
-
-//No Value constructor
-Numeric::Numeric(std::string n): Number(n, "Numeric") {}
-
+std::string NUMERIC = "Numeric";
 //constructor
-Numeric::Numeric(std::string n,int v): Number(n, "Numeric") {
+Numeric::Numeric(std::string n,int v): VAR(n, NUMERIC) {
   value = v;
 }
 
