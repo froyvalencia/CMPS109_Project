@@ -13,4 +13,4 @@ VAR::VAR() {}
 VAR::~VAR() {}
 string VAR::getType() const{ return type;}
 string VAR::getName() const{ return name;}
-virtual VAR* clone (vector<string> line)=0;
+

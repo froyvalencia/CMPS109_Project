@@ -3,8 +3,8 @@
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14  
-  VAR$mychar,CHAR,â€™câ€™
-  VAR$mystr,STRING,100,â€HelloworldMIS!!!â€
+  VAR$mychar,CHAR,œôòùcœôòù
+  VAR$mystr,STRING,100,œôòıHelloworldMIS!!!œôòı
 */
 #include <iostream>
 #include "VAR.h"
@@ -13,4 +13,4 @@ VAR::VAR() {}
 VAR::~VAR() {}
 string VAR::getType() const{ return type;}
 string VAR::getName() const{ return name;}
-virtual VAR* clone (vector<string> line)=0;
+

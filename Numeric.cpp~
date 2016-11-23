@@ -14,12 +14,12 @@ Numeric::Numeric(std::string n,int v){
 }
 Numeric::~Numeric(){}
 
-void initialize(vector<string> line){
+void initialize (vector<string> line){
   name = line.at(1);
   type = line.at(2);
   value = stoi(line.at(3));
 }
-VAR * Numeric::clone(vector<string> line){
+Numeric* Numeric::clone(vector<string> line){
   Numeric * numeric = new Numeric();
   numeric->initialize(line);
   return numeric;

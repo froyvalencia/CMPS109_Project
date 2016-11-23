@@ -14,7 +14,8 @@ protected:
 public:
   Numeric();
   Numeric(int v);
-  virtual ~Numeric();  
+  virtual ~Numeric();
+  
   // A method that initializes the object from a stringstream
   virtual void initialize (vector<string> line); 
   virtual VAR * clone(vector<string> line);
