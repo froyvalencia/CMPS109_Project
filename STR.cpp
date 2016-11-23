@@ -12,10 +12,6 @@
 using namespace std;
 
 STR::VAR (string n, string t, string v, string m) {
-<<<<<<< HEAD
-=======
-  
->>>>>>> 00d92d04cf7018416aae0fcc725e40b54b06e133
   msg = m;
 }
 

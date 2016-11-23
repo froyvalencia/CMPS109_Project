@@ -110,10 +110,6 @@ int main()
             varVector.at(checkVARexist(i.second.at(1))).SET_STR_CHAR(stoi(i.second.at(2)),i.second.at(3));
             cout<<varVector.at(checkVARexist(i.second.at(1))).getMsg()<<endl;
           }
-          else if(arrLABEL[j] == "GET_STR_CHAR "){ // GET_STR_CHAR LABEL
-            varVector.at(checkVARexist(i.second.at(1))).SET_STR_CHAR(stoi(i.second.at(2)),i.second.at(3));
-            cout<<varVector.at(checkVARexist(i.second.at(1))).getMsg()<<endl;
-          }
          
          
 

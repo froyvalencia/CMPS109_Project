@@ -6,13 +6,12 @@
 #include "Numeric.h"
 std::string NUMERIC = "Numeric";
 //constructor
-Numeric::Numeric() : Numeric(0) {}
+Numeric::Numeric() : Numeric("",0) {}
 Numeric::Numeric(std::string n,int v){
   name = n;
   type = NUMERIC;
   value = v;
 }
-
 Numeric::~Numeric(){}
 
 void initialize (vector<string> line){

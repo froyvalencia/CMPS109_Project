@@ -12,14 +12,9 @@ std::string CHAR = "CHAR";
 CharVar::CharVar(std::string n, char v) {
   value = v;
 }
-<<<<<<< HEAD
 
 char CharVar::getValue() const{
   return value;
-=======
-auto CharVar::getValue(){
-	return value;
->>>>>>> 00d92d04cf7018416aae0fcc725e40b54b06e133
 }
 
 void CharVar::setValue(char c){

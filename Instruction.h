@@ -15,22 +15,12 @@
 
 #ifndef INS_H
 #define INS_H
-<<<<<<< HEAD
 #include <sstream>
-=======
-#include <map>
-#include <vector>
-#include <string>
->>>>>>> 00d92d04cf7018416aae0fcc725e40b54b06e133
 #include <iostream>
 class Instruction {  
 private: 
 protected:
 public:
-<<<<<<< HEAD
-=======
-  
->>>>>>> 00d92d04cf7018416aae0fcc725e40b54b06e133
   //constructor
   Instruction();
   //desctructor
