@@ -1,5 +1,5 @@
 /*
-  @author Froylan Valencia
+  @author Froylan Valencia, Brian Nguyen
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
   VAR$myfloat,REAL,12.14  
@@ -8,17 +8,9 @@
 */
 #include <iostream>
 #include "VAR.h"
+using namespace std;
+VAR::VAR() {}
+VAR::~VAR() {}
+string VAR::getType() const{ return type;}
+string VAR::getName() const{ return name;}
 
-VAR::VAR(std::string n, std::string t) {
-  name = n;
-  type = t;
-}
-//virtual 
-//void VAR::printType() const {//std::cout << type << std::endl;}
-std::string VAR::getType() const {return type;}
-
-
-std::string VAR::getName() const {return name;}
-//int main(){
-//return 0;
-//}

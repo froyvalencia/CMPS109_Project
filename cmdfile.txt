@@ -1,0 +1,6 @@
+STRING $mystring,100,"Hello world MIS:"
+NUMERIC $counter,0
+LABEL LOOP
+OUT $mystring,$counter," !! \n"
+SUB $counter,$counter,1
+JMPNZ LOOP,$counter

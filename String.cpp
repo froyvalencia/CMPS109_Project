@@ -5,24 +5,24 @@
 */
 #include "String.h"
 #include <string>
-StringVar::StringVar(std::string n, std::string v, int l) : Alpha(n,"STRING"){
+String::String(std::string n, std::string v, int l) : Alpha(n,"STRING"){
   value = v;
 }
 
-int StringVar::getLength(){
+int String::getLength(){
   return length;
 }
 
-auto StringVar::getValue(){
+auto String::getValue(){
   return value;
 }
 
-void StringVar::setValue(std::string v, int l){
+void String::setValue(std::string v, int l){
   value = v;
   length = l;
 }
 /*
-StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
+String& String::operator=(const String& other) { // copy assignment
   if (this != &other) { // self-assignment check expected
     //copy data from other's storage to this storage
     value = other.getValue();
@@ -32,7 +32,7 @@ StringVar& StringVar::operator=(const StringVar& other) { // copy assignment
 }*/
 
 //operator overload used for set_
-char &StringVar::operator[](int i) {
+char &String::operator[](int i) {
   if( i >= length ) {
     //cout << "Index out of bounds" <<endl; ;
     // throw something

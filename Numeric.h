@@ -6,21 +6,23 @@
 #ifndef NUMERIC_H
 #define NUMERIC_H
 #include <iostream>
-//#include <string>
-#include "VAR.cpp"
+#include "VAR.h"
+
 class Numeric : public VAR {
-private:
 protected:
   int value;
 public:
-  Numeric(std::string n,int v);
-  ~Numeric();
+  Numeric();
+  Numeric(int v);
+  virtual ~Numeric();
+  // A method that initializes the object from a stringstream
+  virtual void initialize (vector<string> line); 
   void setValue(int v);
-  auto getValue() const;
-  virtual void printType();  
+  int getValue() const;
   //overload operators
   // +, -, *, /, =, 
   Numeric operator*(const Numeric& other);
+  //int operator*(const Numeric& other,const Numeric& other2);
   Numeric operator/(const Numeric& other);
   Numeric operator-(const Numeric& other);
   Numeric operator+(const Numeric& other);

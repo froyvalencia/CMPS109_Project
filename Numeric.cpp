@@ -6,24 +6,34 @@
 #include "Numeric.h"
 std::string NUMERIC = "Numeric";
 //constructor
-Numeric::Numeric(std::string n,int v): VAR(n, NUMERIC) {
+Numeric::Numeric() : Numeric(0) {}
+Numeric::Numeric(std::string n,int v){
+  name = n;
+  type = NUMERIC;
   value = v;
 }
 
+Numeric::~Numeric(){}
+
+void initialize (vector<string> line){
+  name = line.at(1);
+  type = line.at(2);
+  value = stoi(line.at(3));
+}
 //sets value
 void Numeric::setValue(int v){
   value = v;
 }
 
 //returns value
-auto Numeric::getValue() const{
+int Numeric::getValue() const{
   return value;
 }
 
 //prints the type
 //virtual 
 void Numeric::printType(){
-  //std::cout <<  << std::endl;
+  std::cout << type << std::endl;
 }
 
 //Operator Overloading

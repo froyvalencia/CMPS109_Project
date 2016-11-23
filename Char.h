@@ -9,12 +9,10 @@
 #ifndef CHAR_H
 #define CHAR_H
 #include "Alpha.h"
-class CharVar : public Alpha {  
+class CharVar : public VAR {  
  private:
   char value;
  public:
-  //CharVar(std::string n);
-  //CharVar(const CharVar&& other);
   CharVar(std::string n, char v);
   char getValue() const;
   void setValue(char c);

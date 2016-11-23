@@ -57,8 +57,10 @@ T DIV(T first, Args... args) {
 template<typename T, typename... Args>
 T MULT(T first, Args... args) {
   return first - MULT(args...);}
+ 
 
 
+/*
 int main(){
   intNum myNum("Num1" , 1);
   string s1 = "This ", s2 = "is ", s3 = "a ", s4 = "sentence.";
@@ -72,6 +74,4 @@ int main(){
   myNum.setVal(ADD(myNum.getVal(), i1, i2));
   cout<<"myNum = " << myNum.getVal()<<endl;
   cout<< ADD(myNum.getVal(), i1, i2)<<endl;
-
- 
-}
+*/

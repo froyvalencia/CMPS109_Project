@@ -15,20 +15,22 @@
 */
 #ifndef VAR_H
 #define VAR_H
-
 #include <iostream>
+#include <vector>
+using namespace std;
 class VAR {
- private:
- 
  protected:
-  std::string name; //unique name associated with var
-  std::string type; //holds string of type i.e. "Numeric", "Real", "Char", "Stringg
+  string name;
+  string type;
  public:
-  VAR(std::string n, std::string t);
-  std::string getType() const;
-  std::string getName() const;
-  //virtual void printType() const;
-  //auto getValue()=0;
-  //virtual auto getValue()=0;
+  VAR();
+  virtual ~VAR();
+  string getType() const;
+  string getName() const;
+  virtual void initialize (vector<string> line)=0;
+//  virtual int getNumeric(){}
+//  virtual double getReal(){}
+//  virtual char getChar(){}
+//  virtual string getString(){}
 };
 #endif
