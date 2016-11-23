@@ -29,7 +29,7 @@ class Machine {
   std::map<std::string, Numeric> numericMap;
   std::map<std::string, Real> realMap;
   std::map<std::string, StringVar> stringMap;
-  std::map<std::string, CharVar> charMap;
+  std::map<std::string, Char> charMap;
   
   
   auto helper(int curr, vector<std::string> &line);
@@ -48,7 +48,7 @@ public:
   Numeric* getVal(std::string s);
   Real* getReal(std::string s);
   //helpr for executeAlpha()
-  CharVar* getCharVal(std::string s);
+  Char* getCharVal(std::string s);
   void executeMath(std::vector<std::string> line);  
   //executes String instrucitons
   void executeAlpha(std::vector<std::string> line);

@@ -9,17 +9,17 @@
 #ifndef CHAR_H
 #define CHAR_H
 #include "VAR.h"
-class CharVar : public VAR {  
+class Char : public VAR {  
  private:
   char value;
  public:
-  CharVar();
-  CharVar(std::string n, char v);
-  ~CharVar();
+  Char();
+  Char(std::string n, char v);
+  ~Char();
   void initialize(vector<string> line);
   VAR * Numeric::clone(vector<string> line);
   char getValue() const;
   void setValue(char c);
-  friend std::ostream& operator<<(std::ostream& os, const CharVar& var);
+  friend std::ostream& operator<<(std::ostream& os, const Char& var);
 };
 #endif

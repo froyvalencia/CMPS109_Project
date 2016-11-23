@@ -5,14 +5,14 @@
 */
 
 #include "Char.h"
-//CharVar::CharVar(std::string n) : Alpha(n, "CHAR") {}
-//CharVar::CharVar(const CharVar&& other) : Alpha(name,"CHAR") { 
+//Char::Char(std::string n) : Alpha(n, "CHAR") {}
+//Char::Char(const Char&& other) : Alpha(name,"CHAR") { 
 //value = other.getValue();}
-CharVar::CharVar(){}
-CharVar::CharVar(std::string n, char v) {
+Char::Char(){}
+Char::Char(std::string n, char v) {
   value = v;
 }
-CharVar::~CharVar(){}
+Char::~Char(){}
 void initialize(vector<string> line){
   name = line.at(1);
   type = line.at(2);
@@ -25,11 +25,11 @@ VAR * Numeric::clone(vector<string> line){
   return numeric;
 }
 
-char CharVar::getValue() const{
+char Char::getValue() const{
   return value;
 }
 
-void CharVar::setValue(char c){
+void Char::setValue(char c){
   value = c;
 }
 
