@@ -5,8 +5,21 @@
 */
 #include "String.h"
 #include <string>
-String::String(std::string n, std::string v, int l) : Alpha(n,"STRING"){
+String::String(std::string n, std::string v, int l){
   value = v;
+}
+String::String(){}
+String::~String(){}
+void initialize (vector<string> line){
+  name = line.at(1);
+  type = line.at(2);
+  length = stoi(line.at(3));
+  value = line.at(4);
+}
+VAR* String::clone (vector<string> line) {
+ String* string = new String();
+string->initialize(line);
+return string;
 }
 
 int String::getLength(){

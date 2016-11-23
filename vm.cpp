@@ -1,4 +1,4 @@
-/*
+
  #include <iostream>
 #include "Parser.cpp"
 #include <string>
@@ -10,8 +10,13 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "VAR.cpp"
-#include "MathOp.cpp"
+#include "VAR.h"
+#include "Numeric.h"
+#include "String.h"
+#include "Char.h"
+#include "Real.h"
+#include "MathOp.h"
+
 
 using namespace std;
 
@@ -53,9 +58,18 @@ int main()
     cout<<"size of Varvector before load: " <<varVector.size() << endl<<endl;
     for(auto &i : myMap){ //reads each element in myMap. Essentially reads line per line using i.
       for(int j=0; j<sizeof(arrLABEL); j++){
-        if(i.second.at(0) == arrLABEL[j]){  //compares Label of Vector inside myMap to  arrayLabels to determine action
+        if(i.second.at(0) == arrLABEL[j]){ 8 //compares Label of Vector inside myMap to  arrayLabels to determine action
           cout << "LABEL: " << arrLABEL[j] <<endl;        
           if(arrLABEL[j] == "VAR "){ //VAR LABEL
+            VAR * obj = varMap[i.second.at(2)];
+            if ( obj != NULL ) { // If can find an object with name index
+             obj = obj->clone(i.second); // Clone an object of the same type
+            delete (obj); // delete the object
+            } else cout << "Undefined Object Identifier\n"; 
+
+
+
+            /*
             if(i.second.at(2) == "STRING"){ 
             varVector.push_back(VAR(i.second.at(1), i.second.at(2), i.second.at(3), i.second.at(4)));
             cout<< "New VAR: "<< i.second.at(1) <<"\nType: "<<i.second.at(2)<<"\nValue: "<<i.second.at(3)
@@ -65,6 +79,7 @@ int main()
             varVector.push_back(VAR(i.second.at(1), i.second.at(2), i.second.at(3)));
             cout<< "New VAR: "<< i.second.at(1) <<"\nType: "<<i.second.at(2)<<"\nValue: " <<i.second.at(3)<<endl<<endl;
             }
+            */
           }
           else if(arrLABEL[j] == "ADD "){ //ADD LABEL
             double sumTotal = 0;
@@ -166,4 +181,3 @@ double checkType(string s){
   else
     return stod(s);
 }
-*/
