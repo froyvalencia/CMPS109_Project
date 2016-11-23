@@ -4,17 +4,16 @@
   VAR$myfloat,REAL,12.1
 */
 #include "Real.h"
-std::string Real = "Real";
 //constructor
-Real::Real() : Real("",0) {}
+Real::Real() {}
 Real::Real(std::string n,double v){
   name = n;
-  type = Real;
+ // type = "REAL";
   value = v;
 }
 Real::~Real(){}
 
-void initialize (vector<string> line){
+void Real::initialize (vector<string> line){
   name = line.at(1);
   type = line.at(2);
   value = stod(line.at(3));
@@ -37,9 +36,6 @@ double Real::getValue() const{
 
 //prints the type
 //virtual 
-void Real::printType(){
-  std::cout << type << std::endl;
-}
 
 //Operator Overloading
 Real Real::operator*(const Real& other){
@@ -74,4 +70,4 @@ Real& Real::operator=(const Real& other) { // copy assignment
   }
   return *this;
 }
-Real& Real::operator=(const int& n){
+//Real& Real::operator=(const int& n){

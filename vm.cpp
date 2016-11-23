@@ -1,39 +1,28 @@
-
- #include <iostream>
-#include "Parser.cpp"
-#include <string>
-#include <iostream>    
+#include <iostream>
+#include <string>    
 #include <sstream>
 #include <fstream>
 #include <map>
 #include <vector>
-#include <map>
-#include <vector>
-#include <iostream>
+#include "Parser.h"
 #include "VAR.h"
 #include "Numeric.h"
 #include "String.h"
 #include "Char.h"
 #include "Real.h"
-#include "MathOp.h"
-
+//#include "MathOp.h"
 
 using namespace std;
 
-
 vector<VAR*> varVector;
 map<int, vector<string>> myMap; 
-int checkVARexist(string s);
-double DofStr(string s);
-int IofStr(string s);
-double checkType(string s);
 int main()
 {
-  map<string, VAR*> varMap; 
-  varMap["Numeric"] = new Numeric();
-  varMap["Real"] = new Real();
-  varMap["String"] = new String();
-  varMap["Char"] = new Char();
+  map<string, VAR *> varMap; 
+  varMap["NUMERIC"] = new Numeric();
+  varMap["REAL"] = new Real();
+  varMap["STRING"] = new String();
+  varMap["CHAR"] = new Char();
 
 
   static const string arrLABEL[] = {
@@ -42,32 +31,40 @@ int main()
      "JMPGTE ", "JMPLTE ", "SLEEP "};
 
   Parser myParse;  
-  MathOp myMathOp;
+  //MathOp myMathOp;
   myParse.parseFile("varTxt.txt");
   myMap = myParse.parseInstructions();
-
   cout << "Parsed map:" <<endl;
-  for(auto &i : myMap)
-    {
-      cout<<"Line "<< i.first << ": "<<endl;
-          for(int j = 0; j<i.second.size(); j++)
-       cout<< i.second.at(j)<< " ";
-          cout<<""<<endl;
-    }
-    cout<< "-------------------------------------------" <<endl;
-    cout<<"size of Varvector before load: " <<varVector.size() << endl<<endl;
-    for(auto &i : myMap){ //reads each element in myMap. Essentially reads line per line using i.
-      for(int j=0; j<sizeof(arrLABEL); j++){
-        if(i.second.at(0) == arrLABEL[j]){ 8 //compares Label of Vector inside myMap to  arrayLabels to determine action
-          cout << "LABEL: " << arrLABEL[j] <<endl;        
-          if(arrLABEL[j] == "VAR "){ //VAR LABEL
-            VAR * obj = varMap[i.second.at(2)];
-            if ( obj != NULL ) { // If can find an object with name index
-             obj = obj->clone(i.second); // Clone an object of the same type
+  for(auto &i : myMap) {
+    cout<<"Line "<< i.first << ": "<<endl;
+    for(int j = 0; j<i.second.size(); j++) cout<< i.second.at(j)<< " ";
+    cout <<""<< endl;
+  }
+  cout<< "-------------------------------------------" <<endl;
+  cout<<"size of Varvector before load: " <<varVector.size() << endl<<endl;
+  for(auto &i : myMap){ //reads each element in myMap. Essentially reads line per line using i.
+    for(int j=0; j<sizeof(arrLABEL); j++){
+      if(i.second.at(0) == arrLABEL[j]){ //compares Label of Vector inside myMap to  arrayLabels to determine action
+        cout << "LABEL: " << arrLABEL[j] <<endl;        
+        if(arrLABEL[j] == "VAR "){ //VAR LABEL
+          VAR * obj = varMap[i.second.at(2)];
+          if ( obj != NULL ) { // If can find an object with name index
+            obj = obj->clone(i.second); // Clone an object of the same type
+            if(obj->getType() == "NUMERIC"){
+              
+              Numeric * num = (Numeric*)obj;
+              cout << num->getValue() << endl;
+            }
+            
             delete (obj); // delete the object
-            } else cout << "Undefined Object Identifier\n"; 
-
-
+          } else cout << "Undefined Object Identifier\n"; 
+        }
+      }
+    }
+  }
+  cout<<"size of Varvector after load: " <<varVector.size() << endl;
+  return 0;
+}
 
             /*
             if(i.second.at(2) == "STRING"){ 
@@ -80,7 +77,8 @@ int main()
             cout<< "New VAR: "<< i.second.at(1) <<"\nType: "<<i.second.at(2)<<"\nValue: " <<i.second.at(3)<<endl<<endl;
             }
             */
-          }
+          //}
+          /*
           else if(arrLABEL[j] == "ADD "){ //ADD LABEL
             double sumTotal = 0;
             for(int k=2; k<i.second.size(); k++){
@@ -138,21 +136,13 @@ int main()
             cout<<varVector.at(checkVARexist(i.second.at(1))).getMsg()<<endl;
           }
          
-         
-
-
-
-       }
-    }
-  }
-  cout<<"size of Varvector after load: " <<varVector.size() << endl;
-  return 0;
-}
+         */
 
 
 
 
 
+/*
 int checkVARexist(string s){
   int vIndex = 0;
   bool found = false;
@@ -181,3 +171,4 @@ double checkType(string s){
   else
     return stod(s);
 }
+*/

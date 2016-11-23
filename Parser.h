@@ -5,6 +5,7 @@
 //  Created by Brian Nguyen on 11/8/16.
 //  builds @ 9:38pm 
 //
+#pragma once
 #ifndef Parser_h
 #define Parser_h
 

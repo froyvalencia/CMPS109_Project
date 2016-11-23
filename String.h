@@ -7,6 +7,7 @@
   VAR$mystr,STRING,100,”HelloworldMIS!!!”
   String class inherits from alpha and recieves String value after figuring out the type in VAR
 */
+#pragma once
 #ifndef STR_H
 #define STR_H
 #include "VAR.h"
@@ -24,7 +25,7 @@ public:
   VAR * clone (vector<string> line);
   void setValue(std::string v, int l);
   int getLength();
-  auto getValue();
+  string getValue();
   //String& operator=(const String& other); // copy assignment
   char &operator[](int i);  //operator overload used for set_ / get_
 };

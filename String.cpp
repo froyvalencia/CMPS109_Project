@@ -7,26 +7,28 @@
 #include <string>
 String::String(std::string n, std::string v, int l){
   value = v;
+  name = n;
+  length = l;
 }
 String::String(){}
 String::~String(){}
-void initialize (vector<string> line){
+void String::initialize (vector<string> line){
   name = line.at(1);
   type = line.at(2);
   length = stoi(line.at(3));
   value = line.at(4);
 }
 VAR* String::clone (vector<string> line) {
- String* string = new String();
-string->initialize(line);
-return string;
+ String* str = new String();
+str->initialize(line);
+return str;
 }
 
 int String::getLength(){
   return length;
 }
 
-auto String::getValue(){
+string String::getValue(){
   return value;
 }
 

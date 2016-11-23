@@ -3,6 +3,8 @@
   VAR<name>,<type>,<optional:sizeincaseofstringonly>,<defaultvalue>
   VAR$myint,NUMERIC,100
 */
+
+#pragma once
 #ifndef NUMERIC_H
 #define NUMERIC_H
 #include <iostream>
@@ -13,7 +15,7 @@ protected:
   int value;
 public:
   Numeric();
-  Numeric(int v);
+  Numeric(string n, int v );
   virtual ~Numeric();  
   // A method that initializes the object from a stringstream
   virtual void initialize (vector<string> line); 

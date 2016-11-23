@@ -13,6 +13,7 @@
   This base class will be branched down to ALpha and Number classes and then
   will branch down further as needed. 
 */
+#pragma once
 #ifndef VAR_H
 #define VAR_H
 #include <iostream>

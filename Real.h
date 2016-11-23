@@ -6,6 +6,7 @@
   VAR$myfloat,REAL,12.1
   Real class inherits from Number which will recieve a double as the value parameter after having recognized the type in a VAR
 */
+#pragma once
 #ifndef REAL_H
 #define REAL_H
 #include <iostream>
@@ -16,13 +17,13 @@ protected:
   double value;
 public:
   Real();
-  Real(double v);
+  Real(std::string n, double v);
   virtual ~Real();
   // A method that initializes the object from a stringstream
   virtual void initialize (vector<string> line); 
   VAR * clone (vector<string> line);
   void setValue(double v);
-  int getValue() const;
+  double getValue() const;
   //overload operators
   // +, -, *, /, =, 
   Real operator*(const Real& other);

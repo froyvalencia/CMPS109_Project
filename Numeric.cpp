@@ -6,7 +6,7 @@
 #include "Numeric.h"
 std::string NUMERIC = "Numeric";
 //constructor
-Numeric::Numeric() : Numeric("",0) {}
+Numeric::Numeric() {}
 Numeric::Numeric(std::string n,int v){
   name = n;
   type = NUMERIC;
@@ -14,7 +14,7 @@ Numeric::Numeric(std::string n,int v){
 }
 Numeric::~Numeric(){}
 
-void initialize(vector<string> line){
+void Numeric::initialize(vector<string> line){
   name = line.at(1);
   type = line.at(2);
   value = stoi(line.at(3));
@@ -37,9 +37,6 @@ int Numeric::getValue() const{
 
 //prints the type
 //virtual 
-void Numeric::printType(){
-  std::cout << type << std::endl;
-}
 
 //Operator Overloading
 Numeric Numeric::operator*(const Numeric& other){
