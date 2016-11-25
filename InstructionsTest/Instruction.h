@@ -7,24 +7,26 @@
   ADD, SUB, MUL, DIV, ASSIGN, OUT, SET_STR_CHAR, LABEL ,JMP, JMP(Z/NZ), JMP(GT/LT/GTE/LTE), SLEEP
   
   Instruction class will hold and handle all of our instruction methods that we will expect as input.
+
+Is friend class to machine
 */
-
-
-
-
-
 #ifndef INS_H
 #define INS_H
 #include <sstream>
 #include <iostream>
-class Instruction {  
+#include <map>
+#include <vector>
+using namespace std;
+class Instruction { 
 private: 
 protected:
 public:
   //constructor
   Instruction();
   //desctructor
-  ~Instruction();
-  virual void execute(stringstream & ss)=0;
+  virtual ~Instruction();
+  virtual void execute(vector<string> line)=0;
+  // virtual string getType() const;
+  virtual Instruction* clone()=0;
 };
 #endif

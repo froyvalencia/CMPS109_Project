@@ -28,19 +28,20 @@ vector<string> Parser::parseFile(string file){
   }
 
 //parses lines from parsed into seperate strings.
+//parses lines from parsed into seperate strings.
 map<int,vector<std::string>> Parser::parseInstructions(){
   for(int i =0; i <parsed.size(); i++){
     // cout<<"line:"<<i<<endl;
     string l = parsed.at(i);
     size_t prev = 0, pos;
     if((pos = l.find_first_of("$,", prev)) != std::string::npos){
-	   if(pos > prev){
-        if(l[pos] == ",")cmdMap[i].push_back(l.substr(prev, pos-prev));
+     if(pos > prev){
+        if(l[pos] == ',') cmdMap[i].push_back(l.substr(prev, pos-prev));
         else cmdMap[i].push_back(l.substr(prev, pos-prev-1));
         //cout<<l.substr(prev, pos-prev)<<endl;
       }
       prev = pos+1;
-	 }
+   }
 
     if (prev < l.length()){
       cmdMap[i].push_back(l.substr(prev, std::string::npos));
