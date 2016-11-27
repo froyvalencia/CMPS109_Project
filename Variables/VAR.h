@@ -30,9 +30,5 @@ class VAR {
   string getName() const;
   virtual void initialize (vector<string> line)=0;
   virtual VAR* clone (vector<string> line)=0;
-//  virtual int getNumeric(){}
-//  virtual double getReal(){}
-//  virtual char getChar(){}
-//  virtual string getString(){}
 };
 #endif

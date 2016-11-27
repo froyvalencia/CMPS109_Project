@@ -1,0 +1,4 @@
+SUB $counter,$counter,1.2
+ADD $counter2,$counter,1.5,4,3,6
+DIV $counter3,$counter3,2
+MUL $myfloat,$myfloat2,12,15,1,22

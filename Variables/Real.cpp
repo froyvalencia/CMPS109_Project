@@ -70,4 +70,23 @@ Real& Real::operator=(const Real& other) { // copy assignment
   }
   return *this;
 }
-//Real& Real::operator=(const int& n){
+Real& Real::operator+=(const Real& other){
+  value += other.getValue();
+}
+Real& Real::operator+=(const int& i){
+  value += ((double) i);
+}
+Real& Real::operator+=(const double& d){
+  value += d;
+}
+
+
+Real& Real::operator*=(const Real& other){
+  value *= other.getValue();
+}
+Real& Real::operator*=(const int& i){
+  value *= ((double) i);
+}
+Real& Real::operator*=(const double& d){
+  value *= d;
+}
