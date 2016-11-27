@@ -1,18 +1,29 @@
+  /*
+    @params 3-13
+    1: REAL or Numeric 
+    Variable
+    Rest: Real or Numeric 
+    Variable or Constant.
+    
+    @description
+    Multiply  all  parameters  excluding the first one and 
+    store the  results  in  the first parameter.
+   */
 #include "Mul.h"
 Mul::Mul(){}
 Mul::~Mul(){}
 void Mul::execute(vector<string> line){
 
 	cout << "executing Mul :" << endl;
-	VAR * target = varsMap[i.second.at(1)]; //get VAR* by name
+	VAR * target = varsMap[line.at(1)]; //get VAR* by name
 
 	for(size_t i=2;i<line.size();++i){
-		VAR * obj = varMap[i.second.at(1)];
+		VAR * obj = varMap[line.at(1)];
 		if(obj == NULL){
 			if(Numeric* var = dynamic_cast<Numeric*>(target)){
-				var *= stoi(i.second.at(i));
+				var *= stoi(line.at(i));
 			}else if(Real* var = dynamic_cast<Real*>(target)){
-				var *= stod(i.second.at(i));
+				var *= stod(line.at(i));
 			}else{
 				//error
 			}
