@@ -14,11 +14,11 @@
 class Parser{
  private:
   std::vector<std::string> parsed;
-  std::map<int, std::vector<std::string> > cmdMap;
+  std::vector< std::vector<std::string> > cmdMap;
  public:  
   Parser();
   std::vector<std::string> parseFile(std::string file);
-  std::map< int, std::vector<std::string> > parseInstructions();
+  std::vector< std::vector<std::string> > parseInstructions();
 };
 
 #endif /* Parser_h */

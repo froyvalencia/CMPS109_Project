@@ -21,15 +21,13 @@
 #include "Div.h"
 #include "Equals.h"
 #include "Assign.h"
-//#include "Out.h"
-//#include "SET_STR_CHAR.h"
-//#include "LABEL"
-//#include "JMP.h"
-//#include "JMPZ.", "JMPNZ ", "JMPGT ","JMPLT ", 
+#include "Out.h"
+#include "Label.h"
+#include "Jump.h"
+#include "SET_STR_CHAR.h"
+// #include "JMPZ." "JMPNZ ", "JMPGT ","JMPLT ", 
 //     "JMPGTE ", "JMPLTE ", 
 //#include "SLEEP.h"
-//#include ".h"
-//#include ".h"
 
 class Machine {
   friend class Instruction;
@@ -39,11 +37,8 @@ class Machine {
   int next;
   
   std::vector<std::string> linesOfCode;
-  std::map<std::string, int> labels;
-
-  std::vector<VAR*> vars;
-  std::map<std::string,VAR *> varMap; //
-  vector<VAR *> vars;
+  std::map<std::string, int> labelMap;
+  std::map<std::string,VAR *> varMap;
   std::map<std::string,Instruction *> insMap;
   
   auto helper(int curr, vector<std::string> &line);

@@ -3,7 +3,7 @@ Div::Div(){}
 Div::~Div(){}
 void Div::execute(vector<string> line) {
 	cout << "executing Div :" << endl;
-	VAR * target = varsMap[i.second.at(1)];
+	VAR * target = varMap[i.second.at(1)];
 	VAR * first = varMap[i.second.at(2)];
 	VAR * second = varMap[i.second.at(3)];
 	double x,y;

@@ -16,8 +16,15 @@ Is friend class to machine
 #include <iostream>
 #include <map>
 #include <vector>
+#include "VAR.h"
+#include "Real.h"
+#include "Numeric.h"
+#include "Char.h"
+#include "String.h"
+
 using namespace std;
-class Instruction { 
+class Instruction {
+friend class Machine; 
 private: 
 protected:
 public:

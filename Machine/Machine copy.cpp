@@ -3,6 +3,7 @@
   Machine class implementation
 */
 #include "Machine.h"
+Machine::Machine(){}
 Machine::Machine(std::string filename){
   next = 0;
   loadFile(filename);

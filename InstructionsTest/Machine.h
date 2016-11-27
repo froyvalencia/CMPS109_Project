@@ -38,15 +38,17 @@
 //#include ".h"
 
 class Machine {
-  int curr;
+  friend class Instruction;
  private:
   Parser parser;
-  Instruction instructionHandler;
   int next;
+  bool running;
   std::vector<std::string> linesOfCode;
+  std::vector< vector<std::string> > codeMap;
   std::map<std::string, int> labelMap;
+  std::map<std::string,VAR *> objMap;//holds base obj REAL,NUM,CHAR,STR
   std::map<std::string,VAR *> varMap;
-  std::map<std::string,Instruction *> insMap;
+  std::map<std::string,Instruction *> insMap;//holds base Instruction OBJS
  protected:
 public:
   Machine();
