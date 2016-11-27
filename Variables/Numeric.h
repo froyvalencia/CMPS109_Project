@@ -31,6 +31,12 @@ public:
   Numeric operator+(const Numeric& other);
   Numeric& operator=(const Numeric& other);
   Numeric& operator=(const int& n);
+  Numeric& operator+=(const Numeric& other);
+  Numeric& operator+=(const int& i);
+  Numeric& operator+=(const double& d);  
+  Numeric& operator*=(const Numeric& other);
+  Numeric& operator*=(const int& i);
+  Numeric& operator*=(const double& d); 
   friend std::ostream& operator<<(std::ostream& os, const Numeric& var); 
 };
 #endif

@@ -5,9 +5,6 @@
 */
 
 #include "Char.h"
-//Char::Char(std::string n) : Alpha(n, "CHAR") {}
-//Char::Char(const Char&& other) : Alpha(name,"CHAR") { 
-//value = other.getValue();}
 Char::Char(){ }
 Char::Char(std::string n, char v) {
   value = v;

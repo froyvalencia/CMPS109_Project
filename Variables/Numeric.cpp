@@ -12,6 +12,7 @@ Numeric::Numeric(std::string n,int v){
   type = NUMERIC;
   value = v;
 }
+
 Numeric::~Numeric(){}
 
 void Numeric::initialize(vector<string> line){
@@ -62,6 +63,10 @@ Numeric Numeric::operator+(const Numeric& other){ //overload +
   int result = value + other.getValue();
   return Numeric(name, result);
 }
+int Numeric::operator+(const Numeric& other){ //overload +
+  int result = value + other.getValue();
+  return int;
+}
 
 Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   if (this != &other) { // self-assignment check expected
@@ -71,7 +76,28 @@ Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   }
   return *this;
 }
-Numeric& Numeric::operator=(const int& n){
-  value += n;
+Numeric& Numeric::operator+=(const Numeric& other){
+  value += other.getValue();
+  return *this;
+}
+Numeric& Numeric::operator+=(const int& i){
+  value += i;
+  return *this;
+}
+Numeric& Numeric::operator+=(const double& d){
+  value += ((int) d);
+  return *this;
+}
+
+Numeric& Numeric::operator*=(const Numeric& other){
+  value *= other.getValue();
+  return *this;
+}
+Numeric& Numeric::operator*=(const int& i){
+  value *= i;
+  return *this;
+}
+Numeric& Numeric::operator*=(const double& d){
+  value *= ((int) d);
   return *this;
 }

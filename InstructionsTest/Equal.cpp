@@ -3,10 +3,11 @@ Equal::Equal(){}
 Equal::~Equal(){}
 void Equal::execute(vector<string> line){
 	cout << "executing Equal :" << endl;
+	int i = 0;
 	for(string s : line){
-		cout << s << " ";
+		cout << "Paramater " << ++i <<":" ;
+		cout << s << endl;
 	}
-	cout << endl;
 }
 Instruction * Equal::clone(){
 	Equal * eq = new Equal();

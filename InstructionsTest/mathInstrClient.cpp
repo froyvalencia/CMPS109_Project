@@ -15,6 +15,7 @@
 using namespace std;
 map<int, vector<string> > myMap;
 int main(){
+  map<string, VAR *> insMap;
   map<string, Instruction *> insMap;
   insMap["ADD"] = new Add();
   insMap["SUB"] = new Sub();
@@ -22,16 +23,9 @@ int main(){
   insMap["DIV"] = new Div();
   insMap["EQUAL"] = new Equal();
   vector<string> ins = {"EQUAL", "ADD", "SUB", "MUL", "DIV"};
-  Parser myParse;  
-  //MathOp myMathOp;
+  Parser myParse;
   myParse.parseFile("varTxt.txt");
   myMap = myParse.parseInstructions();
-  cout << "Parsed map:" <<endl;
-  for(auto &i : myMap) {
-    cout<<"Line "<< i.first << ": "<<endl;
-    for(int j = 0; j<i.second.size(); j++) cout<< i.second.at(j)<< ",";
-    cout <<""<< endl;
-  }
   cout<< "-------------------------------------------" <<endl;
   cout<<"before: " << endl;
   for(auto &i : myMap){ //reads each element in myMap. Essentially reads line per line using i.
@@ -49,6 +43,26 @@ int main(){
         }else if(Mul* op = dynamic_cast<Mul*>(obj)){
           op->execute(i.second);
         }else if(Equal* op = dynamic_cast<Equal*>(obj)){
+          op->execute(i.second);
+        }else if(Assign* op = dynamic_cast<Assign*>(obj)){
+          op->execute(i.second);
+        }else if(Label * op = dynamic_cast<Label*>(obj)){
+          op->execute(i.second);
+        }else if(Jump * op = dynamic_cast<Jump*>(obj)){
+          op->execute(i.second);
+        }else if(JumpZ * op = dynamic_cast<JumpZ*>(obj)){
+          op->execute(i.second);
+        }else if(JumpNZ * op = dynamic_cast<JumpNZ*>(obj)){
+          op->execute(i.second);
+        }else if(JumpGT * op = dynamic_cast<JumpGT*>(obj)){
+          op->execute(i.second);
+        }else if(JumpGTE * op = dynamic_cast<JumpGTE*>(obj)){
+          op->execute(i.second);
+        }else if(JumpLT * op = dynamic_cast<JumpLT*>(obj)){
+          op->execute(i.second);
+        }else if(JumpLTE * op = dynamic_cast<JumpLTE*>(obj)){
+          op->execute(i.second);
+        }else if(Sleep * op = dynamic_cast<Sleep*>(obj)){
           op->execute(i.second);
         }
         delete (obj); // delete the object

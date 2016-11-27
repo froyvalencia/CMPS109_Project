@@ -1,13 +1,27 @@
 #include "Div.h"
 Div::Div(){}
 Div::~Div(){}
-void Div::execute(vector<string> line){
+void Div::execute(vector<string> line) {
 	cout << "executing Div :" << endl;
-	for(string s : line){
-		cout << s << " ";
-	}
-	cout << endl;
+	VAR * target = varsMap[i.second.at(1)];
+	VAR * first = varMap[i.second.at(2)];
+	VAR * second = varMap[i.second.at(3)];
+	double x,y;
+	//get value from first
+	if(Numeric* var = dynamic_cast<Numeric*>(first)) x = var->getValue();
+	else if(Real* var = dynamic_cast<Real*>(first)) x = var->getValue();
+	else x = stod(i.second.at(2));
+	//get value from second
+	if(Numeric* var = dynamic_cast<Numeric*>(second)) y = var->getValue();
+	else if(Real* var = dynamic_cast<Real*>(second)) y = var->getValue();
+	else y = stod(i.second.at(3));
+
+	if(y == 0) return;
+	if(Numeric* var = dynamic_cast<Numeric*>(target)) var->setValue(x/y);
+	else if(Real* var = dynamic_cast<Real*>(target)) var->setValue(x/y);
+	cout << "finished executing Div :" << endl;
 }
+
 Instruction * Div::clone(){
 	Div * div = new Div();
 	return div;
