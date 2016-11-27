@@ -33,6 +33,12 @@ public:
   Real operator+(const Real& other);
   Real& operator=(const Real& other);
   Real& operator=(const int& n);
+  
+  Real& operator=(const Real& other);
+  Real& operator+=(const int& i);
+  Real& operator+=(const double& d); 
+  Real& operator*=(const int& i);
+  Real& operator*=(const double& d); 
   friend std::ostream& operator<<(std::ostream& os, const Real& var); 
 };
 #endif
