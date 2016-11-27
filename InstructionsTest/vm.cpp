@@ -15,11 +15,13 @@
 using namespace std;
 
 vector<VAR*> vars;
-map<int, vector<string>> myMap; 
+vector< vector<string>> myvector; 
 int main()
 {
-  map<string, VAR *> varMap;
-  map<string, Instruction *> insMap;
+  //map<string, VAR *> varMap;
+  //map<string, Instruction *> insMap;
+  
+
   //initialize VarMap
   varMap["NUMERIC"] = new Numeric();
   varMap["REAL"] = new Real();
@@ -53,30 +55,30 @@ int main()
   Parser myParse;  
   //MathOp myMathOp;
   myParse.parseFile("varTxt.txt");
-  myMap = myParse.parseInstructions();
+  myvector = myParse.parseInstructions();
   //printing 
   cout << "Parsed map:" <<endl;
-  for(auto &i : myMap) {
-    cout<<"Line "<< i.first << ": "<<endl;
-    for(int j = 0; j<i.second.size(); j++) cout<< i.second.at(j)<< " ";
+  for(auto &i : myvector) {
+//    cout<<"Line "<< i << ": "<<endl;
+    for(int j = 0; j<i.size(); j++) cout<< i.at(j)<< " ";
     cout <<""<< endl;
   }
   //printing 
 
   cout<< "-------------------------------------------" << endl;
   cout<<"size of Varvector before load: " << varVector.size() << endl <<endl;
-  for(auto &i : myMap){ //reads each element in myMap. Essentially reads line per line using i.
+  for(auto &i : myvector){ //reads each element in myMap. Essentially reads line per line using i.
     for(int j=0; j<sizeof(arrLABEL); j++){
       if(i.second.at(0) == arrLABEL[j]){ //compares Label of Vector inside myMap to  arrayLabels to determine action
         cout << "LABEL: " << arrLABEL[j] <<endl;        
         if(arrLABEL[j] != "VAR "){ //VAR LABEL
-          VAR * obj = varMap[i.second.at(2)];
+          VAR * obj = objMap[i.second.at(2)];
           obj = obj->clone(i.second);
           if ( obj != NULL ) { // If can find an object with name index
             //Clone an object of the same type
             if(Numeric * num = dynamic_cast<Numeric*>(obj)){ //obj->getType() == "NUMERIC"){
               cout << num->getValue() << endl;
-              vars.
+              var
             }
             
             delete (obj); // delete the object
