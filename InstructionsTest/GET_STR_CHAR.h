@@ -11,7 +11,6 @@
 #include "Instruction.h"
 class GET_STR_CHAR : public Instruction {
 private:
-	int returnChar;
  public:
   GET_STR_CHAR();
   virtual ~GET_STR_CHAR();

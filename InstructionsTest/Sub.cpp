@@ -4,7 +4,7 @@ Sub::Sub(){}
 Sub::~Sub(){}
 void Sub::execute(vector<string> line){
 	cout << "executing Sub :" << endl;
-	VAR * target = varsMap[line.at(1)];
+	VAR * target = varMap[line.at(1)];
 	VAR * first = varMap[line.at(2)];
 	VAR * second = varMap[line.at(3)];
 	double x,y;

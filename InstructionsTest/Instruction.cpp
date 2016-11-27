@@ -1,6 +1,5 @@
 /*
 @author Froylan Valencia
-
 */
 #include "Instruction.h"
 Instruction::Instruction(){}

@@ -95,6 +95,6 @@ Real& Real::operator*=(const double& d){
   return *this;
 }
 Real& Real::operator*=(const Numeric& num){
-  value *= ((double)num->getValue());
+  value *= ((double)num.getValue());
   return *this;
 } 

@@ -31,10 +31,25 @@ int String::getLength(){
 string String::getValue(){
   return value;
 }
-
-void String::setValue(std::string v, int l){
+char String::getChar(int i){
+  if( i >= length || i < 0) {
+    cout << "Index out of bounds" <<endl; ;
+    // throw something
+    return value[0];
+  }
+  return value[i];
+}
+void String::setValue(std::string v){
   value = v;
-  length = l;
+  length = v.size();
+}
+void String::setAt(char c,int i){
+  if(i > 0 && i < length){
+    value[i] = c;
+  }else{
+    cout<<"Error\n";
+  }
+  
 }
 /*
 String& String::operator=(const String& other) { // copy assignment

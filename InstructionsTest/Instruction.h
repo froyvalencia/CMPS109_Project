@@ -16,17 +16,19 @@ Is friend class to machine
 #include <iostream>
 #include <map>
 #include <vector>
+//#include "Machine.h"
 #include "VAR.h"
 #include "Real.h"
 #include "Numeric.h"
 #include "Char.h"
 #include "String.h"
 
-using namespace std;
 class Instruction {
-friend class Machine; 
+//friend class Machine;
 private: 
 protected:
+    std::map<std::string,VAR*> varMap;
+    std::map<std::string, int> labelMap;
 public:
   //constructor
   Instruction();

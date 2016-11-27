@@ -23,7 +23,7 @@ void GET_STR_CHAR::execute(vector<string> line){
 
 	//get String variable
 	if(String * str = dynamic_cast<String*>(target)){
-		c = str[i];
+		c = str->getChar(i);
 	}else{
 		cout << "error target String is not a String obj" << endl;
 		//exit(1);

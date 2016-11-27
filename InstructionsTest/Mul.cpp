@@ -15,32 +15,32 @@ Mul::~Mul(){}
 void Mul::execute(vector<string> line){
 
 	cout << "executing Mul :" << endl;
-	VAR * target = varsMap[line.at(1)]; //get VAR* by name
+	VAR * target = varMap[line.at(1)]; //get VAR* by name
 
 	for(size_t i=2;i<line.size();++i){
 		VAR * obj = varMap[line.at(1)];
 		if(obj == NULL){
 			if(Numeric* var = dynamic_cast<Numeric*>(target)){
-				var *= stoi(line.at(i));
+				*var *= stoi(line.at(i));
 			}else if(Real* var = dynamic_cast<Real*>(target)){
-				var *= stod(line.at(i));
+				*var *= stod(line.at(i));
 			}else{
 				//error
 			}
 		}else{
 			if(Numeric* var = dynamic_cast<Numeric*>(target)){
 				if(Numeric* var2 = dynamic_cast<Numeric*>(obj)){
-	          		 var *= var2;
+	          		 *var *= var2->getValue();
 				}
 				else if(Real* var2 = dynamic_cast<Real*>(obj)){
-					var *= var2->getValue();
+					*var *= var2->getValue();
 				}
 			}else if(Real* var = dynamic_cast<Real*>(target) ){
 				if(Numeric* var2 = dynamic_cast<Numeric*>(obj)){
-	          		 var *= var2->getValue();
+	          		 *var *= var2->getValue();
 				}
-				else if(Real* var = dynamic_cast<Real*>(obj)){
-					var *= var2;
+				else if(Real* var2 = dynamic_cast<Real*>(obj)){
+					*var *= var2->getValue();
 				}
 			}
 

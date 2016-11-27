@@ -18,21 +18,19 @@ void SET_STR_CHAR::execute(vector<string> line){
 	VAR * second = varMap[line.at(3)];
 	int i;
 	char c;
-	if(first != null){
-		if(Numeric * num = dynamic_cast<Numeric*>(first))
-			i = num->getValue();
-		else //if(Real * num = dynamic_cast<Real*>(first)){
-			i = stoi(line.at(2));
-	}
-	if(second != NULL){
-		if(Char * chr = dynamic_cast<Char*>(second)){
-			c = chr->getValue();
-		}else 
-			c = ((char)line.at(3));
-	}
+	if(Numeric * num = dynamic_cast<Numeric*>(first))
+		i = num->getValue();
+	else //if(Real * num = dynamic_cast<Real*>(first)){
+		i = stoi(line.at(2));
+	
+	if(Char * chr = dynamic_cast<Char*>(second))
+		c = chr->getValue();
+	else 
+		c = ((char)line.at(3)[0]);
+	
 
 	if(String * str = dynamic_cast<String*>(target)){
-		str[i] = c;	
+		str->setAt(c,i);	
 	}
 }
 

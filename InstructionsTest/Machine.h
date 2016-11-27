@@ -19,33 +19,31 @@
 #include "Sub.h"
 #include "Mul.h"
 #include "Div.h"
-#include "Equals.h"
+#include "Equal.h"
 #include "Assign.h"
 #include "Out.h"
 #include "Label.h"
 #include "Jump.h"
-//#include "SET_STR_CHAR.h"
+#include "SET_STR_CHAR.h"
+#include "GET_STR_CHAR.h"
 #include "Label.h"
-#include "Jump.h"
-#include "JMPZ.h" 
-#include "JMPNZ.h" 
-#include "JMPGT.h"
-#include "JMPLT.h" 
-#include "JMPGTE.h"
-#include "JMPLTE.h" 
-#include "SLEEP.h"
-//#include ".h"
-//#include ".h"
+#include "Jump.h" 
+#include "JumpZ.h"
+#include "JumpNZ.h" 
+#include "JumpGT.h"
+#include "JumpLT.h" 
+#include "JumpGTE.h"
+#include "JumpLTE.h" 
+#include "Sleep.h"
 
 class Machine {
-  friend class Instruction;
+  //friend class Instruction;
  private:
   Parser parser;
   int next;
-  bool running;
-  std::vector<std::string> linesOfCode;
-  std::vector< vector<std::string> > codeMap;
-  std::map<std::string, int> labelMap;
+  bool run;
+  std::vector<std::string> codeLines;
+  std::vector< vector<std::string> > code;
   std::map<std::string,VAR *> objMap;//holds base obj REAL,NUM,CHAR,STR
   std::map<std::string,VAR *> varMap;
   std::map<std::string,Instruction *> insMap;//holds base Instruction OBJS
@@ -55,7 +53,11 @@ public:
   Machine(std::string filename);  
   //loads mis file to be executed
   void loadFile(std::string filename);
-  void execute();
+  VAR * getVar(string varName);
+  bool running();
+  void executeNext();
+  void executeAll();
+
 };
 
 #endif

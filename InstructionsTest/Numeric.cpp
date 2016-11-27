@@ -63,10 +63,10 @@ Numeric Numeric::operator+(const Numeric& other){ //overload +
   int result = value + other.getValue();
   return Numeric(name, result);
 }
-int Numeric::operator+(const Numeric& other){ //overload +
-  int result = value + other->getValue();
-  return int;
-}
+//int Numeric::operator+(const Numeric& other){ //overload +
+  //int result = value + other->getValue();
+  //return int;
+//}
 
 Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   if (this != &other) { // self-assignment check expected

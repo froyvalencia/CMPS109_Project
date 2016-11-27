@@ -1,6 +1,6 @@
 CC := g++
 CFLAGS := -std=c++14
-TARGET := test
+TARGET := vm
 
 # $(wildcard *.cpp /xxx/xxx/*.cpp): get all .cpp files from the current directory and dir "/xxx/xxx/"
 SRCS := $(wildcard *.cpp)

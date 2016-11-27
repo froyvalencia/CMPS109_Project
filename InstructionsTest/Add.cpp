@@ -13,7 +13,6 @@ Add::~Add(){}
 void Add::execute(vector<string> line){
 	cout << "executing ADD :" << endl;
 	VAR * target = varMap[line.at(1)]; //get VAR* by name
-
 	for(size_t i=2;i<line.size();++i){
 		VAR * obj = varMap[line.at(i)];
 		if(obj == NULL){

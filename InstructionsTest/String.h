@@ -23,9 +23,11 @@ public:
   // A method that initializes the object from a stringstream
   virtual void initialize (vector<string> line); 
   VAR * clone (vector<string> line);
-  void setValue(std::string v, int l);
+  void setValue(std::string v);
+  char getChar(int i);
   int getLength();
   string getValue();
+  void setAt(char c,int i);
   //String& operator=(const String& other); // copy assignment
   char &operator[](int i);  //operator overload used for set_ / get_
 };

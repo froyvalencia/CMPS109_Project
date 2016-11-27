@@ -1,9 +1,10 @@
+#include "Label.h"
 Label::Label(){}
 Label::~Label(){}
 void Label::execute(vector<string> line){
-	name = line.at(1);
-	value = next;
-	labelMap[name] = value;
+	//name = line.at(1);
+	//value = next;
+	//labelMap[name] = value;
 }
 
 Instruction * Label::clone(){

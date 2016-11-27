@@ -1,57 +1,20 @@
-#include <iostream>
-#include <string>    
-#include <sstream>
-#include <fstream>
-#include <map>
-#include <vector>
-#include "Parser.h"
-#include "VAR.h"
-#include "Numeric.h"
-#include "String.h"
-#include "Char.h"
-#include "Real.h"
-//#include "MathOp.h"
-
+#include "Machine.h"
 using namespace std;
-
-vector<VAR*> vars;
-vector< vector<string>> myvector; 
-int main()
-{
-  //map<string, VAR *> varMap;
-  //map<string, Instruction *> insMap;
-  
-
-  //initialize VarMap
-  varMap["NUMERIC"] = new Numeric();
-  varMap["REAL"] = new Real();
-  varMap["STRING"] = new String();
-  varMap["CHAR"] = new Char();
-  //initialize instruction map;
-  insMap["EQUAL"] = new Equal(); 
-  insMap["ADD"] = new Add();
-  insMap["SUB"] = new Sub();
-  insMap["MUL"] = new Mul();
-  insMap["DIV "] = new Div();
-  insMap["ASSIGN "] = new Assign();
-  insMap["OUT "] = new Out();
-  insMap["SET_STR_CHAR "] = new SET_STR_CHAR();
-  insMap["LABEL"] = new Label();
-  /*
-  insMap["JMP"] = new JMP();
-  insMap["JMPZ "] = new JMP();
-  insMap["JMPNZ "] = new JMP();
-  insMap["JMPGT "] = new JMP();
-  insMap["JMPLT "] = new JMP();
-  insMap["JMPGTE "] = new JMP();
-  insMap["JMPLTE "] = new JMP();
-  insMap["SLEEP "] = new JMP();
-  */
-  static const string arrLABEL[] = {
-    "STRING ", "NUMERIC ", "REAL ", "CHAR ", "VAR ", "EQUAL ", "ADD ", "SUB ", "MUL ", "DIV ",
-     "ASSIGN ", "OUT ", "SET_STR_CHAR ", "LABEL LOOP" ,"JMP ", "JMPZ ", "JMPNZ ", "JMPGT ","JMPLT ", 
-     "JMPGTE ", "JMPLTE ", "SLEEP "};
-
+int main(){
+  cout << "BEGIN: \n";
+  //Machine *vm = new Machine("varTxt.txt");
+  int i = 0;
+  //while(vm->running()){
+    //cout << "i:" << i << endl;
+        //executing one by one
+      //  vm->executeNext();}
+  //cout << " Execute ALL : \n";
+  Machine *vm = new Machine("varTxt.txt");
+  vm->executeAll();
+  cout << " Execute ALL Finished : \n";
+  //return 0;
+}
+/*
   Parser myParse;  
   //MathOp myMathOp;
   myParse.parseFile("varTxt.txt");
@@ -88,8 +51,11 @@ int main()
     }
   }
   cout<<"size of Varvector after load: " <<varVector.size() << endl;
+
   return 0;
 }
+  */
+
 
             /*
             if(i.second.at(2) == "STRING"){ 

@@ -1,8 +1,9 @@
+#include "Out.h"
 Out::Out(){}
 Out::~Out(){}
 
 void Out::execute(vector<string> line){
-	next = labelMap[line.at(1)];
+	//next = labelMap[line.at(1)];
 }
 
 Instruction * Out::clone(){
