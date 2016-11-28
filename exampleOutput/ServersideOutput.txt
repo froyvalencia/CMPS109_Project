@@ -1,0 +1,208 @@
+//SERVERSIDE OUTPUT
+eduroam-169-233-213-217:ServerSide Brian$ ./server 9995 localhost
+thread 123145458475008: waiting for MIS line...
+thread 123145459011584: waiting for MIS line...
+thread 123145459548160: waiting for MIS line...
+thread 123145460084736: waiting for MIS line...
+thread 123145460621312: waiting for MIS line...
+thread 123145458475008: recieved MIS Line
+before codeLines
+before code
+STRING L: VAR $counter,NUMERIC,100
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 12
+!!!:counter:!!!
+POS: 20
+!!!:NUMERIC:!!!
+!!!:100:!!!
+STRING L: VAR $counter2,NUMERIC,12
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 13
+!!!:counter2:!!!
+POS: 21
+!!!:NUMERIC:!!!
+!!!:12:!!!
+STRING L: VAR $counter3,NUMERIC,6
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 13
+!!!:counter3:!!!
+POS: 21
+!!!:NUMERIC:!!!
+!!!:6:!!!
+STRING L: VAR $myfloat,REAL,6
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 12
+!!!:myfloat:!!!
+POS: 17
+!!!:REAL:!!!
+!!!:6:!!!
+STRING L: VAR $myfloat2,REAL,1.4
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 13
+!!!:myfloat2:!!!
+POS: 18
+!!!:REAL:!!!
+!!!:1.4:!!!
+STRING L: VAR $myChar,CHAR,c
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 11
+!!!:myChar:!!!
+POS: 16
+!!!:CHAR:!!!
+!!!:c:!!!
+STRING L: VAR $mystr,STRING,100,Hello
+POS: 4
+if FIRST !!!:VAR:!!!
+POS: 10
+!!!:mystr:!!!
+POS: 17
+!!!:STRING:!!!
+POS: 21
+!!!:100:!!!
+!!!:Hello:!!!
+STRING L: SUB $counter,$counter,1.2
+POS: 4
+if FIRST !!!:SUB:!!!
+POS: 12
+!!!:counter:!!!
+POS: 13
+POS: 21
+!!!:counter:!!!
+!!!:1.2:!!!
+STRING L: ADD $counter2,$counter,1.5,4,3,6
+POS: 4
+if FIRST !!!:ADD:!!!
+POS: 13
+!!!:counter2:!!!
+POS: 14
+POS: 22
+!!!:counter:!!!
+POS: 26
+!!!:1.5:!!!
+POS: 28
+!!!:4:!!!
+POS: 30
+!!!:3:!!!
+!!!:6:!!!
+STRING L: DIV $counter3,$counter3,2
+POS: 4
+if FIRST !!!:DIV:!!!
+POS: 13
+!!!:counter3:!!!
+POS: 14
+POS: 23
+!!!:counter3:!!!
+!!!:2:!!!
+STRING L: MUL $myfloat,$myfloat2,12,15,1,22
+POS: 4
+if FIRST !!!:MUL:!!!
+POS: 12
+!!!:myfloat:!!!
+POS: 13
+POS: 22
+!!!:myfloat2:!!!
+POS: 25
+!!!:12:!!!
+POS: 28
+!!!:15:!!!
+POS: 30
+!!!:1:!!!
+!!!:22:!!!
+STRING L: ASSIGN $counter$counter2
+POS: 7
+if FIRST !!!:ASSIGN:!!!
+POS: 15
+!!!:counter:!!!
+!!!:counter2:!!!
+STRING L: OUT $counter
+POS: 4
+if FIRST !!!:OUT:!!!
+!!!:counter:!!!
+STRING L: SET_STR_CHAR $mystr,2,h
+POS: 13
+if FIRST !!!:SET_STR_CHAR:!!!
+POS: 19
+!!!:mystr:!!!
+POS: 21
+!!!:2:!!!
+!!!:h:!!!
+after code
+-------------------------------------------
+before: 
+Code size: 14
+Current size: 0Next: 0
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 1Next: 1
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 2Next: 2
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 3Next: 3
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 4Next: 4
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 5Next: 5
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 6Next: 6
+Inside VAR IF IN MACHINE
+BEFORE CLONE
+Current size: 7Next: 7
+Inside INSTRUCTION IF IN MACHINE
+Found: SUB !!!!!
+executing Sub :
+executing Sub finished:
+Current size: 8Next: 8
+Inside INSTRUCTION IF IN MACHINE
+Found: ADD !!!!!
+executing ADD :
+Paramater 1:ADD
+Paramater 2:counter2
+Paramater 3:counter
+Paramater 4:1.5
+Paramater 5:4
+Paramater 6:3
+Paramater 7:6
+Current size: 9Next: 9
+Inside INSTRUCTION IF IN MACHINE
+Found: DIV !!!!!
+executing Div :
+finished executing Div :
+Current size: 10Next: 10
+Inside INSTRUCTION IF IN MACHINE
+Found: MUL !!!!!
+executing Mul :
+Paramater 1:MUL
+Paramater 2:myfloat
+Paramater 3:myfloat2
+Paramater 4:12
+Paramater 5:15
+Paramater 6:1
+Paramater 7:22
+Current size: 11Next: 11
+Inside INSTRUCTION IF IN MACHINE
+Found: ASSIGN !!!!!
+executing Assign :
+finished executing Assign :
+Current size: 12Next: 12
+Inside INSTRUCTION IF IN MACHINE
+Found: OUT !!!!!
+Constant: OUT
+Name counter Value: 124
+Current size: 13Next: 13
+Inside INSTRUCTION IF IN MACHINE
+Found: SET_STR_CHAR !!!!!
+after: 
+thread 123145458475008: Proccessed: varTxt.txt
+
+thread 123145458475008: waiting for MIS line...

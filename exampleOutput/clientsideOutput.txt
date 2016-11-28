@@ -1,0 +1,5 @@
+//Clientside OUTPUT
+eduroam-169-233-213-217:ClientSide Brian$ ./client varTxt.txt 9995 localhost
+sent: varTxt.txt
+ Prossesed: varTxt.txt
+eduroam-169-233-213-217:ClientSide Brian$ 
