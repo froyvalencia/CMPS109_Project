@@ -1,0 +1,14 @@
+VAR EAT
+VAR MY
+VAR SHIT
+VAR MOTHA
+VAR FUCKA
+VAR DOLLA
+VAR NBILL
+SUB asdfadsf
+ADD $couasdf6
+DIV $couasdf2
+MUL $mysdfasdfa2,15,1,22
+ASSIGN $cddddnter2
+OUT $counter
+SET_SIDE

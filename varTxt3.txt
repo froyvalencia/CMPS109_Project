@@ -1,0 +1,14 @@
+VAR $counter,NUMERIC,100
+VAR $counter2,NUMERIC,12
+VAR $counter3,NUMERIC,6
+VAR $myfloat,REAL,6
+VAR $myfloat2,REAL,1.4
+VAR $myChar,CHAR,c
+VAR $mystr,STRING,100,Hello
+SUB $counter,$counter,1.2
+ADD $counter2,$counter,1.5,4,3,6
+DIV $counter3,$counter3,2
+MUL $myfloat,$myfloat2,12,15,1,22
+ASSIGN $counter$counter2
+OUT $counter
+SET_STR_CHAR $mystr,2,h
