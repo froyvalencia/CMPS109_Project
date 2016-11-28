@@ -19,6 +19,7 @@
 #include "Sub.h"
 #include "Mul.h"
 #include "Div.h"
+#include "Equal.h"
 #include "Assign.h"
 #include "Out.h"
 #include "Label.h"

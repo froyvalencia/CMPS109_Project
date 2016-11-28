@@ -26,6 +26,7 @@ void Machine::initialize(){
     objMap["STRING"] = new String();
     objMap["CHAR"] = new Char();
     //initialize instruction map;
+    insMap["EQUAL"] = new Equal(); 
     insMap["ADD"] = new Add();
     insMap["SUB"] = new Sub();
     insMap["MUL"] = new Mul();
