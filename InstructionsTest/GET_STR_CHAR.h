@@ -14,7 +14,7 @@ private:
  public:
   GET_STR_CHAR();
   virtual ~GET_STR_CHAR();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data *d, vector<string> line);
   virtual Instruction * clone();
 };
 #endif

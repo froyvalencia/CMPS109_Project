@@ -10,11 +10,11 @@
 #include "Add.h"
 Add::Add(){}
 Add::~Add(){}
-void Add::execute(vector<string> line){
+void Add::execute(Data *d, vector<string> line){
 	cout << "executing ADD :" << endl;
-	VAR * target = varMap[line.at(1)]; //get VAR* by name
+	VAR * target = d->getVar(line.at(1)); //get VAR* by name
 	for(size_t i=2;i<line.size();++i){
-		VAR * obj = varMap[line.at(i)];
+		VAR * obj = d->getVar(line.at(i));
 		if(obj == NULL){
 			if(Numeric* var = dynamic_cast<Numeric*>(target))
 				*var += stoi(line.at(i));

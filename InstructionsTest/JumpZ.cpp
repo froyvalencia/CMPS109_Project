@@ -2,7 +2,7 @@
 JumpZ::JumpZ(){}
 JumpZ::~JumpZ(){}
 
-void JumpZ::execute(vector<string> line){
+void JumpZ::execute(Data * d,vector<string> line){
 	//mnext = labelMap[line.at(1)];
 }
 

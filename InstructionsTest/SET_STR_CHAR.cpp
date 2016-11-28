@@ -12,10 +12,10 @@ SET_STR_CHAR::~SET_STR_CHAR(){}
     Set  a  string  character  at specific  index  to  a character.
     Note: index range  should  be  checked and  errors  should  be reported.
   */
-void SET_STR_CHAR::execute(vector<string> line){
-	VAR * target = varMap[line.at(1)];
-	VAR * first = varMap[line.at(2)];
-	VAR * second = varMap[line.at(3)];
+void SET_STR_CHAR::execute(Data * d,vector<string> line){
+	VAR * target = d->getVar(line.at(1));
+	VAR * first = d->getVar(line.at(2));
+	VAR * second = d->getVar(line.at(3));
 	int i;
 	char c;
 	if(Numeric * num = dynamic_cast<Numeric*>(first))

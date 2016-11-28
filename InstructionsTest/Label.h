@@ -6,7 +6,7 @@ class Label : public Instruction {
  public:
   Label();
   virtual ~Label();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data *d,vector<string> line);
   virtual Instruction * clone();
 };
 #endif

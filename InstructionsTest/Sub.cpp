@@ -2,11 +2,14 @@
 #include "Sub.h"
 Sub::Sub(){}
 Sub::~Sub(){}
-void Sub::execute(vector<string> line){
+void Sub::execute(Data *d, vector<string> line){
 	cout << "executing Sub :" << endl;
-	VAR * target = varMap[line.at(1)];
-	VAR * first = varMap[line.at(2)];
-	VAR * second = varMap[line.at(3)];
+	VAR * target = d->getVar(line.at(1));
+	if(target == NULL) cout << "targert == NULL\n";
+	VAR * first = d->getVar(line.at(2));
+	if(first == NULL) cout << "First == NULL\n";
+	VAR * second = d->getVar(line.at(3));
+
 	double x,y;
 	//get value from first
 	if(Numeric* var = dynamic_cast<Numeric*>(first)) x = var->getValue();

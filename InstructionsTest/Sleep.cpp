@@ -4,8 +4,8 @@
 Sleep::Sleep(){}
 Sleep::~Sleep(){}
 
-void Sleep::execute(vector<string> line){
-	VAR * first = varMap[line.at(1)];
+void Sleep::execute(Data * d,vector<string> line){
+	VAR * first = d->getVar(line.at(1));
 	int i;
 	if(Numeric * num = dynamic_cast<Numeric*>(first))
 		i = num->getValue();

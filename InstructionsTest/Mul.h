@@ -6,7 +6,7 @@ class Mul : public Instruction {
  public:
   Mul();
   virtual ~Mul();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data *d, vector<string> line);
   virtual Instruction * clone();
 };
 #endif

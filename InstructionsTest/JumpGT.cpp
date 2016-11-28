@@ -2,7 +2,7 @@
 JumpGT::JumpGT(){}
 JumpGT::~JumpGT(){}
 
-void JumpGT::execute(vector<string> line){
+void JumpGT::execute(Data * d,vector<string> line){
 	//next = labelMap[line.at(1)];
 }
 

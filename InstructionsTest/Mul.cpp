@@ -12,13 +12,13 @@
 #include "Mul.h"
 Mul::Mul(){}
 Mul::~Mul(){}
-void Mul::execute(vector<string> line){
+void Mul::execute(Data *d,vector<string> line){
 
 	cout << "executing Mul :" << endl;
-	VAR * target = varMap[line.at(1)]; //get VAR* by name
-
+	VAR * target = d->getVar(line.at(1)); //get VAR* by name
+	//double min = 0;
 	for(size_t i=2;i<line.size();++i){
-		VAR * obj = varMap[line.at(1)];
+		VAR * obj = d->getVar(line.at(1));
 		if(obj == NULL){
 			if(Numeric* var = dynamic_cast<Numeric*>(target)){
 				*var *= stoi(line.at(i));
@@ -29,6 +29,7 @@ void Mul::execute(vector<string> line){
 			}
 		}else{
 			if(Numeric* var = dynamic_cast<Numeric*>(target)){
+				if(first) 
 				if(Numeric* var2 = dynamic_cast<Numeric*>(obj)){
 	          		 *var *= var2->getValue();
 				}
@@ -43,7 +44,6 @@ void Mul::execute(vector<string> line){
 					*var *= var2->getValue();
 				}
 			}
-
 		}
 	}
 
@@ -53,6 +53,7 @@ void Mul::execute(vector<string> line){
 		cout << s << endl;
 	}
 }
+
 Instruction * Mul::clone(){
 	Mul * mul = new Mul();
 	return mul;

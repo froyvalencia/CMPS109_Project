@@ -22,19 +22,18 @@ Is friend class to machine
 #include "Numeric.h"
 #include "Char.h"
 #include "String.h"
+#include "Data.h"
 
 class Instruction {
 //friend class Machine;
 private: 
 protected:
-    std::map<std::string,VAR*> varMap;
-    std::map<std::string, int> labelMap;
 public:
   //constructor
   Instruction();
   //desctructor
   virtual ~Instruction();
-  virtual void execute(vector<string> line)=0;
+  virtual void execute(Data * d,vector<string> line)=0;
   // virtual string getType() const;
   virtual Instruction* clone()=0;
 };

@@ -10,10 +10,10 @@
 GET_STR_CHAR::GET_STR_CHAR(){}
 GET_STR_CHAR::~GET_STR_CHAR(){}
 
-void GET_STR_CHAR::execute(vector<string> line){
-	VAR * target = varMap[line.at(1)];
-	VAR * first = varMap[line.at(2)];
-	VAR * second = varMap[line.at(3)];
+void GET_STR_CHAR::execute(Data *d, vector<string> line){
+	VAR * target = d->getVar(line.at(1));
+	VAR * first = d->getVar(line.at(2));
+	VAR * second = d->getVar(line.at(3));
 	int i;
 	char c;
 	//get index

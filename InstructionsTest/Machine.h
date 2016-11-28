@@ -35,7 +35,7 @@
 #include "JumpGTE.h"
 #include "JumpLTE.h" 
 #include "Sleep.h"
-
+#include "Data.h"
 class Machine {
   //friend class Instruction;
  private:
@@ -45,7 +45,8 @@ class Machine {
   std::vector<std::string> codeLines;
   std::vector< vector<std::string> > code;
   std::map<std::string,VAR *> objMap;//holds base obj REAL,NUM,CHAR,STR
-  std::map<std::string,VAR *> varMap;
+  //std::map<std::string,VAR *> varMap;
+  Data * data;
   std::map<std::string,Instruction *> insMap;//holds base Instruction OBJS
  protected:
 public:

@@ -14,7 +14,7 @@ class Add : public Instruction {
  public:
   Add();
   virtual ~Add();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data *d, vector<string> line);
   virtual Instruction * clone();
 };
 #endif

@@ -7,8 +7,7 @@ Square::Square():Square(0){} // Default constructor calling parameterized constr
 Square::Square(double p_width):Rectangle(p_width,p_width){}
 // Reading the width from a string stream and storing them in data members
 void Square::initialize (stringstream & ss) {
-string str =
-"";
+string str ="";
 getline(ss,str,',');
 width = strtof(str.c_str(),NULL);
 height = width;

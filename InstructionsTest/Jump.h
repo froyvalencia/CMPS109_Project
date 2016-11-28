@@ -5,7 +5,7 @@ class Jump : public Instruction {
  public:
   Jump();
   virtual ~Jump();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data * d,vector<string> line);
   virtual Instruction * clone();
 };
 #endif

@@ -2,7 +2,7 @@
 JumpLTE::JumpLTE(){}
 JumpLTE::~JumpLTE(){}
 
-void JumpLTE::execute(vector<string> line){
+void JumpLTE::execute(Data * d,vector<string> line){
 	//next = labelMap[line.at(1)];
 }
 

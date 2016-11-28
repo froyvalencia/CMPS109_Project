@@ -6,7 +6,7 @@ class Equal : public Instruction {
  public:
   Equal();
   virtual ~Equal();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data *d, vector<string> line);
   virtual Instruction * clone();
 };
 #endif

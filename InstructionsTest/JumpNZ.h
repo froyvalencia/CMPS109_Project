@@ -5,7 +5,7 @@ class JumpNZ : public Instruction {
  public:
   JumpNZ();
   virtual ~JumpNZ();
-  virtual void execute(vector<string> line);
+  virtual void execute(Data * d,vector<string> line);
   virtual Instruction * clone();
 };
 #endif

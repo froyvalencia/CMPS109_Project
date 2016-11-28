@@ -29,32 +29,38 @@ vector<string> Parser::parseFile(string file){
 
 //parses lines from parsed into seperate strings.
 vector < vector<std::string> > Parser::parseInstructions(){
-  vector< vector<std::string> > cd;
+  vector< vector<std::string> > code;
   for(int i =0; i <parsed.size(); i++){
-    cout<<"line:"<<i<<endl;
     string l = parsed.at(i);
     size_t prev = 0, pos;
+    vector<std::string> temp;
     bool first = true;
-    int j=0;
-    while((pos = l.find_first_of("$,", prev)) != std::string::npos){
-      cout<<"loop:"<<j++<<endl;
-      if(pos > prev) {
-        cout<<"inside:\n";
-        if(l[pos] == ',') {
-          cout << "first\n";
-          cd[i].push_back(l.substr(prev, pos-prev));
-        }else {
-          cout << "second\n";
-          cd[i].push_back(l.substr(prev, pos-prev-1));
+    cout << "STRING L: " << l << endl;
+   
+    while ((pos = l.find_first_of("$,", prev)) != std::string::npos){
+      cout << "POS: " << pos <<endl;
+      if (pos > prev){
+        
+        if(first){
+          cout << "if FIRST !!!:" << l.substr(prev,pos-prev-1)<< ":!!!" << endl;
+          temp.push_back(l.substr(prev, pos-prev-1));
+          first = false;
+        } else {
+          temp.push_back(l.substr(prev, pos-prev));
+          cout << "!!!:" << l.substr(prev,pos-prev)<< ":!!!" << endl;
         }
       }
-      cout<<"outside:\n";
       prev = pos+1;
     }
-    cout<<"outside of LOOP:\n";
-    if (prev < l.length()) 
-      cd[i].push_back(l.substr(prev, std::string::npos));
+  
+    if (prev < l.length()){
+      cout << "!!!:"<< l.substr(prev, std::string::npos) << ":!!!"<< endl;
+      temp.push_back(l.substr(prev, std::string::npos));
+    }
+    code.push_back(temp);
   }
-  return cd;  
+
+  return code;
 }
+
 

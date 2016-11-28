@@ -2,7 +2,7 @@
 JumpGTE::JumpGTE(){}
 JumpGTE::~JumpGTE(){}
 
-void JumpGTE::execute(vector<string> line){
+void JumpGTE::execute(Data * d,vector<string> line){
 	//next = labelMap[line.at(1)];
 }
 

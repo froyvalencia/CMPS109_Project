@@ -1,10 +1,10 @@
 #include "Assign.h"
 Assign::Assign(){}
 Assign::~Assign(){}
-void Assign::execute(vector<string> line) {
+void Assign::execute(Data *d,vector<string> line) {
 	cout << "executing Assign :" << endl;
-	VAR * target = varMap[line.at(1)];
-	VAR * first = varMap[line.at(2)];
+	VAR * target = d->getVar(line.at(1));
+	VAR * first = d->getVar(line.at(2));
 	//get value from first
 	if(Numeric* var = dynamic_cast<Numeric*>(target)){
 		if(first == NULL){
