@@ -6,7 +6,7 @@
 #include <string>
 #include "thread.h"
 #include "linequeue.h"
-#include "tcpacceptor.h"
+#include "TCPAcceptor.h"
 #include "Machine.h"
 class WorkItem
 {
@@ -38,21 +38,23 @@ class ConnectionHandler : public Thread
 
                // Echo messages back the client until the connection is cancelled. with cntrl+c
 
+
                 char input[256];
                 int len;
                 //input is the line that is taken in. consider line as the "item" in the queue. 
                 // You can take input here and then 
                 while ((len = stream->receive(input, sizeof(input)-1)) > 0 ){
                     input[len] = '\0';
+                   // printf("FLAG HERE %s\n", input);
                     Machine *m = new Machine(input);
                     m->executeAll();
-
                     stream->send(input, len);//send to client. input here.
                     //verified print on server here.
 
                     printf("thread %lu: Proccessed: %s\n\n", (long unsigned int)self(), input);
-                    delete m;
-                }         
+                  delete m; 
+                }        
+             
                 delete item; 
 
             }

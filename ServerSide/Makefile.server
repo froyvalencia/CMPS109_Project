@@ -1,7 +1,7 @@
 CC		= g++ 
 CFLAGS		= -g -c -Wall -std=c++14
 LDFLAGS		= -lpthread
-SOURCES		= server.cpp thread.cpp TCPAcceptor.cpp TCPStream.cpp Machine.cpp parser.cpp
+SOURCES		= server.cpp thread.cpp TCPAcceptor.cpp TCPStream.cpp Machine.cpp Parser.cpp
 INCLUDES	= -I.
 OBJECTS		= $(SOURCES:.cpp=.o)
 TARGET		= server

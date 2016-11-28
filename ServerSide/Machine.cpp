@@ -68,7 +68,7 @@ void Machine::loadFile(std::string filename){
     cout << "before code\n";
     code = parser.parseInstructions();
     cout << "after code\n";
-    cout<< "TESTING HERE \n";
+    //cout<< "TESTING HERE \n";
 }
 VAR * Machine::getVar(string varName){
     return data->getVar(varName);
@@ -80,7 +80,7 @@ bool Machine::running(){
 
 void Machine::executeAll(){
     vector<string> ins = {"EQUAL","ADD","SUB","MUL","DIV","ASSIGN","OUT","GET_STR_CHAR","SET_STR_CHAR","LABEL","JMP","JMPZ","JMPNZ","JMPGT","JMPLT","JMPGTE","JMPLTE","SLEEP"};
-    printf("TESTINGHERE \n" );
+    //printf("TESTINGHERE \n" );
     cout<< "-------------------------------------------" <<endl;
     cout<<"before: " << "\n";
     cout << "Code size: " << code.size() << "\n";
