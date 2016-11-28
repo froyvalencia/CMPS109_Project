@@ -50,6 +50,7 @@ class Machine {
 protected:
 public:
   Machine();
+  ~Machine();
   Machine(std::string filename);  
   //loads mis file to be executed
   void loadFile(std::string filename);

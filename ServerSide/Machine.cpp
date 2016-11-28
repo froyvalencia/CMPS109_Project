@@ -6,10 +6,14 @@
 Machine::Machine(){
     initialize();
 }
-
 Machine::Machine(std::string filename){
     initialize();
     loadFile(filename);
+}
+Machine::~Machine(){
+  delete data;
+  for(auto& v : objMap) delete v.second; 
+  for(auto& i : insMap) delete i.second;
 }
 
 void Machine::initialize(){
