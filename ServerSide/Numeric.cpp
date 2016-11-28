@@ -47,8 +47,8 @@ Numeric Numeric::operator*(const Numeric& other){
 
 Numeric Numeric::operator/(const Numeric& other){
   if(other.getValue() == 0) {
-    //std::cout<<"Error: Divide by Zero."<< std::endl;
-    //system.exit(1);
+    std::cout<<"Error: Divide by Zero."<< std::endl;
+    return *this;
   } 
   int result = value / other.getValue();
   return Numeric(name, result);
@@ -63,10 +63,6 @@ Numeric Numeric::operator+(const Numeric& other){ //overload +
   int result = value + other.getValue();
   return Numeric(name, result);
 }
-//int Numeric::operator+(const Numeric& other){ //overload +
-  //int result = value + other->getValue();
-  //return int;
-//}
 
 Numeric& Numeric::operator=(const Numeric& other) { // copy assignment
   if (this != &other) { // self-assignment check expected

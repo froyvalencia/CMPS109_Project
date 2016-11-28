@@ -45,18 +45,15 @@ class Machine {
   std::vector<std::string> codeLines;
   std::vector< vector<std::string> > code;
   std::map<std::string,VAR *> objMap;//holds base obj REAL,NUM,CHAR,STR
-  //std::map<std::string,VAR *> varMap;
   Data * data;
   std::map<std::string,Instruction *> insMap;//holds base Instruction OBJS
- protected:
+protected:
 public:
   Machine();
   Machine(std::string filename);  
   //loads mis file to be executed
   void loadFile(std::string filename);
-  VAR * getVar(string varName);
-  bool running();
-  void executeNext();
+  void initialize();
   void executeAll();
 
 };

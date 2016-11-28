@@ -17,26 +17,19 @@ void GET_STR_CHAR::execute(Data *d, vector<string> line){
 	int i;
 	char c;
 	//get index
-	if(Numeric * num = dynamic_cast<Numeric*>(first)) 
-		i = num->getValue();
+	if(Numeric * num = dynamic_cast<Numeric*>(first)) i = num->getValue();
 	else i = stoi(line.at(2));
-
 	//get String variable
-	if(String * str = dynamic_cast<String*>(target)){
-		c = str->getChar(i);
-	}else{
+	if(String * str = dynamic_cast<String*>(target)) c = str->getChar(i);
+	else{
 		cout << "error target String is not a String obj" << endl;
-		//exit(1);
+		return; //exit(1); //decided to return instead of exiting so we could continue execution of other files.
 	}
 	//get Char variable and set it.
-	//if(second != NULL){
-	if(Char * chr = dynamic_cast<Char*>(second)){
-		chr->setValue(c);
-	}else{
-		cout << " error second is not char object" << endl;
-		//exit(1);
-	} 
-
+	if(second != NULL){
+		if(Char * chr = dynamic_cast<Char*>(second)) chr->setValue(c);
+		else cout << " error second is not char object" << endl;
+	}else cout << "thrid parameter failed not Char Variable as require\n";
 }
 
 Instruction * GET_STR_CHAR::clone(){
