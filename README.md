@@ -2,7 +2,7 @@ How to build Server/Client
 
 Open 2 seperate terminal windows:
 
-- 1 for Server, cd to ServerSide folder
+	- 1 for Server, cd to ServerSide folder
 	- 1 for Clients, cd to Clientside Folder
 Run Server first:
 
